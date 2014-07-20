@@ -1,6 +1,22 @@
 body {
-  font-family: "Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Open Sans",sans-serif;
   font-size: 18px;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+  margin: 25px 0 15px 0;
+  font-weight: 600;
+}
+
+pre, code {
+  background-color: #faf7f0;
+  font-family: "Source Code Pro",monospace;
+  font-weight: 400;
+  font-size: 15px;
 }
 
 .navbar-inverse {
@@ -31,14 +47,6 @@ body {
 
 .navbar {
   margin-bottom: 0;
-}
-
-p {
-  margin-bottom: 15px;
-}
-
-h1, .h1, h2, .h2, h3, .h3 {
-  margin: 25px 0 15px 0;
 }
 
 .related-topics {
