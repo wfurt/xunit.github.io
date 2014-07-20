@@ -1,9 +1,6 @@
 body {
-  font-family: Tahoma, Calibri;
-}
-
-pre, code {
-  font-family: Consolas, monospace;
+  font-family: "Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 18px;
 }
 
 .navbar-inverse {
@@ -30,4 +27,23 @@ pre, code {
   height: 48px;
   width: 48px;
   margin-right: 10px;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+  margin: 25px 0 15px 0;
+}
+
+.related-topics {
+  font-size: 24px;
+  color: #c66;
+  font-style: italic;
+  margin: 20px 0 10px 0;
 }
