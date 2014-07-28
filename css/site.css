@@ -1,57 +1,53 @@
 body {
-  font-family: "Open Sans",sans-serif;
-  font-size: 18px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
 }
-
 p {
-  margin-bottom: 15px;
+    margin-bottom: 15px;
 }
-
+p, ul, ol {
+    margin-left: 30px;
+}
 h1, .h1, h2, .h2, h3, .h3 {
-  margin: 25px 0 15px 0;
-  font-weight: 600;
+    margin: 25px 0 15px 0;
+    font-weight: 600;
 }
-
+h3, .h3 {
+    margin-left: 15px;
+}
 pre, code {
-  background-color: #faf7f0;
-  font-family: "Source Code Pro",monospace;
-  font-weight: 400;
-  font-size: 15px;
+    background-color: #faf7f0;
+    font-family: "Source Code Pro", monospace;
+    font-weight: 400;
+    font-size: 15px;
 }
-
 .navbar-inverse {
-  background-color: #c0c7c4;
-  border: 0;
-  border-radius: 0;
+    background-color: #c0c7c4;
+    border: 0;
+    border-radius: 0;
 }
-
 .navbar-inverse .navbar-brand {
-  color: #333;
-  height: 80px;
+    color: #333;
+    height: 80px;
 }
-
 .navbar-inverse .navbar-brand:hover {
-  color: inherit;
+    color: inherit;
 }
-
 .navbar-brand {
-  font-size: 24px;
-  margin-bottom: 0;
+    font-size: 24px;
+    margin-bottom: 0;
 }
-
 .navbar-brand img {
-  height: 48px;
-  width: 48px;
-  margin-right: 10px;
+    height: 48px;
+    width: 48px;
+    margin-right: 10px;
 }
-
 .navbar {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
-
 .related-topics {
-  font-size: 24px;
-  color: #c66;
-  font-style: italic;
-  margin: 20px 0 10px 0;
+    font-size: 24px;
+    color: #c66;
+    font-style: italic;
+    margin: 20px 0 10px 0;
 }

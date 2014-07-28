@@ -5,7 +5,91 @@ title: Migrating unit tests from v1 to v2
 
 <h1>Migrating unit tests from v1 to v2</h1>
 
-<p>TBD</p>
+<p>The xUnit.net team tried to ensure that migration of unit tests from v1 to v2 would be as painless as possible. Most of the migration tasks should be fairly straightforward and mechanical (replacing NuGet packages, doing simple search &amp; replace, etc.).</p>
+
+<p>Steps:</p>
+
+<ul>
+    <li><a href="#update-binaries">Update the xUnit.net binaries</a></li>
+    <li><a href="#update-tests">Update the unit tests</a></li>
+</ul>
+
+<h2 id="update-binaries">Update the xUnit.net binaries</h2>
+
+<h3>If you installed xUnit.net v1 via CodePlex:</h3>
+
+<ol>
+    <li>
+        <p>You will need to manually remove any references to <code>xunit.dll</code> or <code>xunit.extensions.dll</code>.</p>
+    </li>
+    <li>
+        <p>Then, add the new <code>xunit</code> NuGet package. Start by right clicking on the project in Solution Explorer, and then choosing the <code>Manage NuGet Packages...</code> menu item:</p>
+        <p><img src="/images/test-migration/manage-nuget-packages.png" width="346" /></p>
+    </li>
+    <li>
+        <p>Click on <code>Online</code> on the left side. In the drop down along the middle top of the window, select <code>Include Prerelease</code>. Now, in the search box on the upper right, type <code>xunit</code>. The search should yield results like this:</p>
+        <p><img src="/images/test-migration/add-package.png" width="600" /></p>
+    </li>
+    <li>
+        <p>Locate the xUnit.net entry, and click <code>Install</code>.</p>
+    </li>
+</ol>
+
+<h3>If you installed xUnit.net v1 via NuGet:</h3>
+
+<ol>
+    <li>
+        <p>Right click on the project in Solution Explorer, and then choose the <code>Manage NuGet Packages...</code> menu item:</p>
+        <p><img src="/images/test-migration/manage-nuget-packages.png" width="346" /></p>
+    </li>
+    <li>
+        <p>Click on <code>Installed packages</code> on the left side. If you see <code>xUnit.net: Extensions</code> installed, please click the <code>Uninstall</code> button:</p>
+        <p><img src="/images/test-migration/uninstall-extensions.png" width="600" /></p>
+    </li>
+    <li>
+        <p>Click on <code>Updates</code> on the left side. In the drop down along the middle top of the window, select <code>Include Prerelease</code>. Locate <code>xUnit.net</code> in the list of packages, and click <code>Update</code>:</p>
+        <p><img src="/images/test-migration/update-xunit.png" width="600" /></p>
+    </li>
+</ol>
+
+<h2 id="update-tests">Update the unit tests</h2>
+
+<p>Build your solution. If everything compiles, then you're done!</p>
+
+<p>If it doesn't compile, here are some of the things that may need to upgraded by hand:</p>
+
+<ul>
+    <li>
+        <p><strong>Compiler error:</strong><br /><code>The type or namespace name 'Extensions' does not exist in the namespace 'Xunit' (are you missing an assembly reference?)</code></p>
+        <p>If you get this compiler error, you will need to remove any <code>using</code> directives that reference this namespace, as it does not exist any more.</p>
+    </li>
+    <li>
+        <p><strong>Compiler error:</strong><br /><code>The type or namespace name 'PropertyDataAttribute' could not be found (are you missing a using directive or an assembly reference?)</code></p>
+        <p>If you get this compiler error, change all instances of <code>[PropertyData]</code> to <code>[MemberData]</code>. The new <code>MemberDataAttribute</code> class can read data from static properties (just like <code>PropertyDataAttribute</code>), but now also supports data from static fields and static methods. You can even provide parameter values to static methods!</p>
+    </li>
+    <li>
+        <p><strong>Compiler error:</strong><br /><code>'Xunit.FactAttribute' does not contain a definition for 'Timeout'</code></p>
+        <p>The support for tests that automatically time out has been removed from xUnit.net v2, and there is no direct replacement for this feature. The reason it was removed was that v2 is designed from the ground up to be async and parallel, and accurately timing tests in such a design is effectively impossible.</p>
+    </li>
+    <li>
+        <p><strong>Missing classes from xunit.extensions</strong></p>
+        <p>The following classes were moved from xunit.extensions into the core v2 library:</p>
+        <ul>
+            <li><code>TheoryAttribute</code></li>
+            <li><code>InlineDataAttribute</code></li>
+            <li><code>MemberDataAttribute</code> (previously called <code>PropertyDataAttribute</code>)</li>
+        </ul>
+        <br />
+        <p>The following classes were replaced with samples:</p>
+        <ul>
+            <li>Assert extensions (<a href="https://github.com/xunit/samples/tree/master/AssertExtensions">sample</a>)</li>
+            <li><code>AssumeIdentityAttribute</code> (<a href="https://github.com/xunit/samples/tree/master/AssumeIdentity">sample</a>)</li>
+            <li><code>ExcelDataAttribute</code> (<a href="https://github.com/xunit/samples/tree/master/ExcelDataExample">sample</a>)</li>
+        </ul>
+    </li>
+</ul>
+
+<p>If you uncover other compilation failures, you may have been using the extensibility points in xUnit.net. Please see <a href="extension-migration.html">Migrating extensions from v1 to v2</a> for more information on migration your extensions to v2.</p>
 
 <section class="related-topics">Related topics:</section>
 <ul>
