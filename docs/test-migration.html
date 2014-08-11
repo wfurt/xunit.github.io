@@ -66,11 +66,7 @@ breadcrumb: Documentation
 
 <ul>
     <li>
-        <p><strong>Compiler error:</strong><br /><code>The type or namespace name 'Extensions' does not exist in the namespace 'Xunit' (are you missing an assembly reference?)</code></p>
-        <p>If you get this compiler error, you will need to remove any <code>using</code> directives that reference this namespace, as it does not exist any more.</p>
-    </li>
-    <li>
-        <p><strong>Compiler error:</strong><br /><code>The type or namespace name 'PropertyDataAttribute' could not be found (are you missing a using directive or an assembly reference?)</code></p>
+        <p><strong>Compiler error:</strong><br /><code>'Xunit.Extensions.PropertyDataAttribute' is obsolete: 'Please replace [PropertyData] with [MemberData]'</code></p>
         <p>If you get this compiler error, change all instances of <code>[PropertyData]</code> to <code>[MemberData]</code>. The new <code>MemberDataAttribute</code> class can read data from static properties (just like <code>PropertyDataAttribute</code>), but now also supports data from static fields and static methods. You can even provide parameter values to static methods!</p>
     </li>
     <li>
