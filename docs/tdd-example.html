@@ -1,0 +1,66 @@
+---
+layout: default
+title: Test-First Programming - By Example
+breadcrumb: Documentation
+---
+
+<h1>Test-First Programming - By Example</h1>
+
+<p>In this section i'll demonstrate how to implement a <i>Stack</i> using the test-first programming practice. The best way that I have seen to understand test-first is to see it practiced and follow along step-by-step. The following are the steps that I used to build a Stack</p>
+
+<h2>The Task</h2>
+
+<p>Let's imagine for a moment that you were just hired to work on a new class library. Your first task in the library will be to implement an <i>Unbounded Stack</i>. An <i>Unbounded Stack</i> is a data structure in which access is restricted to the most recently inserted item.</p>
+
+<blockquote><b>Note</b><p>An <i>Unbounded Stack</i> does not have to be presized and you can insert an unlimited number of items into it.</p>
+</blockquote>
+
+<p>The operations inlcude <i>Push</i>, <i>Pop</i>, <i>Peek</i>, <i>Contains</i> and <i>Count</i>. The <i>Push</i> operation inserts an element onto the top of the <i>Stack</i> (Figure 1). The <i>Pop</i> operation removes the topmost element and returns it to the caller (Figure 2). The <i>Peek</i> operation returns the topmost elememt but does not remove it from the <i>Stack</i> (Figure 3). The <i>Contains</i> operation determines whether or not the items is on the <i>Stack</i>. Last but not least the <i>Count</i> operation returns the number of elements that are currently on the <i>Stack.</i></p>
+
+<h2>Test List</h2>
+
+<p>The first step is to brainstorm a list of tests for the task. The goal of this step is to create a candidate list of tests that describe the requirements and in turn define the completion requirements for the task. This list is fluid throughout the process of implementing each test. As you implement each test, you might have to revisit the list to <i>add</i> or <i>delete</i> tests. Here is a candidate test list for t he <i>Unbounded Stack</i>:</p>
+
+<p>Tests:</p>
+
+<ul>
+    <li><a href="#step-1">Create a <i>Stack</i> and verify that <i>Count</i> returns zero.</a></li>
+    <li><a href="#step-2">Create a <i>Stack</i>, <i>Push</i> a single element on the <i>Stack</i> and verify that <i>Count</i> is one.</a></li>
+</ul>
+
+<h2>Choosing the First Test</h2>
+
+<p>There are differening opinions about which test to choose first. One opinion says that you should choose the simplest test that gets you started. Another says that you should choose a test that describes the essence of the problem you are trying to solve. </p>
+
+<h2>Red/Green/Refactor</h2>
+<p>Finally we can start writing some code.</p>
+<h4 id="step-1">Test #1 - Create a Stack and verify that Count returns zero</h4>
+<p>This test requires creating a <i>Stack</i> object and calling the <i>Count</i> property. The <i>Count</i> property should return zero because we have not inserted any elements into the <i>Stack</i>. Let's begin by creating a new file called "StackTests.cs". This class will contain all of the tests of the <i>Stack</i> class.</p>
+
+<code>
+</br>
+using Xunit;</br>
+</br>
+public class StackTests</br>
+{ /* ... */ }</code>
+
+<p>The line <code>using Xunit;</code> is needed to reference the xUnit.net assembly. Unlike NUnit and similar frameworks xUnit.net does not need to have any class level attributes to indicate that the class contains tests.</p>
+
+<p>The next thing to do is write the test.</p>
+
+<code>
+    [Fact]
+    public void EmptyStackCountMustBeZero()
+    {
+        Stack stack = new Stack();
+
+        int count = stack.Count;
+
+        Assert.Equal(0, count);
+    }
+</code>
+
+<section class="related-topics">Related topics:</section>
+<ul>
+  <li><a href="extension-migration.html">Migrating extensions from v1 to v2</a></li>
+</ul>
