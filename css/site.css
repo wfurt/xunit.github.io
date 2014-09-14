@@ -6,7 +6,7 @@ body {
 p {
   margin-bottom: 15px;
 }
-p {
+p, pre {
   margin-left: 20px;
 }
 h1, .h1, h2, .h2, h3, .h3 {
@@ -33,7 +33,7 @@ img.border {
 ol {
   margin-left: 5px;
 }
-li p {
+li p, blockquote p {
   margin-left: 0;
 }
 pre, code {
