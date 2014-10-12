@@ -23,6 +23,7 @@ noheader: true
 
 <ul>
   <li><a href="#documentation">Documentation</a></li>
+  <li><a href="#runners">Test Runner Compatibility</a></li>
   <li><a href="#faq">Frequently Asked Questions</a></li>
   <li><a href="#projects">Github Projects</a></li>
   <li><a href="#links">Links to Resources</a></li>
@@ -42,6 +43,33 @@ noheader: true
   <li><a href="docs/test-migration.html">Migrating unit tests from v1 to v2</a></li>
   <li><a href="docs/extension-migration.html">Migrating extensions from v1 to v2</a></li>
 </ul>
+
+<h2 id="runners">Test Runner Compatibility</h2>
+
+<table class="table">
+  <thead>
+    <tr><th>&nbsp;</th><th>Desktop</th><th>Portable Class Library</th><th>Windows App</th><th>Windows Phone App</th><th>iOS</th><th>Android</th></tr>
+  </thead>
+  <tbody>
+    <tr><th>Console <sup>1</sup></th><td>&check;</td><td>&check;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><th>MSBuild <sup>1</sup></th><td>&check;</td><td>&check;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><th>TestDriven.NET <sup>1</sup></th><td>&check;</td><td>&check;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><th>Visual Studio Test Explorer <sup>2</sup></th><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><th>Resharper <sup>3</sup><td>&check;</td><td>&check;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><th>Xamarin <sup>4</sup></th>&nbsp;<td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&check;</td><td>&check;</td></tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="7">
+        Test runner source code availability:<br />
+        &nbsp; <sup>1</sup> <a href="https://github.com/xunit/xunit">https://github.com/xunit/xunit</a><br />
+        &nbsp; <sup>2</sup> <a href="https://github.com/xunit/visualstudio.xunit">https://github.com/xunit/visualstudio.xunit</a><br />
+        &nbsp; <sup>3</sup> <a href="https://github.com/xunit/resharper-xunit">https://github.com/xunit/resharper-xunit</a><br />
+        &nbsp; <sup>4</sup> <a href="https://github.com/xunit/xamarin.xunit">https://github.com/xunit/xamarin.xunit</a>
+      </td>
+    </tr>
+  </tfoot>
+</table>
 
 <h2 id="faq">Frequently Asked Questions</h2>
 
@@ -74,7 +102,7 @@ noheader: true
   <li><a href="https://github.com/xunit/xunit">xUnit.net</a> (core framework, built-in runners)</li>
   <li><a href="https://github.com/xunit/resharper-xunit">Resharper runner</a></li>
   <li><a href="https://github.com/xunit/visualstudio.xunit">Visual Studio runner</a></li>
-  <li><a href="https://github.com/xunit/xamarin.xunit">Xamarin runner</a> (for iOS and Android)</li>
+  <li><a href="https://github.com/xunit/xamarin.xunit">Xamarin runner</a></li>
   <li><a href="https://github.com/xunit/media">Media files</a></li>
   <li><a href="https://github.com/xunit/xunit.github.io">This site</a></li>
 </ul>
