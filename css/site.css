@@ -32,6 +32,9 @@ h3, .h3 {
 .table tbody td {
   text-align: center;
 }
+.table tfoot td {
+  font-size: 12px;
+}
 img.border {
   display: inline-block;
   margin-left: 15px;
