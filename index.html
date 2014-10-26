@@ -6,19 +6,17 @@ noheader: true
 
 <h1><img src="https://raw.github.com/xunit/media/master/full-logo.png" title="xUnit.net" width="141" /></h1>
 <p>
-    xUnit.net is a free, open source, community-focused unit testing tool for the .NET Framework.
-    Written by the original inventor of NUnit v2, xUnit.net is the latest technology for unit testing
-    C#, F#, VB.NET and other .NET languages. Works with ReSharper, CodeRush, TestDriven.NET and Xamarin.
-    xUnit.net is part of the <a href="http://www.outercurve.org/Galleries/ASPNETOpenSourceGallery">ASP.NET Open Source Gallery</a>
-    under the <a href="http://www.outercurve.org/">Outercurve Foundation</a>. It is licensed under the
-    <a href="http://opensource.org/licenses/Apache-2.0">Apache 2 license</a>, which is approved by the OSI. Portions
-    copyright Jérémie "Garuma" Laval. Portions copyright Novell, Inc.
+  xUnit.net is a free, open source, community-focused unit testing tool for the .NET Framework. Written by the original inventor of NUnit v2, xUnit.net is the latest technology for unit testing C#, F#, VB.NET and other .NET languages. Works with ReSharper, CodeRush, TestDriven.NET and Xamarin. xUnit.net is part of the <a href="http://www.outercurve.org/Galleries/ASPNETOpenSourceGallery">ASP.NET Open Source Gallery</a>
+  under the <a href="http://www.outercurve.org/">Outercurve Foundation</a>. It is licensed under the
+  <a href="http://opensource.org/licenses/Apache-2.0">Apache 2 license</a>, which is approved by the OSI. Portions copyright Jérémie "Garuma" Laval. Portions copyright Novell, Inc.
 </p>
 
-<blockquote><em>Follow on Twitter: <a href="https://twitter.com/xunit">@xunit</a>, <a href="https://twitter.com/jamesnewkirk">@jamesnewkirk</a>, <a href="https://twitter.com/bradwilson">@bradwilson</a>, <a href="https://twitter.com/citizenmatt">@citizenmatt</a>, <a href="https://twitter.com/onovotny">@onovotny</a></em><br />
-<em>Continuous integration builds are available online via <a href="http://teamcity.tier3.com/guestLogin.html?guest=1">TeamCity</a> (sponsored by <a href="http://www.centurylinkcloud.com">CenturyLink Cloud</a>).</em><br />
-<em>CodeRush Test Runner support is provided by <a href="http://www.devexpress.com/">DevExpress</a>.</em><br />
-<em>The xUnit.net logo was designed by <a href="http://flavors.me/nathanyoung">Nathan Young</a>.</em></blockquote>
+<blockquote>
+  <em>Follow on Twitter: <a href="https://twitter.com/xunit">@xunit</a>, <a href="https://twitter.com/jamesnewkirk">@jamesnewkirk</a>, <a href="https://twitter.com/bradwilson">@bradwilson</a>, <a href="https://twitter.com/citizenmatt">@citizenmatt</a>, <a href="https://twitter.com/onovotny">@onovotny</a></em><br />
+  <em>Continuous integration builds are available online via <a href="http://teamcity.tier3.com/guestLogin.html?guest=1">TeamCity</a> (sponsored by <a href="http://www.centurylinkcloud.com">CenturyLink Cloud</a>).</em><br />
+  <em>CodeRush Test Runner support is provided by <a href="http://www.devexpress.com/">DevExpress</a>.</em><br />
+  <em>The xUnit.net logo was designed by <a href="http://flavors.me/nathanyoung">Nathan Young</a>.</em>
+</blockquote>
 
 <h2>Table of Contents</h2>
 
@@ -49,24 +47,99 @@ noheader: true
 
 <table class="table">
   <thead>
-    <tr><th>&nbsp;</th><th>Desktop</th><th>Portable Class Library</th><th>Windows App</th><th>Windows Phone App</th><th>iOS</th><th>Android</th></tr>
+    <tr>
+      <th>&nbsp;</th>
+      <th>Console <sup>2a</sup></th>
+      <th>MSBuild <sup>2a</sup></th>
+      <th>TestDriven.NET <sup>2a</sup></th>
+      <th>Visual Studio <sup>2b</sup></th>
+      <th>Resharper <sup>2c</sup></th>
+      <th>Xamarin <sup>2d</sup></th>
+    </tr>
   </thead>
   <tbody>
-    <tr><th>Console <sup>1</sup></th><td>&check;</td><td>&check;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-    <tr><th>MSBuild <sup>1</sup></th><td>&check;</td><td>&check;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-    <tr><th>TestDriven.NET <sup>1</sup></th><td>&check;</td><td>&check;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-    <tr><th>Visual Studio Test Explorer <sup>2</sup></th><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-    <tr><th>Resharper <sup>3</sup><td>&check;</td><td>&check;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-    <tr><th>Xamarin <sup>4</sup></th>&nbsp;<td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&check;</td><td>&check;</td></tr>
+    <tr>
+      <th>Desktop Class Library</th>
+      <td>&check;</td>
+      <td>&check;</td>
+      <td>&check;</td>
+      <td>&check;</td>
+      <td>&check;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th>Portable Class Library</th>
+      <td>&check;</td>
+      <td>&check;</td>
+      <td>&check;</td>
+      <td>&check;</td>
+      <td>&check;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th>ASP.NET 5.0<br />(Desktop, Cloud Optimized)</th>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&check;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th>Universal Application<br />(Windows 8.1, Windows Phone 8.1)</th>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&check;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th>Windows 8 Application</th>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&check;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th>Windows Phone 8 Application</th>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th>Apple iOS Application <sup>1</sup></th>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&check;</td>
+      <td>&check;</td>
+    </tr>
+    <tr>
+      <th>Android Application <sup>1</sup></th>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&check;</td>
+      <td>&check;</td>
+    </tr>
   </tbody>
   <tfoot>
     <tr>
       <td colspan="7">
-        Test runner source code availability:<br />
-        &nbsp; <sup>1</sup> <a href="https://github.com/xunit/xunit">https://github.com/xunit/xunit</a><br />
-        &nbsp; <sup>2</sup> <a href="https://github.com/xunit/visualstudio.xunit">https://github.com/xunit/visualstudio.xunit</a><br />
-        &nbsp; <sup>3</sup> <a href="https://github.com/xunit/resharper-xunit">https://github.com/xunit/resharper-xunit</a><br />
-        &nbsp; <sup>4</sup> <a href="https://github.com/xunit/xamarin.xunit">https://github.com/xunit/xamarin.xunit</a>
+        <sup>1</sup> Requires Xamarin for Visual Studio or Xamarin Studio<br />
+        <sup>2</sup> Test runner source code availability:<br />
+        &nbsp; &nbsp; <sup>a</sup> <a href="https://github.com/xunit/xunit">https://github.com/xunit/xunit</a><br />
+        &nbsp; &nbsp; <sup>b</sup> <a href="https://github.com/xunit/visualstudio.xunit">https://github.com/xunit/visualstudio.xunit</a><br />
+        &nbsp; &nbsp; <sup>c</sup> <a href="https://github.com/xunit/resharper-xunit">https://github.com/xunit/resharper-xunit</a><br />
+        &nbsp; &nbsp; <sup>d</sup> <a href="https://github.com/xunit/xamarin.xunit">https://github.com/xunit/xamarin.xunit</a>
       </td>
     </tr>
   </tfoot>
@@ -120,4 +193,8 @@ noheader: true
   <li><a href="http://msdn.microsoft.com/en-us/library/0k6kkbsd.aspx">MSBuild Reference</a></li>
 </ul>
 
-<p><a href="http://www.NDepend.com"><img src="https://raw.github.com/xunit/media/master/powered-by-ndepend-transparent.png" title="Powered by NDepend" /></a></p>
+<p>
+  <a href="http://www.NDepend.com">
+    <img src="https://raw.github.com/xunit/media/master/powered-by-ndepend-transparent.png" title="Powered by NDepend" />
+  </a>
+</p>
