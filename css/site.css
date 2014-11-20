@@ -42,10 +42,7 @@ h3, .h3 {
 img.border {
   display: inline-block;
   margin-left: 15px;
-  padding: 5px;
-  border: 1px solid #666;
-  background-color: White;
-  box-shadow: 5px 5px 10px #888;
+  box-shadow: 3px 3px 20px #666;
 }
 ol {
   margin-left: 5px;
