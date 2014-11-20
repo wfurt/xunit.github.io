@@ -18,7 +18,7 @@ breadcrumb: Documentation
   <li><a href="#run-tests-visualstudio">Run tests with Visual Studio</a></li>
 </ul>
 
-<p><em>Note: The examples were done with xUnit.net v2.0 beta 4. The version numbers and paths may differ for you, depending on which version you're using.</em></p>
+<p><em>Note: The examples were done with xUnit.net v2.0 beta 5. The version numbers and paths may differ for you, depending on which version you're using.</em></p>
 
 <h2 id="create-class-library">Create a class library project</h2>
 
@@ -48,10 +48,10 @@ breadcrumb: Documentation
 {% highlight xml %}
 <?xml version="1.0" encoding="utf-8"?>
 <packages>
-  <package id="xunit" version="2.0.0-beta4-build2738" targetFramework="net45" />
-  <package id="xunit.abstractions" version="2.0.0-beta4-build2738" targetFramework="net45" />
-  <package id="xunit.assert" version="2.0.0-beta4-build2738" targetFramework="net45" />
-  <package id="xunit.core" version="2.0.0-beta4-build2738" targetFramework="net45" />
+  <package id="xunit" version="2.0.0-beta5-build2785" targetFramework="net45" />
+  <package id="xunit.abstractions" version="2.0.0-beta5-build2785" targetFramework="net45" />
+  <package id="xunit.assert" version="2.0.0-beta5-build2785" targetFramework="net45" />
+  <package id="xunit.core" version="2.0.0-beta5-build2785" targetFramework="net45" />
 </packages>
 {% endhighlight %}
 
@@ -103,7 +103,7 @@ namespace MyFirstUnitTests
 <p>To run the console runner, use a command like the one hightlighted below. You should see output similar to this:</p>
 
 <pre>
-&gt; <span style="background-color: #ff0">packages\xunit.runners.2.0.0-beta4-build2738\tools\xunit.console MyFirstUnitTests\bin\Debug\MyFirstUnitTests.dll</span>
+&gt; <span style="background-color: #ff0">packages\xunit.runners.2.0.0-beta5-build2785\tools\xunit.console MyFirstUnitTests\bin\Debug\MyFirstUnitTests.dll</span>
 xUnit.net console test runner (64-bit .NET 4.0.30319.34014)
 Copyright (C) 2014 Outercurve Foundation.
 
@@ -182,13 +182,15 @@ Finished: MyFirstUnitTests.dll
 
 <h2 id="run-tests-visualstudio">Running tests with Visual Studio</h2>
 
-<p>If you have Visual Studio Professional or higher,  can run your xUnit.net tests within Visual Studio's built-in test runner (named Test Explorer).</p>
+<p class="important"><strong>Important note</strong>: If you've previously installed the xUnit.net Visual Studio Runner VSIX (Extension), you must uninstall it first. The Visual Studio runner is only distributed via NuGet now. To remove it, to go <code>Tools</code> &gt; <code>Extensions and Updates</code>. Scroll to the bottom of the list, and if xUnit.net is installed, uninstall it. This will force you to restart Visual Studio.</p>
 
-<p>To enable xUnit.net test running support in Visual Studio, you must install the xUnit.net test runner extension. Go to <code>Tools &gt; Extensions and Updates</code>. On the left nav, ensure that <code>Visual Studio Gallery</code> is selected under <code>Online</code>. Using the search box in the upper right corner, search for <code>xunit</code>. Then install the extension by clicking <code>Download</code>:</p>
+<p>If you have Visual Studio Community (or a paid-for version of Visual Studio), you can run your xUnit.net tests within Visual Studio's built-in test runner (named Test Explorer).</p>
 
-<p><img class="border" src="../images/getting-started/vs-extension.png" width="877" /></p>
+<p>Once again, right click on the project in Solution Explorer and choose <code>Manage NuGet Packages</code>. This time, you're going to search for (and install) a package named <code>xunit.runner.visualstudio</code>:</p>
 
-<p>After installation, you will be prompted to restart Visual Studio. After you've restarted, then rebuild your solution. Make sure Test Explorer is visible (go to <code>Test &gt; Windows &gt; Test Explorer</code>). After a moment of discovery, you should see the list of discovered tests:</p>
+<p><img class="border" src="../images/getting-started/add-xunit-runner-visualstudio.png" width="875" /></p>
+
+<p>Make sure Test Explorer is visible (go to <code>Test &gt; Windows &gt; Test Explorer</code>). Every time you build your project, the runner will discover unit tests in your project. After a moment of discovery, you should see the list of discovered tests:</p>
 
 <p><img class="border" src="../images/getting-started/test-explorer.png" width="330" /></p>
 
