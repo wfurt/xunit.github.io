@@ -23,21 +23,30 @@ h2, .h2 {
   font-size: 24px;
 }
 h3, .h3 {
+  border-bottom: 1px dotted #ccf;
+  border-top: 1px dotted #ccf;
+  color: #336;
+  display: inline-block;
   font-size: 20px;
-  margin: 0 0 10px 20px;
+  margin: 0 0 15px 20px;
+  padding: 2px 0;
 }
-.table {
+table, .table {
   width: auto;
 }
-.table thead tr th,
-.table tbody tr td {
+.table>thead>tr>th,
+.table>tbody>tr>td {
   text-align: center;
 }
-.table tbody tr td {
+.table>tbody>tr>td {
   vertical-align: middle;
 }
-.table tfoot tr td {
+.table>tfoot>tr>td {
   font-size: 12px;
+}
+.table>tbody>tr>td.wrapped {
+  max-width: 500px;
+  text-align: left;
 }
 img.border {
   display: inline-block;
