@@ -57,6 +57,11 @@ table, .table {
   max-width: 650px;
   text-align: left;
 }
+.table .title {
+  background-color: #aae;
+  font-size: 20px;
+  font-weight: bold;
+}
 .table p {
   margin: 0;
 }

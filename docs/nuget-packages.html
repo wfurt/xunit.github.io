@@ -10,24 +10,22 @@ breadcrumb: Documentation
   xUnit.net ships with many NuGet packages. This guide helps you understand which
   NuGet packages you should use in your projects.
 </p>
-<p class="important">
+<p>
   If you don't know where to start, try starting with a reference to <a href="#xunit">xunit</a>.
-  This bring in <a href="#xunit.core">xunit.core</a> (which is what you use to write
-  unit tests) and <a href="#xunit.assert">xunit.assert</a> (which is what you use to
-  write assertions in your unit tests).
 </p>
 
 <table class="table">
   <tr>
-    <th style="background-color: #eee">Package</th>
-    <th style="background-color: #eee">Description</th>
+    <th id="active" colspan="2" class="title">Active Packages</th>
   </tr>
   <tr>
     <th id="xunit">xunit</th>
     <td class="wrapped-wide">
       <p>
-        This is what's known as a 'meta' package. Referencing this package brings in several
-        other packages, but it contains not files of its own.
+        This is the package that will most typically be used by unit test authors. It brings in
+        references to <a href="#xunit.core">xunit.core</a> (which contains the unit testing
+        framework) and <a href="#xunit.assert">xunit.assert</a> (which contains the class you
+        use to write assertions).
       </p>
       <h5>
         Depends on:
@@ -190,11 +188,27 @@ breadcrumb: Documentation
       </h5>
     </td>
   </tr>
-  <!--
   <tr>
-    <th id="xunit">xunit</th>
+    <th id="retired" colspan="2" class="title">Retired Packages</th>
+  </tr>
+  <tr>
+    <th id="xunit">xunit.execution</th>
     <td class="wrapped-wide">
+      This package was renamed to <a href="#xunit.extensibility.execution">xunit.extensibility.execution</a>
+      as of 2.0 RC1.
     </td>
   </tr>
-  -->
+  <tr>
+    <th id="xunit">xunit.extensions</th>
+    <td class="wrapped-wide">
+      <p>
+        This package was part of xUnit.net v1.x, and is no longer shipped as part of xUnit.net. Some
+        of the features of this package were integrated into the xUnit.net core platform, and others
+        were moved to the <a href="https://github.com/xunit/samples">xUnit.net samples project</a>.
+      </p>
+      <p>
+        For more information, see <a href="docs/test-migration.html">Migrating unit tests from v1 to v2</a>.
+      </p>
+    </td>
+  </tr>
 </table>
