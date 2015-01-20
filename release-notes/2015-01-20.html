@@ -163,5 +163,11 @@ breadcrumb: Release Notes
     <a href="https://github.com/xunit/samples/blob/503001c020b73c862e1cdb44cf32358ff936ebef/RetryFactExample/RetryTestCase.cs#L53-L83">RetryTestCase</a>
     in the RetryFactExample sample.
   </li>
-    <li><strong>BUG:</strong> Collection definitions were not working the Visual Studio runner.</li>
+  <li>
+    The three Visual Studio runner NuGet packages have been collapsed down into just a single
+    package: <code>xunit.runner.visualstudio</code>. When upgrading packages, please remove
+    the old device-specific NuGet packages (<code>win8</code> and <code>wpa81</code>) and
+    install the single package instead.
+  </li>
+  <li><strong>BUG:</strong> Collection definitions were not working the Visual Studio runner.</li>
 </ul>
