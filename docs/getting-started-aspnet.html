@@ -1,0 +1,213 @@
+---
+layout: default
+title: Getting Started with xUnit.net and ASP.NET 5
+breadcrumb: Documentation
+---
+
+<h1>Getting Started with xUnit.net and ASP.NET 5</h1>
+
+<p>
+  In this article, we will demonstrate getting started with xUnit.net, showing you
+  how to write and run your first set of unit tests.
+</p>
+
+<ul>
+  <li><a href="#create-class-library">Create a class library project</a></li>
+  <li><a href="#add-xunit-ref">Add a reference to xUnit.net</a></li>
+  <li><a href="#write-first-tests">Write your first tests</a></li>
+  <li><a href="#run-tests">Run tests with the xUnit.net ASP.NET runner</a></li>
+  <li><a href="#write-first-theory">Write your first theory</a></li>
+</ul>
+
+<p><em>
+  Note: The examples were done with xUnit.net v2.0 RC 1 and ASP.NET v5 Beta 2. The version
+  numbers and paths may differ for you, depending on which version you're using.
+</em></p>
+
+<h2 id="create-class-library">Create a class library project</h2>
+
+<p>
+  Let's start by creating a class library project, targeting .NET 4.5 (or later). Ope
+  Visual Studio, and choose <code>File &gt; New &gt; Project</code>:
+</p>
+
+<p><img class="border" src="../images/getting-started-aspnet/new-project.png" width="800" /></p>
+
+<h2 id="add-xunit-ref">Add a reference to xUnit.net</h2>
+
+<p>In Solution Explorer, find and open the <code>project.json</code> file:</p>
+
+<p><img class="border" src="../images/getting-started-aspnet/open-project-json.png" width="356" /></p>
+
+<p>
+  Add dependencies on the <code>xunit</code> and <code>xunit.runner.aspnet</code> packages, as
+  well as the <code>test</code> command, as shown below:
+</p>
+
+{% highlight json %}
+{
+    "dependencies": {
+        "xunit": "2.0.0-rc1-*",
+        "xunit.runner.aspnet": "2.0.0-rc1-*"
+    },
+    "commands": {
+        "test": "xunit.runner.aspnet"
+    },
+    "frameworks" : {
+        "aspnet50" : { 
+        },
+        "aspnetcore50" : { 
+            "dependencies": {
+                "System.Runtime": "4.0.20-beta-22416"
+            }
+        }
+    }
+}
+{% endhighlight %}
+
+<h2 id="write-first-tests">Write your first tests</h2>
+
+<p>
+  When you created the project, Visual Studio automatically created a file named <code>Class1.cs</code>
+  and opened it for you. Inside this class, add a couple tests:
+</p>
+
+{% highlight C# %}
+using Xunit;
+
+namespace MyFirstAspNetUnitTests
+{
+    public class Class1
+    {
+        [Fact]
+        public void PassingTest()
+        {
+            Assert.Equal(4, Add(2, 2));
+        }
+
+        [Fact]
+        public void FailingTest()
+        {
+            Assert.Equal(5, Add(2, 2));
+        }
+
+        int Add(int x, int y)
+        {
+            return x + y;
+        }
+    }
+}
+{% endhighlight %}
+
+<p>
+  Build the solution to ensure that the code compiles. Now that you've written the first
+  test, we need a way to run it.
+</p>
+
+<h2 id="run-tests">Run tests with the xUnit.net ASP.NET runner</h2>
+
+<p>
+  Open a command prompt or PowerShell command window. In the window, navigate to folder
+  containing the source code of your test project (this will usually be in a folder below
+  the <code>src</code> folder, in your solution folder).
+</p>
+
+<p>
+  To run the ASP.NET runner, type <code>k run</code>, as shown below:
+</p>
+
+<pre>
+&gt; <span style="background-color: #ff0">k run</span>
+xUnit.net ASP.NET test runner (32-bit Asp.Net 5.0)
+Copyright (C) 2015 Outercurve Foundation.
+
+Discovering: MyFirstAspNetUnitTests
+Discovered:  MyFirstAspNetUnitTests
+Starting:    MyFirstAspNetUnitTests
+   <span style="color: #e03030">MyFirstAspNetUnitTests.Class1.FailingTest [FAIL]</span>
+      Assert.Equal() Failure
+      Expected: 5
+      Actual:   4
+      <span style="color: #a8a8a8">Stack Trace:</span>
+         Class1.cs(16,0): at MyFirstAspNetUnitTests.Class1.FailingTest()
+Finished:    MyFirstAspNetUnitTests
+
+=== TEST EXECUTION SUMMARY ===
+   MyFirstAspNetUnitTests  Total: 2, Errors: 0, Failed: 1, Skipped: 0, Time: 0.130s
+</pre>
+
+<p>
+  Now that we've gotten your first unit tests to run, let's introduce one more way to
+  write tests: using theories.
+</p>
+
+<h2 id="write-first-theory">Write your first theory</h2>
+
+<p>
+  You may have wondered why your first unit tests use an attribute named <code>[Fact]</code>
+  rather than one with a more traditional name like Test. xUnit.net includes support for
+  two different major types of unit tests: facts and theories. When describing the
+  difference between facts and theories, we like to say:
+</p>
+
+<blockquote>
+<p><em><strong>Facts</strong> are tests which are always true. They test invariant conditions.</em></p>
+<p><em><strong>Theories</strong> are tests which are only true for a particular set of data.</em></p>
+</blockquote>
+
+<p>
+  A good example of this testing numeric algorithms. Let's say you want to test an algorithm
+  which determines whether a number is odd or not. If you're writing the positive-side tests
+  (odd numbers), then feeding even numbers into the test would cause it fail, and not because
+  the test or algorithm is wrong.
+</p>
+
+<p>Let's add a theory to our existing facts (including a bit of bad data, so we can see it fail):</p>
+
+{% highlight C# %}
+[Theory]
+[InlineData(3)]
+[InlineData(5)]
+[InlineData(6)]
+public void MyFirstTheory(int value)
+{
+    Assert.True(IsOdd(value));
+}
+
+bool IsOdd(int value)
+{
+    return value % 2 == 1;
+}
+{% endhighlight %}
+
+<p>This time when we compile and run our tests, we see a second failure, for our theory that was given 6:</p>
+
+<pre>
+xUnit.net ASP.NET test runner (32-bit Asp.Net 5.0)
+Copyright (C) 2015 Outercurve Foundation.
+
+Discovering: MyFirstAspNetUnitTests
+Discovered:  MyFirstAspNetUnitTests
+Starting:    MyFirstAspNetUnitTests
+   <span style="color: #e03030">MyFirstAspNetUnitTests.Class1.FailingTest [FAIL]</span>
+      Assert.Equal() Failure
+      Expected: 5
+      Actual:   4
+      <span style="color: #a8a8a8">Stack Trace:</span>
+         Class1.cs(16,0): at MyFirstAspNetUnitTests.Class1.FailingTest()
+   <span style="color: #E03030">MyFirstAspNetUnitTests.Class1.MyFirstTheory(value: 6) [FAIL]</span>
+      Assert.True() Failure
+      <span style="color: #a8a8a8">Stack Trace:</span>
+         Class1.cs(30,0): at MyFirstAspNetUnitTests.Class1.MyFirstTheory(Int32 value)
+Finished:    MyFirstAspNetUnitTests
+
+=== TEST EXECUTION SUMMARY ===
+   MyFirstAspNetUnitTests  Total: 5, Errors: 0, Failed: 2, Skipped: 0, Time: 0.176s
+</pre>
+
+<p>
+  Although we've only written 3 test methods, the console runner actually ran 5 tests;
+  that's because each theory with its data set is a separate test. Note also that the runner
+  tells you exactly which set of data failed, because it includes the parameter values in
+  the name of the test.
+</p>
