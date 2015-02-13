@@ -259,68 +259,7 @@ Finished: MyFirstUnitTests.dll
 
 <h2 id="run-tests-visualstudio">Running tests with Visual Studio</h2>
 
-<p class="important">
-  <strong>Important note</strong>: If you've previously installed the xUnit.net
-  Visual Studio Runner VSIX (Extension), you must uninstall it first. The Visual
-  Studio runner is only distributed via NuGet now. To remove it, to go
-  <code>Tools</code> &gt; <code>Extensions and Updates</code>. Scroll to the
-  bottom of the list, and if xUnit.net is installed, uninstall it. This will
-  force you to restart Visual Studio.
-</p>
-
 <p>
-  If you have Visual Studio Community (or a paid-for version of Visual Studio),
-  you can run your xUnit.net tests within Visual Studio's built-in test runner
-  (named Test Explorer).
+  Separate documentation is available for
+  <a href="running-tests-in-vs.html">running tests with Visual Studio</a>.
 </p>
-
-<p>
-  Once again, right click on the project in Solution Explorer and choose
-  <code>Manage NuGet Packages</code>. This time, you're going to search for
-  (and install) a package named <code>xunit.runner.visualstudio</code>:
-</p>
-
-<p><img class="border" src="../images/getting-started/add-xunit-runner-visualstudio.png" width="875" /></p>
-
-<p>
-  Make sure Test Explorer is visible (go to <code>Test &gt; Windows &gt; Test Explorer</code>).
-  Every time you build your project, the runner will discover unit tests in
-  your project. After a moment of discovery, you should see the list of
-  discovered tests:
-</p>
-
-<p><img class="border" src="../images/getting-started/test-explorer.png" width="330" /></p>
-
-<p>
-  Click the <code>Run All</code> link in the Test Explorer window, and you
-  should see the results update in the Test Explorer window as the tests are
-  run:
-</p>
-
-<p><img class="border" src="../images/getting-started/test-explorer-post-run.png" width="330" /></p>
-
-<p>
-  You can click on a failed test to see the failure message, and the stack
-  trace. You can click on the stack trace lines to take you directly to the
-  failing line of code.
-</p>
-
-<p>
-  If you have Visual Studio Ultimate and you have the CodeLens feature turned
-  on, your source code will now show icons and text related to your tests:
-</p>
-
-<p><img class="border" src="../images/getting-started/code-lens.png" width="224" /></p>
-
-<p>
-  CodeLens not only shows you the last run status of your unit tests, it also
-  offers a convenient place to click to run an individual test.
-</p>
-
-<p><em>
-  Note: you may have noticed there are no icons for theories, only for facts.
-  This is because Visual Studio does not show icons when there are multiple
-  tests pointing to the same test method. You can re-enable these icons via
-  <a href="configuration-files.html">configuration</a> by turning off theory
-  data pre-enumeration.
-</em></p>

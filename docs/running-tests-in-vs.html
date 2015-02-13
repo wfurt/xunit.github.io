@@ -15,6 +15,14 @@ redirect_from: "/docs/running-v1-tests-in-vs.html"
   you to restart Visual Studio.
 </p>
 
+<p class="important">
+  <strong>If you're having problems discovering or running tests,</strong> you may be a victim
+  of a corrupted runner cache inside Visual Studio. To clear this cache, shut down all instances
+  of Visual Studio, then delete the folder <code>%TEMP%\VisualStudioTestExplorerExtensions</code>.
+  Also make sure your project is only linked against a single version of the Visual Studio runner
+  NuGet package (<code>xunit.runners.visualstudio</code>).
+</p>
+
 <p>
   If you have Visual Studio Community (or a paid-for version of Visual Studio), you can run your
   xUnit.net tests within Visual Studio's built-in test runner (named Test Explorer). Unfortunately,
