@@ -90,6 +90,11 @@ blockquote {
   margin: 0 0 15px 40px;
   font-size: 14px;
 }
+li>blockquote {
+  margin: 0;
+  font-style: italic;
+  font-size: 13px;
+}
 .navbar-inverse {
   background-color: #c0c7c4;
   border: 0;
