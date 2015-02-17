@@ -6,9 +6,6 @@ breadcrumb: Documentation
 
 <h1>Getting Started with xUnit.net and ASP.NET 5</h1>
 
-<p>This documentation is temporarily unavailable, and will be re-published when this feature is re-enabled.</p>
-
-<!--
 <p>
   In this article, we will demonstrate getting started with xUnit.net, showing you
   how to write and run your first set of unit tests.
@@ -23,7 +20,7 @@ breadcrumb: Documentation
 </ul>
 
 <p><em>
-  Note: The examples were done with xUnit.net v2.0 RC 1 and ASP.NET v5 Beta 2. The version
+  Note: The examples were done with xUnit.net v2.0 RC2 and ASP.NET v5 Beta 2. The version
   numbers and paths may differ for you, depending on which version you're using.
 </em></p>
 
@@ -50,16 +47,16 @@ breadcrumb: Documentation
 {% highlight json %}
 {
     "dependencies": {
-        "xunit": "2.0.0-rc1-*",
-        "xunit.runner.aspnet": "2.0.0-rc1-*"
+        "xunit": "2.0.0-rc2-*",
+        "xunit.runner.aspnet": "2.0.0-rc2-*"
     },
     "commands": {
         "test": "xunit.runner.aspnet"
     },
     "frameworks" : {
-        "aspnet50" : { 
+        "aspnet50" : {
         },
-        "aspnetcore50" : { 
+        "aspnetcore50" : {
             "dependencies": {
                 "System.Runtime": "4.0.20-beta-22416"
             }
@@ -214,4 +211,3 @@ Finished:    MyFirstAspNetUnitTests
   tells you exactly which set of data failed, because it includes the parameter values in
   the name of the test.
 </p>
--->
