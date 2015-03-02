@@ -38,8 +38,14 @@ breadcrumb: Documentation
     <th id="xunit.abstractions">xunit.abstractions</th>
     <td class="wrapped-wide">
       <p>
-        This package contains <code>xunit.abstractions.dll</code>. You should never need to directly
-        reference this package, and it will be brought in from other dependencies.
+        This package is an internal dependency of the <a href="#xunit.core">test framework</a>,
+        the platform specific execution DLLs (<code>xunit.execution.*.dll</code>) and the
+        <a href="#xunit.runner.utility">runner utility libraries</a>. It defines a stable
+        set of interfaces that these components use to communicate with each other. As long as
+        the interfaces do not change, each component can be modified without requiring any
+        changes or rebuilds of the other components. This allows for a version independent runner API.
+
+        You should never need to directly reference this package.
       </p>
       <h5>
         Depends on: <em>None</em>
@@ -87,15 +93,24 @@ breadcrumb: Documentation
     <th id="xunit.core">xunit.core</th>
     <td class="wrapped-wide">
       <p>
-        This is the primary package that developers should use when writing unit tests. This will
-        bring in a reference to <code>xunit.core.dll</code>, as well as bringing in the appropriate
-        execution DLL (<code>xunit.execution.*.dll</code>) that allows the tests to run on your
-        target platform.
+        This is the primary package that developers should use when writing unit tests. It brings in
+        a reference to <code>xunit.core.dll</code>, which defines the test framework
+        (<code>FactAttribute</code>, etc.). It also copies platform specific execution DLLs
+        (<code>xunit.execution.*.dll</code>) to the project's output folder, which controls the
+        discovery and execution of tests.
+      </p>
+      <p>
+        It does not add a reference to the execution DLLs. This is because some platforms require
+        two different versions of the DLL - one to run the tests on the target platform, and another
+        so that desktop based runners (for example, Visual Studio) can also discover the tests. A
+        reference can be added to the exection DLL by adding the
+        <a href="#xunit.extensibility.execution">xunit.extensibility.execution</a> package.
       </p>
       <p>
         If you wish to use <code>xunit.core.dll</code> for extensibility purposes (for example, to
         write your own reusable theory data providers), you should reference
-        <a href="#xunit.extensibility.core">xunit.extensibility.core</a> instead.
+        <a href="#xunit.extensibility.core">xunit.extensibility.core</a> directly instead, bypassing
+        the copying of the execution DLLs.
       </p>
       <h5>
         Depends on:
@@ -108,7 +123,12 @@ breadcrumb: Documentation
     <td class="wrapped-wide">
       <p>
         This package contains <code>xunit.core.dll</code>. It is intended to be used by developers
-        who wish to reference this DLL for extensibility purposes.
+        who wish to reference this DLL for extensibility purposes, such as writing your own theory
+        data provider.
+      </p>
+      <p>
+        This package is used by <a href="#xunit.core">xunit.core</a>. It differs in that it does
+        not include or copy the platform specific execution DLLs (<code>xunit.execution.*.dll</code>).
       </p>
       <h5>
         Depends on:
@@ -122,7 +142,12 @@ breadcrumb: Documentation
       <p>
         This package contains the execution libraries for all supported platforms
         (<code>xunit.execution.*.dll</code>). It is intended to be used by developers who wish
-        to reference this DLL for extensibility purposes.
+        to reference this DLL for extensibility purposes, such as creating custom test discovery
+        and execution.
+      </p>
+      <p>
+        It differs from the <a href="#xunit.core">xunit.core</a> package in that it adds a reference
+        to the platform specific execution DLL, rather than simply copying to the project's output folder.
       </p>
       <h5>
         Depends on:
@@ -136,7 +161,8 @@ breadcrumb: Documentation
       <p>
         This package contains the runner utility libraries for all supported platforms
         (<code>xunit.runner.utility.*.dll</code>). It is intended to be used by developers who are
-        writing their own test runners.
+        writing their own test runners, and provides a version independent API for discovering and
+        execution tests.
       </p>
       <p>
         The libraries contained here are both backward and forward compatible for all v1 and v2
