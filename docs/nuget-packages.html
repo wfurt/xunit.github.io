@@ -182,6 +182,39 @@ breadcrumb: Documentation
         contained in this package includes both the console runner (invoked with <code>k test</code>)
         as well as the Visual Studio runner (which supports VS2015 or later).
       </p>
+      <p>
+        Important note: This package requires xUnit.net 2.1 or later.
+      </p>
+      <h5>
+        Depends on:
+          <a href="#xunit.runner.utility">xunit.runner.utility</a>
+      </h5>
+    </td>
+  </tr>
+  <tr>
+    <th id="xunit.runner.console">xunit.runner.console</th>
+    <td class="wrapped-wide">
+      <p>
+        This package contains the console test runner. This runner is capable
+        of running Desktop .NET and PCL projects from xUnit.net v1 and v2.
+      </p>
+      <h5>
+        Depends on: <em>None</em>
+      </h5>
+    </td>
+  </tr>
+  <tr>
+    <th id="xunit.runner.msbuild">xunit.runner.msbuild</th>
+    <td class="wrapped-wide">
+      <p>
+        This package contains the MSBuild test runner. This runner is capable
+        of running Desktop .NET and PCL projects from xUnit.net v1 and v2. When
+        added, it automatically references the <code>xunit</code> MSBuild target,
+        which can be used in your project file.
+      </p>
+      <h5>
+        Depends on: <em>None</em>
+      </h5>
     </td>
   </tr>
   <tr>
@@ -204,28 +237,17 @@ breadcrumb: Documentation
     </td>
   </tr>
   <tr>
-    <th id="xunit.runners">xunit.runners</th>
-    <td class="wrapped-wide">
-      <p>
-        This package contains the console and MSBuild test runners. These runners are capable
-        of running Desktop .NET and PCL projects from xUnit.net v1 and v2.
-      <h5>
-        Depends on: <em>None</em>
-      </h5>
-    </td>
-  </tr>
-  <tr>
     <th id="retired" colspan="2" class="title">Retired Packages</th>
   </tr>
   <tr>
-    <th id="xunit">xunit.execution</th>
+    <th id="xunit.execution">xunit.execution</th>
     <td class="wrapped-wide">
       This package was renamed to <a href="#xunit.extensibility.execution">xunit.extensibility.execution</a>
       as of 2.0 RC1.
     </td>
   </tr>
   <tr>
-    <th id="xunit">xunit.extensions</th>
+    <th id="xunit.extensions">xunit.extensions</th>
     <td class="wrapped-wide">
       <p>
         This package was part of xUnit.net v1.x, and is no longer shipped as part of xUnit.net. Some
@@ -233,12 +255,12 @@ breadcrumb: Documentation
         were moved to the <a href="https://github.com/xunit/samples">xUnit.net samples project</a>.
       </p>
       <p>
-        For more information, see <a href="docs/test-migration.html">Migrating unit tests from v1 to v2</a>.
+        For more information, see <a href="upgrade-extensions.html">upgrading xunit.extensions</a>.
       </p>
     </td>
   </tr>
   <tr>
-    <th id="xunit">xunit.runner.visualstudio.win8</th>
+    <th id="xunit.runner.visualstudio.win8">xunit.runner.visualstudio.win8</th>
     <td class="wrapped-wide">
       <p>
         This functionality was rolled into <a href="#xunit.runner.visualstudio">xunit.runner.visualstudio</a>.
@@ -246,10 +268,21 @@ breadcrumb: Documentation
     </td>
   </tr>
   <tr>
-    <th id="xunit">xunit.runner.visualstudio.wpa81</th>
+    <th id="xunit.runner.visualstudio.wpa81">xunit.runner.visualstudio.wpa81</th>
     <td class="wrapped-wide">
       <p>
         This functionality was rolled into <a href="#xunit.runner.visualstudio">xunit.runner.visualstudio</a>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th id="xunit.runners">xunit.runners</th>
+    <td class="wrapped-wide">
+      <p>
+        This package was part of xUnit.net v1.x, and is no longer shipped as part of xUnit.net.
+        It has been replaced with two new packages:
+        <a href="#xunit.runner.console">xunit.runner.console</a> and
+        <a href="#xunit.runner.msbuild">xunit.runner.msbuild</a>.
       </p>
     </td>
   </tr>
