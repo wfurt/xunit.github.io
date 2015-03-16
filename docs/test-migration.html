@@ -43,16 +43,14 @@ breadcrumb: Documentation
       on the project in Solution Explorer, and then choosing the
       <code>Manage NuGet Packages...</code> menu item:
     </p>
-    <p><img class="border" src="/images/test-migration/manage-nuget-packages.png" width="346" /></p>
+    <p><img class="border" src="/images/manage-nuget-packages.png" width="352" /></p>
   </li>
   <li>
     <p>
-      Click on <code>Online</code> on the left side. In the drop down along the
-      middle top of the window, select <code>Include Prerelease</code>. Now, in
-      the search box on the upper right, type <code>xunit</code>. The search
-      should yield results like this:
+      Click on <code>Online</code> on the left side. In the search box on the upper
+      right, type <code>xunit</code>. The search should yield results like this:
     </p>
-    <p><img class="border" src="/images/test-migration/add-package.png" width="600" /></p>
+    <p><img class="border" src="/images/add-xunit.png" width="791" /></p>
   </li>
   <li>
     <p>Locate the xUnit.net entry, and click <code>Install</code>.</p>
@@ -67,29 +65,24 @@ breadcrumb: Documentation
       Right click on the project in Solution Explorer, and then choose the
       <code>Manage NuGet Packages...</code> menu item:
     </p>
-    <p><img class="border" src="/images/test-migration/manage-nuget-packages.png" width="346" /></p>
+    <p><img class="border" src="/images/manage-nuget-packages.png" width="352" /></p>
   </li>
   <li>
     <p>
       Click on <code>Installed packages</code> on the left side. If you see
       <code>xUnit.net: Extensions</code> installed, please click the
-      <code>Uninstall</code> button:
+      <code>Uninstall</code> button. (If NuGet offers to uninstall the
+      <code>xunit</code> package for you, you should decline. You're going to
+      upgrade that package in the next step.)
     </p>
-    <p><img class="border" src="/images/test-migration/uninstall-extensions.png" width="600" /></p>
-    <p>
-      For more information on migrating your tests which used classes from
-      <code>xunit.extensions</code>, please see
-      <a href="upgrade-extensions.html">Migrating from v1 to v2: xunit.extensions</a>.
-    </p>
+    <p><img class="border" src="/images/test-migration/uninstall-extensions.png" width="791" /></p>
   </li>
   <li>
     <p>
-      Click on <code>Updates</code> on the left side. In the drop down along
-      the middle top of the window, select <code>Include Prerelease</code>.
-      Locate <code>xUnit.net</code> in the list of packages, and click
-      <code>Update</code>:
+      Click on <code>Updates</code> on the left side. Locate <code>xUnit.net</code>
+      in the list of packages, and click <code>Update</code>:
     </p>
-    <p><img class="border" src="/images/test-migration/update-xunit.png" width="600" /></p>
+    <p><img class="border" src="/images/test-migration/update-xunit.png" width="791" /></p>
   </li>
 </ol>
 
@@ -128,31 +121,11 @@ breadcrumb: Documentation
   </li>
   <li>
     <p><strong>Missing classes from xunit.extensions</strong></p>
-    <p>The following classes were moved from xunit.extensions into the core v2 library:</p>
-    <ul>
-      <li><code>TheoryAttribute</code></li>
-      <li><code>InlineDataAttribute</code></li>
-      <li><code>MemberDataAttribute</code> (previously called <code>PropertyDataAttribute</code>)</li>
-    </ul>
-    <br />
-    <p>The following classes were replaced with samples:</p>
-    <ul>
-      <li>Assert extensions (<a href="https://github.com/xunit/samples/tree/master/AssertExtensions">sample</a>)</li>
-      <li><code>AssumeIdentityAttribute</code> (<a href="https://github.com/xunit/samples/tree/master/AssumeIdentity">sample</a>)</li>
-      <li><code>ExcelDataAttribute</code> (<a href="https://github.com/xunit/samples/tree/master/ExcelDataExample">sample</a>)</li>
-    </ul>
+    <p>
+      Please see
+      <a href="upgrade-extensions.html">Migrating extensions from v1 to v2</a>
+      for information on migrating code that used <code>xunit.extensions</code>
+      to xUnit.net v2.
+    </p>
   </li>
 </ul>
-<!--
-<p>
-  If you uncover other compilation failures, you may have been using the
-  extensibility points in xUnit.net. Please see
-  <a href="extension-migration.html">Migrating extensions from v1 to v2</a> for
-  more information on migration your extensions to v2.
-</p>
-
-<section class="related-topics">Related topics:</section>
-<ul>
-  <li><a href="extension-migration.html">Migrating extensions from v1 to v2</a></li>
-</ul>
--->

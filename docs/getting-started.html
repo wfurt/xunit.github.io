@@ -15,14 +15,14 @@ breadcrumb: Documentation
   <li><a href="#create-class-library">Create a class library project</a></li>
   <li><a href="#add-xunit-ref">Add a reference to xUnit.net</a></li>
   <li><a href="#write-first-tests">Write your first tests</a></li>
-  <li><a href="#add-xunit-runners-ref">Add a reference to xUnit.net runners</a></li>
+  <li><a href="#add-xunit-runner-ref">Add a reference to xUnit.net console runner</a></li>
   <li><a href="#run-tests">Run tests with the xUnit.net console runner</a></li>
   <li><a href="#write-first-theory">Write your first theory</a></li>
   <li><a href="#run-tests-visualstudio">Run tests with Visual Studio</a></li>
 </ul>
 
 <p><em>
-  Note: The examples were done with xUnit.net v2.0 beta 5. The version numbers
+  Note: The examples were done with xUnit.net v2.0. The version numbers
   and paths may differ for you, depending on which version you're using.
 </em></p>
 
@@ -33,7 +33,7 @@ breadcrumb: Documentation
   Open Visual Studio, and choose <code>File &gt; New &gt; Project</code>:
 </p>
 
-<p><img class="border" src="../images/getting-started/new-project.png" width="800" /></p>
+<p><img class="border" src="../images/getting-started/new-project.png" width="791" /></p>
 
 <h2 id="add-xunit-ref">Add a reference to xUnit.net</h2>
 
@@ -42,18 +42,17 @@ breadcrumb: Documentation
   <code>Manage NuGet Packages</code>:
 </p>
 
-<p><img class="border" src="../images/getting-started/manage-nuget-packages.png" width="352" /></p>
+<p><img class="border" src="../images/manage-nuget-packages.png" width="352" /></p>
 
 <p>Now in the NuGet package manager window, take the following steps:</p>
 
 <ol>
   <li>On the left side, ensure <code>nuget.org</code> is selected under <code>Online</code></li>
-  <li>On the top edge, select <code>Include Prerelease</code> to use beta packages</li>
   <li>In the search box in the upper right corner, type <code>xunit</code></li>
   <li>Select the <code>xUnit.net</code> package, and click <code>Install</code></li>
 </ol>
 
-<p><img class="border" src="../images/getting-started/add-xunit.png" width="800" /></p>
+<p><img class="border" src="../images/add-xunit.png" width="791" /></p>
 
 <p>
   This package (<code>xunit</code>) is what's called a <em>meta-package</em>;
@@ -67,10 +66,11 @@ breadcrumb: Documentation
 {% highlight xml %}
 <?xml version="1.0" encoding="utf-8"?>
 <packages>
-  <package id="xunit" version="2.0.0-beta5-build2785" targetFramework="net45" />
-  <package id="xunit.abstractions" version="2.0.0-beta5-build2785" targetFramework="net45" />
-  <package id="xunit.assert" version="2.0.0-beta5-build2785" targetFramework="net45" />
-  <package id="xunit.core" version="2.0.0-beta5-build2785" targetFramework="net45" />
+  <package id="xunit" version="2.0.0" targetFramework="net45" />
+  <package id="xunit.abstractions" version="2.0.0" targetFramework="net45" />
+  <package id="xunit.assert" version="2.0.0" targetFramework="net45" />
+  <package id="xunit.core" version="2.0.0" targetFramework="net45" />
+  <package id="xunit.extensibility.core" version="2.0.0" targetFramework="net45" />
 </packages>
 {% endhighlight %}
 
@@ -112,18 +112,18 @@ namespace MyFirstUnitTests
 <p>
   Build the solution to ensure that the code compiles. Now that you've written
   the first test, we need a way to run it. Let's install the NuGet package with
-  the runners in it, which includes the console runner.
+  the console runner.
 </p>
 
-<h2 id="add-xunit-runners-ref">Add a reference to xUnit.net runners</h2>
+<h2 id="add-xunit-runner-ref">Add a reference to xUnit.net console runner</h2>
 
 <p>
   Once again, right click on the project in Solution Explorer and choose
   <code>Manage NuGet Packages</code>. This time, you're going to search for
-  (and install) a package named <code>xunit.runners</code>:
+  (and install) a package named <code>xunit.runner.console</code>:
 </p>
 
-<p><img class="border" src="../images/getting-started/add-xunit-runners.png" width="800" /></p>
+<p><img class="border" src="../images/getting-started/add-xunit-runner-console.png" width="820" /></p>
 
 <p>
   Unlike the previous package (which added references to the unit testing
@@ -146,7 +146,7 @@ namespace MyFirstUnitTests
 </p>
 
 <pre>
-&gt; <span style="background-color: #ff0">packages\xunit.runners.2.0.0-beta5-build2785\tools\xunit.console MyFirstUnitTests\bin\Debug\MyFirstUnitTests.dll</span>
+&gt; <span style="background-color: #ff0">packages\xunit.runner.console.2.0.0\tools\xunit.console MyFirstUnitTests\bin\Debug\MyFirstUnitTests.dll</span>
 xUnit.net console test runner (64-bit .NET 4.0.30319.34014)
 Copyright (C) 2014 Outercurve Foundation.
 
