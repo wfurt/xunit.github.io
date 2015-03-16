@@ -75,6 +75,9 @@ table, .table {
 .table p+p {
   margin-top: 15px;
 }
+.smaller {
+  font-size: 90%;
+}
 .border {
   display: inline-block;
   margin-left: 15px;
