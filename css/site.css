@@ -144,3 +144,16 @@ li>blockquote {
   box-shadow: 5px 5px 3px #888;
   padding: 5px 10px;
 }
+.version-selector {
+  color: #666;
+  float: right;
+  font-size: 65%;
+  font-weight: normal;
+}
+.version-selector input {
+  margin-left: 5px;
+}
+.version-pre,
+.version-ci {
+  display: none;
+}
