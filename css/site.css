@@ -144,6 +144,28 @@ li>blockquote {
   box-shadow: 5px 5px 3px #888;
   padding: 5px 10px;
 }
+.note {
+  background-color: #dfd;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 5px 5px 3px #888;
+  padding: 0 10px 5px 10px;
+}
+.note:before {
+  background-color: #cec;
+  content: "N O T E";
+  font-weight: bold;
+  font-size: 120%;
+  display: block;
+  font-style: italic;
+  color: #060;
+  padding: 2px 10px;
+  margin: 0 -10px 5px -10px;
+  border-bottom: solid 1px #bdb;
+}
+.note code {
+  background-color: #cec;
+  color: #090;
+}
 .version-selector {
   color: #666;
   float: right;
