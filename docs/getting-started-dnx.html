@@ -1,10 +1,11 @@
 ---
 layout: default
-title: Getting Started with xUnit.net and ASP.NET 5
+title: Getting Started with xUnit.net and DNX / ASP.NET 5
 breadcrumb: Documentation
+redirect_from: "/docs/getting-started-aspnet.html"
 ---
 
-<h1>Getting Started with xUnit.net and ASP.NET 5</h1>
+<h1>Getting Started with xUnit.net and DNX / ASP.NET 5</h1>
 
 <p>
   In this article, we will demonstrate getting started with xUnit.net, showing you
@@ -21,8 +22,9 @@ breadcrumb: Documentation
 </ul>
 
 <p><em>
-  Note: The examples were done with xUnit.net v2.1 Beta 1 and ASP.NET v5 Beta 3. The version
-  numbers and paths may differ for you, depending on which version you're using.
+  Note: The examples were done with xUnit.net v2.1 Beta 2, DNX 5.0 Beta 4, ASP.NET v5 Beta 4, and
+  Visual Studio 2015 RC. The version numbers and paths may differ for you, depending on which version
+  you're using.
 </em></p>
 
 <h2 id="create-class-library">Create a class library project</h2>
@@ -32,37 +34,42 @@ breadcrumb: Documentation
   Visual Studio, and choose <code>File &gt; New &gt; Project</code>:
 </p>
 
-<p><img class="border" src="../images/getting-started-aspnet/new-project.png" width="789" /></p>
+<p><img class="border" src="../images/getting-started-aspnet/new-project.png" width="800" /></p>
 
 <h2 id="add-xunit-ref">Add a reference to xUnit.net</h2>
 
 <p>In Solution Explorer, find and open the <code>project.json</code> file:</p>
 
-<p><img class="border" src="../images/getting-started-aspnet/open-project-json.png" width="316" /></p>
+<p><img class="border" src="../images/getting-started-aspnet/open-project-json.png" width="282" /></p>
 
 <p>
-  Add dependencies on the <code>xunit</code> and <code>xunit.runner.aspnet</code> packages, as
+  Add dependencies on the <code>xunit</code> and <code>xunit.runner.dnx</code> packages, as
   well as the <code>test</code> command, as shown below:
 </p>
 
 {% highlight json %}
 {
     "version": "1.0.0-*",
+    "description": "",
+    "authors": [ "" ],
+    "tags": [ "" ],
+    "projectUrl": "",
+    "licenseUrl": "",
     "dependencies": {
-        "xunit": "2.1.0-beta1-*",
-        "xunit.runner.aspnet": "2.1.0-beta1-*"
+        "xunit": "2.1.0-beta2-*",
+        "xunit.runner.dnx": "2.1.0-beta2-*"
     },
     "commands": {
-        "test": "xunit.runner.aspnet"
+        "test": "xunit.runner.dnx"
     },
-    "frameworks" : {
-        "aspnet50" : {
+    "frameworks": {
+        "dnx451": { },
+        "dnxcore50": {
             "dependencies": {
-            }
-        },
-        "aspnetcore50" : {
-            "dependencies": {
-                "System.Runtime": "4.0.20-beta-22605"
+                "System.Collections": "4.0.10-beta-22816",
+                "System.Linq": "4.0.0-beta-22816",
+                "System.Threading": "4.0.10-beta-22816",
+                "Microsoft.CSharp": "4.0.0-beta-22816"
             }
         }
     }
@@ -79,7 +86,7 @@ breadcrumb: Documentation
 {% highlight C# %}
 using Xunit;
 
-namespace MyFirstAspNetUnitTests
+namespace MyFirstDnxUnitTests
 {
     public class Class1
     {
@@ -117,27 +124,27 @@ namespace MyFirstAspNetUnitTests
 </p>
 
 <p>
-  To run the ASP.NET runner, type <code>k test</code>, as shown below:
+  To run the DNX runner, type <code>dnx . test</code>, as shown below:
 </p>
 
 <pre>
-&gt; <span style="background-color: #ff0">k test</span>
-xUnit.net ASP.NET test runner (32-bit Asp.Net 5.0)
+&gt; <span style="background-color: #ff0">dnx . test</span>
+xUnit.net DNX test runner (32-bit DNX 4.5.1)
 Copyright (C) 2015 Outercurve Foundation.
 
-Discovering: MyFirstAspNetUnitTests
-Discovered:  MyFirstAspNetUnitTests
-Starting:    MyFirstAspNetUnitTests
-   <span style="color: #e03030">MyFirstAspNetUnitTests.Class1.FailingTest [FAIL]</span>
+Discovering: MyFirstDnxUnitTests
+Discovered:  MyFirstDnxUnitTests
+Starting:    MyFirstDnxUnitTests
+   <span style="color: #e03030">MyFirstDnxUnitTests.Class1.FailingTest [FAIL]</span>
       Assert.Equal() Failure
       Expected: 5
       Actual:   4
       <span style="color: #a8a8a8">Stack Trace:</span>
-         Class1.cs(16,0): at MyFirstAspNetUnitTests.Class1.FailingTest()
-Finished:    MyFirstAspNetUnitTests
+         Class1.cs(16,0): at MyFirstDnxUnitTests.Class1.FailingTest()
+Finished:    MyFirstDnxUnitTests
 
 === TEST EXECUTION SUMMARY ===
-   MyFirstAspNetUnitTests  Total: 2, Errors: 0, Failed: 1, Skipped: 0, Time: 0.130s
+   MyFirstDnxUnitTests  Total: 2, Errors: 0, Failed: 1, Skipped: 0, Time: 0.130s
 </pre>
 
 <p>
@@ -187,26 +194,26 @@ bool IsOdd(int value)
 <p>This time when we compile and run our tests, we see a second failure, for our theory that was given 6:</p>
 
 <pre>
-xUnit.net ASP.NET test runner (32-bit Asp.Net 5.0)
+xUnit.net DNX test runner (32-bit DNX 4.5.1)
 Copyright (C) 2015 Outercurve Foundation.
 
-Discovering: MyFirstAspNetUnitTests
-Discovered:  MyFirstAspNetUnitTests
-Starting:    MyFirstAspNetUnitTests
-   <span style="color: #e03030">MyFirstAspNetUnitTests.Class1.FailingTest [FAIL]</span>
+Discovering: MyFirstDnxUnitTests
+Discovered:  MyFirstDnxUnitTests
+Starting:    MyFirstDnxUnitTests
+   <span style="color: #e03030">MyFirstDnxUnitTests.Class1.FailingTest [FAIL]</span>
       Assert.Equal() Failure
       Expected: 5
       Actual:   4
       <span style="color: #a8a8a8">Stack Trace:</span>
-         Class1.cs(16,0): at MyFirstAspNetUnitTests.Class1.FailingTest()
-   <span style="color: #E03030">MyFirstAspNetUnitTests.Class1.MyFirstTheory(value: 6) [FAIL]</span>
+         Class1.cs(16,0): at MyFirstDnxUnitTests.Class1.FailingTest()
+   <span style="color: #E03030">MyFirstDnxUnitTests.Class1.MyFirstTheory(value: 6) [FAIL]</span>
       Assert.True() Failure
       <span style="color: #a8a8a8">Stack Trace:</span>
-         Class1.cs(30,0): at MyFirstAspNetUnitTests.Class1.MyFirstTheory(Int32 value)
-Finished:    MyFirstAspNetUnitTests
+         Class1.cs(30,0): at MyFirstDnxUnitTests.Class1.MyFirstTheory(Int32 value)
+Finished:    MyFirstDnxUnitTests
 
 === TEST EXECUTION SUMMARY ===
-   MyFirstAspNetUnitTests  Total: 5, Errors: 0, Failed: 2, Skipped: 0, Time: 0.176s
+   MyFirstDnxUnitTests  Total: 5, Errors: 0, Failed: 2, Skipped: 0, Time: 0.176s
 </pre>
 
 <p>
