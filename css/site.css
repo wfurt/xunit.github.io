@@ -43,6 +43,11 @@ h6 {
   margin-top: 20px;
   padding-top: 5px;
 }
+.slack-float {
+  position: relative;
+  float: right;
+  margin-left: 30px;
+}
 table, .table {
   width: auto;
 }

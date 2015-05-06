@@ -15,18 +15,16 @@
 </head>
 
 <body>
-  {% if page.noheader }%}
-  {% else %}
   <div class="navbar navbar-inverse" role="navigation">
     <div class="container">
       <div class="navbar-header">
         <span class="navbar-brand">
+          <span class="slack-float"><script async defer src="https://xunit-slackin.herokuapp.com/slackin.js"></script></span>
           <a href="/"><img src="https://raw.github.com/xunit/media/master/full-logo.png" title="xUnit.net" width="141" height="29" /></a>{% if page.breadcrumb }%} &raquo; {{page.breadcrumb}}{% endif %}
         </span>
       </div>
     </div>
   </div>
-  {% endif %}
 
   <div class="container">
     {{ content }}
