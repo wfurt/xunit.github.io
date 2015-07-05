@@ -11,8 +11,8 @@
             "type": "boolean"
         },
         "maxParallelThreads": {
-            "description": "Configures the maximum number of threads to be used when parallelizing tests within this assembly. Valid values are 'default' (one test thread per CPU thread), 'unlimited', or any positive integer.",
-            "type": [ "string", "integer" ],
+            "description": "Configures the maximum number of threads to be used when parallelizing tests within this assembly.",
+            "type": "integer",
             "minimum": 1
         },
         "methodDisplay": {
