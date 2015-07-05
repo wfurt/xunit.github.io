@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema",
-    "id": "http://xunit.github.io/schema/v1/xunit.runner.dnx.schema.json",
-    "title": "xUnit.net DNX Runner Configuration",
-    "description": "Configuration file for unit test projects using xUnit.net's DNX runner",
+    "id": "http://xunit.github.io/schema/v1/xunit.runner.schema.json",
+    "title": "xUnit.net Runner Configuration",
+    "description": "Configuration file for unit test projects using xUnit.net",
     "type": "object",
     "properties": {
         "diagnosticMessages": {

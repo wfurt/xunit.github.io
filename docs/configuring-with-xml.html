@@ -1,23 +1,16 @@
 ---
 layout: default
-title: Configuring xUnit.net
+title: Configuring xUnit.net with XML
 breadcrumb: Documentation
 ---
 
-<h1>Configuring xUnit.net</h1>
+<h1>Configuring xUnit.net with XML</h1>
 
 <p>
   Configuration files can be used to configure xUnit.net on a per test-assembly basis.
-  The simplest way to do this is to add an <code>App.config</code> file to your test
-  project, and then add the configuration elements that represent the desired settings.
-</p>
-<p>
-  <strong>Note:</strong> Today, these configuration files are only fully supported for
-  Desktop and PCL projects, since they are the only ones that appropriately support
-  <code>App.config</code> files. They are supported by the Console, MSBuild, Visual
-  Studio, and TestDriven.NET runners. They also have limited impact during discovery
-  only for Visual Studio device test projects (Modern Windows, Windows Phone Silverlight,
-  and Universal apps).
+  Desktop and portable class library (PCL) test projects are configured using the built-in
+  configuration system from .NET. If your test project does not already have an
+  <code>App.config</code> file, use Visual Studio to add one for you.
 </p>
 <p>
   The configuration elements are placed inside the <code>&lt;appSettings&gt;</code>
@@ -33,7 +26,13 @@ breadcrumb: Documentation
 </configuration>
 {% endhighlight %}
 
-<p>Below is a list of support keys and values:</p>
+<p><em>
+  Note: Only desktop and PCL test projects support XML-based configuration. For other
+  project types, see <a href="configuring-with-json.html">Configuring xUnit.net with
+  JSON</a>.
+</em></p>
+
+<p>Below is a list of supported keys and values:</p>
 
 <table class="table">
   <tr>
@@ -49,7 +48,7 @@ breadcrumb: Documentation
         messages.
       </p>
       <p>
-        <em>Default value: false<br />
+        <em>Default value: <code>false</code><br />
         Supported by: xUnit.net v2</em>
       </p>
     </td>
@@ -77,7 +76,7 @@ breadcrumb: Documentation
         default display name will be the fully qualified class name and method name.
       </p>
       <p>
-        <em>Default value: classAndMethod<br />
+        <em>Default value: <code>classAndMethod</code><br />
         Supported by: xUnit.net v2</em>
       </p>
     </td>
@@ -92,7 +91,7 @@ breadcrumb: Documentation
         agree to it.
       </p>
       <p>
-        <em>Default value: false<br />
+        <em>Default value: <code>false</code><br />
         Supported by: xUnit.net v1 and v2</em>
       </p>
     </td>
@@ -108,7 +107,7 @@ breadcrumb: Documentation
         <code>false</code> to disable all parallelization within this test assembly.
       </p>
       <p>
-        <em>Default value: true<br />
+        <em>Default value: <code>true</code><br />
         Supported by: xUnit.net v2</em>
       </p>
     </td>
@@ -126,7 +125,7 @@ breadcrumb: Documentation
         Lens does not support multiple tests from a single method.
       </p>
       <p>
-        <em>Default value: true<br />
+        <em>Default value: <code>true</code><br />
         Supported by: xUnit.net v2</em>
       </p>
     </td>
