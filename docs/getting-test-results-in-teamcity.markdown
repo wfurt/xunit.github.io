@@ -7,10 +7,18 @@ breadcrumb: Documentation
 
 xUnit.net 1.1 added support for [JetBrains' TeamCity](https://www.jetbrains.com/teamcity/). This support is automatically enabled, and requires no end-user configuration.
 
-You must use an external build runner (like MSBuild) when building your project in TeamCity, so that you can add calls to the MSBuild task, the Console runner, or the DNX runner. You cannot use TeamCity's SLN builder, because your SLN file does not have any references to running xUnit.net (and TeamCity does not understand xUnit.net tests natively).
+You can either use a TeamCity plugin, or use an external build runner (like MSBuild) when building your project in TeamCity.
+
+## Using the plugin
+Download and install the [plugin](https://github.com/carlpett/xUnit-TeamCity) as per [Teamcity documentation](https://confluence.jetbrains.com/display/TCD9/Installing+Additional+Plugins). 
+
+Select the xUnit runner for the build step, then select the version of xUnit your tests are written in, and finally a pattern to match your test binaries. Wildcards are supported, such as `**/*.Tests.dll`.
+
+## Using an external runner
+Select the appropriate runner to add calls to the MSBuild task, the Console runner, or the DNX runner. You cannot use TeamCity's SLN builder, because your SLN file does not have any references to running xUnit.net.
 
 The runners in xUnit.net detect TeamCity is running through environment variables (specifically, it looks for `TEAMCITY_PROJECT_NAME`). If for some reason your build environment does not pass the TeamCity environment variables through to the runner, you can force TeamCity mode manually; on the console or DNX runner, add the `-teamcity` switch; on the MSBuild runner, add the property `Reporter="teamcity"` to your `<xunit>` task.
 
 *For more information on using the Console runner, see [Getting Started](getting-started.html).*<br>
 *For more information on using the DNX runner, see [Getting Started with DNX](getting-started-dnx.html).*<br>
-*For more information on using MSBuild, see [Running xUnit.net Tests in MSBuild](how-to-use-msbuild.html).*
+*For more information on using MSBuild, see [Running xUnit.net Tests in MSBuild](how-to-use-msbuild.html).*<br>
