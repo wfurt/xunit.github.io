@@ -31,6 +31,24 @@ h3, .h3 {
   margin: 0 0 15px 20px;
   padding: 2px 0;
 }
+h3.release {
+  background-color: #6cc644;
+  border: none;
+  border-radius: 3px;
+  color: White;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 5px 8px;
+}
+h3.prerelease {
+  background-color: #c9510c;
+  border: none;
+  border-radius: 3px;
+  color: White;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 5px 8px;
+}
 h5 {
   color: #999;
   font-size: 12px;
