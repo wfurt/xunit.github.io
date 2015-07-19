@@ -11,10 +11,6 @@ breadcrumb: Documentation
   All platforms support configuration with a JSON file, though the steps required to
   get that configuration file recognized by xUnit.net vary by platform.
 </p>
-<p class="note">
-  Support for JSON-based configuration was introduced in xUnit.net 2.1 Beta 4. It is
-  not supported in any previous versions of xUnit.net.
-</p>
 <ul>
   <li><a href="#desktop">Configuring desktop and PCL test projects</a></li>
   <li><a href="#dnx">Configuring DNX test projects</a></li>
@@ -75,7 +71,7 @@ breadcrumb: Documentation
     <th>Supported Values</th>
   </tr>
   <tr>
-    <th>diagnosticMessages</th>
+    <th><code>diagnosticMessages</code><br />[Runners v2.1 Beta 4+]</th>
     <td class="wrapped-wide">
       <p>
         Set this value to <code>true</code> to include diagnostic information during test
@@ -89,7 +85,7 @@ breadcrumb: Documentation
     </td>
   </tr>
   <tr>
-    <th>maxParallelThreads</th>
+    <th><code>maxParallelThreads</code><br />[Runners v2.1 Beta 4+]</th>
     <td class="wrapped-wide">
       <p>
         Set this to override the maximum number of threads to be used when parallelizing
@@ -102,7 +98,7 @@ breadcrumb: Documentation
     </td>
   </tr>
   <tr>
-    <th>methodDisplay</th>
+    <th><code>methodDisplay</code><br />[Runners v2.1 Beta 4+]</th>
     <td class="wrapped-wide">
       <p>
         Set this to override the default display name for test cases. If you set this
@@ -117,7 +113,7 @@ breadcrumb: Documentation
     </td>
   </tr>
   <tr>
-    <th>parallelizeAssembly</th>
+    <th><code>parallelizeAssembly</code><br />[Runners v2.1 Beta 4+]</th>
     <td class="wrapped-wide">
       <p>
         Set this to <code>true</code> if this assembly is willing to participate in
@@ -132,7 +128,7 @@ breadcrumb: Documentation
     </td>
   </tr>
   <tr>
-    <th>parallelizeTestCollections</th>
+    <th><code>parallelizeTestCollections</code><br />[Runners v2.1 Beta 4+]</th>
     <td class="wrapped-wide">
       <p>
         Set this to <code>true</code> if the assembly is willing to run tests inside
@@ -148,7 +144,7 @@ breadcrumb: Documentation
     </td>
   </tr>
   <tr>
-    <th>preEnumerateTheories</th>
+    <th><code>preEnumerateTheories</code><br />[Runners v2.1 Beta 4+]</th>
     <td class="wrapped-wide">
       <p>
         Set this to <code>true</code> to pre-enumerate theories so that there is an
@@ -158,6 +154,21 @@ breadcrumb: Documentation
         most useful for developers running tests inside Visual Studio, who wish to
         have the Code Lens test runner icons on their theory methods, since Code
         Lens does not support multiple tests from a single method.
+      </p>
+      <p>
+        <em>JSON schema type: <strong>boolean</strong><br />
+        Default value: <code>true</code></em>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th><code>useAppDomain</code><br />[Runners v2.1 Beta 4+]</th>
+    <td class="wrapped-wide">
+      <p>
+        Set this to <code>true</code> to use an app domain to discover and execute
+        tests. Set this to <code>false</code> to use the runner's app domain to
+        discover and execute tests. Note that not all runners support app domains,
+        so this flag may be ignored.
       </p>
       <p>
         <em>JSON schema type: <strong>boolean</strong><br />

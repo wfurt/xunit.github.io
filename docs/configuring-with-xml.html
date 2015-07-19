@@ -33,7 +33,11 @@ redirect_from: "/docs/configuration-files.html"
   JSON</a>.
 </em></p>
 
-<p>Below is a list of supported keys and values:</p>
+<p>
+  Below is a list of supported keys and values (the version column is the version of
+  <code>xunit.runner.utility</code> where the configuration element support was
+  added):
+</p>
 
 <table class="table">
   <tr>
@@ -41,7 +45,7 @@ redirect_from: "/docs/configuration-files.html"
     <th>Supported Values</th>
   </tr>
   <tr>
-    <th>xunit.diagnosticMessages</th>
+    <th><code>xunit.diagnosticMessages</code><br />[Runners v2.0+]</th>
     <td class="wrapped-wide">
       <p>
         Set this value to <code>true</code> to include diagnostic information during test
@@ -49,13 +53,13 @@ redirect_from: "/docs/configuration-files.html"
         messages.
       </p>
       <p>
-        <em>Default value: <code>false</code><br />
+        <em>Default value: <code>false</code><br />[Runners v2.0+]<br />
         Supported by: xUnit.net v2</em>
       </p>
     </td>
   </tr>
   <tr>
-    <th>xunit.maxParallelThreads</th>
+    <th><code>xunit.maxParallelThreads</code><br />[Runners v2.0+]</th>
     <td class="wrapped-wide">
       <p>
         Set this to override the maximum number of threads to be used when parallelizing
@@ -68,7 +72,7 @@ redirect_from: "/docs/configuration-files.html"
     </td>
   </tr>
   <tr>
-    <th>xunit.methodDisplay</th>
+    <th><code>xunit.methodDisplay</code><br />[Runners v2.0+]</th>
     <td class="wrapped-wide">
       <p>
         Set this to override the default display name for test cases. If you set this
@@ -83,7 +87,7 @@ redirect_from: "/docs/configuration-files.html"
     </td>
   </tr>
   <tr>
-    <th>xunit.parallelizeAssembly</th>
+    <th><code>xunit.parallelizeAssembly</code><br />[Runners v2.0+]</th>
     <td class="wrapped-wide">
       <p>
         Set this to <code>true</code> if this assembly is willing to participate in
@@ -98,7 +102,7 @@ redirect_from: "/docs/configuration-files.html"
     </td>
   </tr>
   <tr>
-    <th>xunit.parallelizeTestCollections</th>
+    <th><code>xunit.parallelizeTestCollections</code><br />[Runners v2.0+]</th>
     <td class="wrapped-wide">
       <p>
         Set this to <code>true</code> if the assembly is willing to run tests inside
@@ -114,7 +118,7 @@ redirect_from: "/docs/configuration-files.html"
     </td>
   </tr>
   <tr>
-    <th>xunit.preEnumerateTheories</th>
+    <th><code>xunit.preEnumerateTheories</code><br />[Runners v2.0+]</th>
     <td class="wrapped-wide">
       <p>
         Set this to <code>true</code> to pre-enumerate theories so that there is an
@@ -128,6 +132,21 @@ redirect_from: "/docs/configuration-files.html"
       <p>
         <em>Default value: <code>true</code><br />
         Supported by: xUnit.net v2</em>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th><code>xunit.useAppDomain</code><br />[Runners v2.1 Beta 4+]</th>
+    <td class="wrapped-wide">
+      <p>
+        Set this to <code>true</code> to use an app domain to discover and execute
+        tests. Set this to <code>false</code> to use the runner's app domain to
+        discover and execute tests. Note that not all runners support app domains,
+        so this flag may be ignored.
+      </p>
+      <p>
+        <em>Default value: <code>true</code><br />
+        Supported by: xUnit.net v1 and v2</em>
       </p>
     </td>
   </tr>
