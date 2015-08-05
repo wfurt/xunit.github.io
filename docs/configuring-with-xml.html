@@ -1,0 +1,153 @@
+---
+layout: default
+title: Configuring xUnit.net with XML
+breadcrumb: Documentation
+redirect_from: "/docs/configuration-files.html"
+---
+
+<h1>Configuring xUnit.net with XML</h1>
+
+<p>
+  Configuration files can be used to configure xUnit.net on a per test-assembly basis.
+  Desktop and portable class library (PCL) test projects are configured using the built-in
+  configuration system from .NET. If your test project does not already have an
+  <code>App.config</code> file, use Visual Studio to add one for you.
+</p>
+<p>
+  The configuration elements are placed inside the <code>&lt;appSettings&gt;</code>
+  section:
+</p>
+
+{% highlight xml %}
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <appSettings>
+    <add key="key-name" value="your-value"/>
+  </appSettings>
+</configuration>
+{% endhighlight %}
+
+<p><em>
+  Note: Only desktop and PCL test projects support XML-based configuration. For other
+  project types, see <a href="configuring-with-json.html">Configuring xUnit.net with
+  JSON</a>.
+</em></p>
+
+<p>
+  Below is a list of supported keys and values (the version column is the version of
+  <code>xunit.runner.utility</code> where the configuration element support was
+  added):
+</p>
+
+<table class="table">
+  <tr>
+    <th>Key</th>
+    <th>Supported Values</th>
+  </tr>
+  <tr>
+    <th><code>xunit.diagnosticMessages</code><br />[Runners v2.0+]</th>
+    <td class="wrapped-wide">
+      <p>
+        Set this value to <code>true</code> to include diagnostic information during test
+        discovery and execution. Each runner has a unique method of presenting diagnostic
+        messages.
+      </p>
+      <p>
+        <em>Default value: <code>false</code><br />[Runners v2.0+]<br />
+        Supported by: xUnit.net v2</em>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th><code>xunit.maxParallelThreads</code><br />[Runners v2.0+]</th>
+    <td class="wrapped-wide">
+      <p>
+        Set this to override the maximum number of threads to be used when parallelizing
+        tests within this assembly.
+      </p>
+      <p>
+        <em>Default value: the number of logical processors in your PC<br />
+        Supported by: xUnit.net v2</em>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th><code>xunit.methodDisplay</code><br />[Runners v2.0+]</th>
+    <td class="wrapped-wide">
+      <p>
+        Set this to override the default display name for test cases. If you set this
+        to <code>method</code>, the display name will be just the method (without the
+        class name); if this set this value to <code>classAndMethod</code>, the
+        default display name will be the fully qualified class name and method name.
+      </p>
+      <p>
+        <em>Default value: <code>classAndMethod</code><br />
+        Supported by: xUnit.net v2</em>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th><code>xunit.parallelizeAssembly</code><br />[Runners v2.0+]</th>
+    <td class="wrapped-wide">
+      <p>
+        Set this to <code>true</code> if this assembly is willing to participate in
+        parallelization with other assemblies. Test runners can use this information to
+        automatically enable parallelization across assemblies if all the assemblies
+        agree to it.
+      </p>
+      <p>
+        <em>Default value: <code>false</code><br />
+        Supported by: xUnit.net v1 and v2</em>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th><code>xunit.parallelizeTestCollections</code><br />[Runners v2.0+]</th>
+    <td class="wrapped-wide">
+      <p>
+        Set this to <code>true</code> if the assembly is willing to run tests inside
+        this assembly in parallel against each other. Tests in the same test collection
+        will be run sequentially against each other, but tests in different test
+        collections will be run in parallel against each other. Set this to
+        <code>false</code> to disable all parallelization within this test assembly.
+      </p>
+      <p>
+        <em>Default value: <code>true</code><br />
+        Supported by: xUnit.net v2</em>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th><code>xunit.preEnumerateTheories</code><br />[Runners v2.0+]</th>
+    <td class="wrapped-wide">
+      <p>
+        Set this to <code>true</code> to pre-enumerate theories so that there is an
+        individual test case for each theory data row. Set this to <code>false</code>
+        to return a single test case for each theory without pre-enumerating the
+        data ahead of time (this is how xUnit.net v1.x used to behave). This is
+        most useful for developers running tests inside Visual Studio, who wish to
+        have the Code Lens test runner icons on their theory methods, since Code
+        Lens does not support multiple tests from a single method.
+      </p>
+      <p>
+        <em>Default value: <code>true</code><br />
+        Supported by: xUnit.net v2</em>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th><code>xunit.useAppDomain</code><br />[Runners v2.1 Beta 4+]</th>
+    <td class="wrapped-wide">
+      <p>
+        Set this to <code>true</code> to use an app domain to discover and execute
+        tests. Set this to <code>false</code> to use the runner's app domain to
+        discover and execute tests. Note that not all runners support app domains,
+        so this flag may be ignored.
+      </p>
+      <p>
+        <em>Default value: <code>true</code><br />
+        Supported by: xUnit.net v1 and v2</em>
+      </p>
+    </td>
+  </tr>
+</table>

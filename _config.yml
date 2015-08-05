@@ -1,1 +1,3 @@
 permalink: :section
+gems:
+  - jekyll-redirect-from

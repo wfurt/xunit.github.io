@@ -1,31 +1,38 @@
 ---
 layout: default
 title: Home
-noheader: true
 ---
 
-<h1><img src="https://raw.github.com/xunit/media/master/full-logo.png" title="xUnit.net" width="141" /></h1>
+<h1>About xUnit.net</h1>
 <p>
-    xUnit.net is a free, open source, community-focused unit testing tool for the .NET Framework.
-    Written by the original inventor of NUnit v2, xUnit.net is the latest technology for unit testing
-    C#, F#, VB.NET and other .NET languages. Works with ReSharper, CodeRush, TestDriven.NET and Xamarin.
-    xUnit.net is part of the <a href="http://www.outercurve.org/Galleries/ASPNETOpenSourceGallery">ASP.NET Open Source Gallery</a>
-    under the <a href="http://www.outercurve.org/">Outercurve Foundation</a>. It is licensed under the
-    <a href="http://opensource.org/licenses/Apache-2.0">Apache 2 license</a>, which is approved by the OSI.
+  xUnit.net is a free, open source, community-focused unit testing tool for the
+  .NET Framework. Written by the original inventor of NUnit v2, xUnit.net is the
+  latest technology for unit testing C#, F#, VB.NET and other .NET languages.
+  xUnit.net works with ReSharper, CodeRush, TestDriven.NET and Xamarin. It is
+  part of the <a href="http://www.outercurve.org/Galleries/ASPNETOpenSourceGallery">ASP.NET Open Source Gallery</a>
+  under the <a href="http://www.outercurve.org/">Outercurve Foundation</a>, licensed
+  under <a href="http://opensource.org/licenses/Apache-2.0">Apache 2</a> (an OSI
+  approved license).
 </p>
 
 <blockquote><em>Follow on Twitter: <a href="https://twitter.com/xunit">@xunit</a>, <a href="https://twitter.com/jamesnewkirk">@jamesnewkirk</a>, <a href="https://twitter.com/bradwilson">@bradwilson</a>, <a href="https://twitter.com/citizenmatt">@citizenmatt</a>, <a href="https://twitter.com/onovotny">@onovotny</a></em><br />
-<em>Continuous integration builds are available online via <a href="http://teamcity.tier3.com/guestLogin.html?guest=1">TeamCity</a> (sponsored by <a href="http://www.centurylinkcloud.com">CenturyLink Cloud</a>).</em><br />
-<em>CodeRush Test Runner support is provided by <a href="http://www.devexpress.com/">DevExpress</a>.</em><br />
-<em>The xUnit.net logo was designed by <a href="http://flavors.me/nathanyoung">Nathan Young</a>.</em></blockquote>
+  <em>Discussions are held on <a href="https://xunit.slack.com/">Slack</a>. Not a member yet? <a href="https://xunit-slackin.herokuapp.com/">Sign up now!</a></em><br />
+  <em>Continuous integration builds are available online via <a href="http://teamcity.tier3.com/guestLogin.html?guest=1">TeamCity</a> (sponsored by <a href="http://www.centurylinkcloud.com">CenturyLink Cloud</a>).</em><br />
+  <em>CodeRush Test Runner support is provided by <a href="http://www.devexpress.com/">DevExpress</a>.</em><br />
+  <em>The xUnit.net logo was designed by <a href="http://flavors.me/nathanyoung">Nathan Young</a>.</em>
+</blockquote>
 
 <h2>Table of Contents</h2>
 
 <ul>
   <li><a href="#documentation">Documentation</a></li>
+  <li><a href="#releases">Release Notes</a></li>
+  <li><a href="#runners">Test Runner Compatibility</a></li>
   <li><a href="#faq">Frequently Asked Questions</a></li>
   <li><a href="#projects">Github Projects</a></li>
   <li><a href="#links">Links to Resources</a></li>
+  <li><a href="#copyrights">Additional copyrights</a></li>
+  <li><a href="#stickers">Laptop stickers!</a></li>
 </ul>
 
 <h2 id="documentation">Documentation</h2>
@@ -33,15 +40,222 @@ noheader: true
 <h3>Getting Started</h3>
 
 <ul>
+  <li><a href="docs/why-did-we-build-xunit-1.0.html">Why did we build xUnit 1.0?</a></li>
   <li><a href="docs/getting-started.html">Getting started with xUnit.net</a></li>
+  <li><a href="docs/getting-started-dnx.html">Getting started with xUnit.net and DNX / ASP.NET 5</a></li>
+  <li><a href="docs/nuget-packages.html">What NuGet packages should I use?</a></li>
+  <li><a href="docs/capturing-output.html">Capturing output</a></li>
+  <li><a href="docs/configuring-with-json.html">Configuring xUnit.net with JSON</a> (all project types)</li>
+  <li><a href="docs/configuring-with-xml.html">Configuring xUnit.net with XML</a> (desktop &amp; PCL projects only)</li>
+  <li><a href="docs/shared-context.html">Sharing context between tests</a> (class and collection fixtures)</li>
+  <li><a href="docs/running-tests-in-parallel.html">Running tests in parallel</a></li>
+  <li><a href="docs/running-tests-in-vs.html">Running xUnit.net tests in Visual Studio</a></li>
+  <li><a href="docs/running-tests-in-msbuild.html">Running xUnit.net tests in MSBuild</a></li>
+  <li><a href="docs/getting-test-results-in-teamcity.html">Getting Test Results in TeamCity</a></li>
+  <li><a href="docs/getting-test-results-in-ccnet.html">Getting Test Results in CruiseControl.NET</a></li>
+  <li><a href="docs/comparisons.html">Comparing xUnit.net to other frameworks</a></li>
+  <li><a href="docs/building-xunit.html">Getting the source and building xUnit.net</a></li>
 </ul>
 
 <h3>Migration</h3>
 
 <ul>
   <li><a href="docs/test-migration.html">Migrating unit tests from v1 to v2</a></li>
-  <li><a href="docs/extension-migration.html">Migrating extensions from v1 to v2</a></li>
+  <li><a href="docs/upgrade-extensions.html">Where to find code that used to live in <code>xunit.extensions</code></a></li>
 </ul>
+
+<h2 id="releases">Release Notes</h2>
+
+<h3 class="release">Release</h3>
+
+<ul>
+  <li>
+    <a href="release-notes/2015-07-13.html">July 13, 2015</a> (includes
+    <strong>Visual Studio runner 2.0.1</strong>)
+  </li>
+  <li>
+    <a href="release-notes/2015-03-16.html">March 16, 2015</a> (includes
+    <strong>xUnit.net 2.0</strong> and <strong>Visual Studio runner
+    2.0</strong>)
+  </li>
+</ul>
+
+<h3 class="prerelease">Pre-release</h3>
+
+<ul>
+  <li>
+    <a href="release-notes/2015-08-04.html">August 4, 2015</a> (includes
+    <strong>xUnit.net 2.1 Beta 4</strong>, <strong>Visual Studio runner
+    2.1 Beta 4</strong>, and <strong>DNX (ASP.NET 5) runner 2.1 Beta 4</strong>)
+  </li>
+  <li>
+    <a href="release-notes/2015-07-04.html">July 4, 2015</a> (includes
+    <strong>Visual Studio runner 2.0.1 RC 1</strong>)
+  </li>
+  <li>
+    <a href="release-notes/2015-06-30.html">June 30, 2015</a> (includes
+    <strong>xUnit.net 2.1 Beta 3</strong>, <strong>Visual Studio runner
+    2.1 Beta 3</strong>, and <strong>DNX (ASP.NET 5) runner 2.1 Beta 3</strong>)
+  </li>
+  <li>
+    <a href="release-notes/2015-05-03.html">May 3, 2015</a> (includes
+    <strong>xUnit.net 2.1 Beta 2</strong>, <strong>Visual Studio runner
+    2.1 Beta 2</strong>, and <strong>DNX (ASP.NET 5) runner 2.1 Beta 2</strong>)
+  </li>
+  <li>
+    <a href="release-notes/2015-03-21.html">March 21, 2015</a> (includes
+    <strong>xUnit.net 2.1 Beta 1</strong>, <strong>Visual Studio runner
+    2.1 Beta 1</strong>, and <strong>ASP.NET 5 runner 2.1 Beta 1</strong>)
+  </li>
+  <li>
+    <a href="release-notes/2015-03-09.html">March 9, 2015</a> (includes
+    <strong>xUnit.net 2.0 RC 4</strong> and <strong>Visual Studio runner
+    2.0 RC 4</strong>)
+  </li>
+  <li>
+    <a href="release-notes/2015-02-23.html">February 23, 2015</a> (includes
+    <strong>xUnit.net 2.0 RC 3</strong>, <strong>Visual Studio runner
+    2.0 RC 3</strong>, and <strong>ASP.NET 5 runner 2.0 RC 3</strong>)
+  </li>
+  <li>
+    <a href="release-notes/2015-02-17.html">February 17, 2015</a> (includes
+    <strong>xUnit.net 2.0 RC 2</strong>, <strong>Visual Studio runner
+    2.0 RC 2</strong>, and <strong>ASP.NET 5 runner 2.0 RC 2</strong>)
+  </li>
+  <li>
+    <a href="release-notes/2015-01-20.html">January 20, 2015</a> (includes
+    <strong>xUnit.net 2.0 RC 1</strong> and <strong>Visual Studio runner
+    2.0 RC 1</strong>)
+  </li>
+  <li>
+    <a href="release-notes/2014-11-19.html">November 19, 2014</a> (includes
+    <strong>xUnit.net 2.0 Beta 5</strong> and <strong>Visual Studio runner
+    0.99.9</strong>)
+  </li>
+</ul>
+
+<h2 id="runners">Test Runner Compatibility</h2>
+
+<table class="table smaller">
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>xUnit.net</th>
+      <th>Console</th>
+      <th>MSBuild</th>
+      <th>TestDriven.NET</th>
+      <th>Visual Studio <sup>2</sup></th>
+      <th>Resharper</th>
+      <th>Devices</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Desktop Class Library</th>
+      <td>1.9.2, 2.0+</td>
+      <td>&check; <sup>3a</sup></td>
+      <td>&check; <sup>3a</sup></td>
+      <td>&check; <sup>3a</sup></td>
+      <td>&check; <sup>3b (2012+)</sup></td>
+      <td>&check; <sup>3c</sup></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th>Portable Class Library</th>
+      <td>2.0+</td>
+      <td>&check; <sup>3a</sup></td>
+      <td>&check; <sup>3a</sup></td>
+      <td>&check; <sup>3a</sup></td>
+      <td>&check; <sup>3b (2012+)</sup></td>
+      <td>&check; <sup>3c</sup></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th>ASP.NET 5.0<br />(Windows, Linux, OS X)</th>
+      <td>2.1+</td>
+      <td>&check; <sup>3e</sup></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&check; <sup>3e (2015+)</sup></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th>Universal Application<br />(Windows 8.1, Windows Phone 8.1)</th>
+      <td>2.0+</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&check; <sup>3b (2013+)</sup></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th>Windows 8 Application</th>
+      <td>2.0+</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&check; <sup>3b (2012+)</sup></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th>Windows Phone 8 (Silverlight)</th>
+      <td>2.0+</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&check; <sup>3d</sup></td>
+    </tr>
+    <tr>
+      <th>Xamarin MonoAndroid Application <sup>1</sup></th>
+      <td>2.0+</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&check; <sup>3d</sup></td>
+    </tr>
+    <tr>
+      <th>Xamarin MonoTouch (iOS Classic) Application <sup>1</sup></th>
+      <td>2.0+</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&check; <sup>3d</sup></td>
+    </tr>
+    <tr>
+      <th>Xamarin iOS Unified Application <sup>1</sup></th>
+      <td>2.0+</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&check; <sup>3d</sup></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="7">
+        <sup>1</sup> Requires Xamarin for Visual Studio or Xamarin Studio<br />
+        <sup>2</sup> Visual Studio support requires Visual Studio Community, or a paid-for version of Visual Studio (Expression editions are not supported)<br />
+        <sup>3</sup> Test runner source code availability:<br />
+        &nbsp; &nbsp; <sup>a</sup> <a href="https://github.com/xunit/xunit">https://github.com/xunit/xunit</a><br />
+        &nbsp; &nbsp; <sup>b</sup> <a href="https://github.com/xunit/visualstudio.xunit">https://github.com/xunit/visualstudio.xunit</a><br />
+        &nbsp; &nbsp; <sup>c</sup> <a href="https://github.com/xunit/resharper-xunit">https://github.com/xunit/resharper-xunit</a><br />
+        &nbsp; &nbsp; <sup>d</sup> <a href="https://github.com/xunit/devices.xunit">https://github.com/xunit/devices.xunit</a><br />
+        &nbsp; &nbsp; <sup>e</sup> <a href="https://github.com/xunit/aspnet.xunit">https://github.com/xunit/aspnet.xunit</a>
+      </td>
+    </tr>
+  </tfoot>
+</table>
 
 <h2 id="faq">Frequently Asked Questions</h2>
 
@@ -72,9 +286,10 @@ noheader: true
 
 <ul>
   <li><a href="https://github.com/xunit/xunit">xUnit.net</a> (core framework, built-in runners)</li>
+  <li><a href="https://github.com/xunit/aspnet.xunit">ASP.NET runner</a></li>
   <li><a href="https://github.com/xunit/resharper-xunit">Resharper runner</a></li>
   <li><a href="https://github.com/xunit/visualstudio.xunit">Visual Studio runner</a></li>
-  <li><a href="https://github.com/xunit/xamarin.xunit">Xamarin runner</a> (for iOS and Android)</li>
+  <li><a href="https://github.com/xunit/devices.xunit">Device runners</a></li>
   <li><a href="https://github.com/xunit/media">Media files</a></li>
   <li><a href="https://github.com/xunit/xunit.github.io">This site</a></li>
 </ul>
@@ -91,4 +306,28 @@ noheader: true
   <li><a href="http://msdn.microsoft.com/en-us/library/0k6kkbsd.aspx">MSBuild Reference</a></li>
 </ul>
 
-<p><a href="http://www.NDepend.com"><img src="https://raw.github.com/xunit/media/master/powered-by-ndepend-transparent.png" title="Powered by NDepend" /></a></p>
+<p>
+  <a href="http://www.NDepend.com">
+    <img src="https://raw.github.com/xunit/media/master/powered-by-ndepend-transparent.png" title="Powered by NDepend" width="142" />
+  </a>
+</p>
+
+<h2 id="copyrights">Additional copyrights</h2>
+
+<p>
+  Portions copyright Jérémie "Garuma" Laval.<br />
+  Portions copyright Novell, Inc.<br />
+  Portions copyright .NET Foundation<br />
+  Portions copyright The Legion Of The Bouncy Castle
+</p>
+
+<h2 id="stickers">Laptop stickers!</h2>
+
+<p>Show your love for xUnit.net with one of our two laptop stickers, available from <a href="https://www.stickermule.com/">Sticker Mule</a>.</p>
+
+<table>
+  <tr>
+    <td class="border" style="padding: 5px 10px"><a href="https://www.stickermule.com/marketplace/4413-xunit-dot-net-full-logo"><img src="https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/4413/large/1425153722/xunit-dot-net-full-logo.png" width="221"></a></td>
+    <td class="border" style="padding: 5px 10px"><a href="https://www.stickermule.com/marketplace/4404-xunit-dot-net-small-logo"><img src="https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/4404/large/1425068890/xunit-dot-net-small-logo.png" width="103"></a></td>
+  </tr>
+</table>

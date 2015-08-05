@@ -1,0 +1,179 @@
+---
+layout: default
+title: Configuring xUnit.net with JSON
+breadcrumb: Documentation
+---
+
+<h1>Configuring xUnit.net with JSON</h1>
+
+<p>
+  Configuration files can be used to configure xUnit.net on a per test-assembly basis.
+  All platforms support configuration with a JSON file, though the steps required to
+  get that configuration file recognized by xUnit.net vary by platform.
+</p>
+<ul>
+  <li><a href="#desktop">Configuring desktop and PCL test projects</a></li>
+  <li><a href="#dnx">Configuring DNX test projects</a></li>
+  <li><a href="#items">Supported configuration items</a></li>
+</ul>
+<p><em>More supported platforms will be coming soon.</em></p>
+
+<h2 id="desktop">Configuring desktop and PCL test projects</h2>
+
+<p>
+  To use JSON-based configuration in a desktop or PCL unit test project, you need to take two steps:
+</p>
+<ol>
+  <li>
+    Add a new JSON file to root of your test project. Name the file <code>xunit.runner.json</code>.
+    (If your version of Visual Studio does not have "JSON file" as an option for a new file, just choose
+    to add a text file, and make sure it has the right name.)
+  </li>
+  <li>
+    Right click on the newly added file in Solution Explorer, and choose <code>Properties</code>.
+    In the Properties window, change the setting for <code>Copy to Output Directory</code> to
+    <code>Copy if newer</code>. This ensures that the file to copied into your <code>bin</code>
+    folder where the xUnit.net runners can find it.
+  </li>
+</ol>
+<p><em>Now proceed to the list of <a href="#items">supported configuration items</a>.</em></p>
+
+<h2 id="dnx">Configuring DNX test projects</h2>
+
+<p>
+  To use JSON-based configuration in a DNX unit test project, just add a file to the root of your
+  test project named <code>xunit.runner.json</code>. The test runner will automatically find the
+  configuration settings from this file.
+</p>
+<p><em>Now proceed to the list of <a href="#items">supported configuration items</a>.</em></p>
+
+<h2 id="items">Supported configuration items</h2>
+
+<p>The configuration elements are placed inside a top-level object:</p>
+{% highlight json %}
+{
+  "enum-or-string-key": "value1",
+  "boolean-key": true,
+  "integer-key": 42
+}
+{% endhighlight %}
+<p>
+  A <a href="../schema/v1/xunit.runner.schema.json">JSON schema</a> is published
+  on this site, and referenced from <a href="http://schemastore.org">SchemaStore</a>;
+  versions of Visual Studio with JSON support should be able to automatically detect
+  the schema based on the configuration filename, and automatically provide
+  Intellisense for you.
+</p>
+
+<table class="table">
+  <tr>
+    <th>Key</th>
+    <th>Supported Values</th>
+  </tr>
+  <tr>
+    <th><code>diagnosticMessages</code><br />[Runners v2.1 Beta 4+]</th>
+    <td class="wrapped-wide">
+      <p>
+        Set this value to <code>true</code> to include diagnostic information during test
+        discovery and execution. Each runner has a unique method of presenting diagnostic
+        messages.
+      </p>
+      <p>
+        <em>JSON schema type: <strong>boolean</strong><br />
+        Default value: <code>false</code></em>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th><code>maxParallelThreads</code><br />[Runners v2.1 Beta 4+]</th>
+    <td class="wrapped-wide">
+      <p>
+        Set this to override the maximum number of threads to be used when parallelizing
+        tests within this assembly.
+      </p>
+      <p>
+        <em>JSON schema type: <strong>integer</strong><br />
+        Default value: the number of logical processors in your PC</em>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th><code>methodDisplay</code><br />[Runners v2.1 Beta 4+]</th>
+    <td class="wrapped-wide">
+      <p>
+        Set this to override the default display name for test cases. If you set this
+        to <code>method</code>, the display name will be just the method (without the
+        class name); if this set this value to <code>classAndMethod</code>, the
+        default display name will be the fully qualified class name and method name.
+      </p>
+      <p>
+        <em>JSON schema type: <strong>enum</strong><br />
+        Default value: <code>"classAndMethod"</code></em>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th><code>parallelizeAssembly</code><br />[Runners v2.1 Beta 4+]</th>
+    <td class="wrapped-wide">
+      <p>
+        Set this to <code>true</code> if this assembly is willing to participate in
+        parallelization with other assemblies. Test runners can use this information to
+        automatically enable parallelization across assemblies if all the assemblies
+        agree to it.
+      </p>
+      <p>
+        <em>JSON schema type: <strong>boolean</strong><br />
+        Default value: <code>false</code></em>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th><code>parallelizeTestCollections</code><br />[Runners v2.1 Beta 4+]</th>
+    <td class="wrapped-wide">
+      <p>
+        Set this to <code>true</code> if the assembly is willing to run tests inside
+        this assembly in parallel against each other. Tests in the same test collection
+        will be run sequentially against each other, but tests in different test
+        collections will be run in parallel against each other. Set this to
+        <code>false</code> to disable all parallelization within this test assembly.
+      </p>
+      <p>
+        <em>JSON schema type: <strong>boolean</strong><br />
+        Default value: <code>true</code></em>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th><code>preEnumerateTheories</code><br />[Runners v2.1 Beta 4+]</th>
+    <td class="wrapped-wide">
+      <p>
+        Set this to <code>true</code> to pre-enumerate theories so that there is an
+        individual test case for each theory data row. Set this to <code>false</code>
+        to return a single test case for each theory without pre-enumerating the
+        data ahead of time (this is how xUnit.net v1.x used to behave). This is
+        most useful for developers running tests inside Visual Studio, who wish to
+        have the Code Lens test runner icons on their theory methods, since Code
+        Lens does not support multiple tests from a single method.
+      </p>
+      <p>
+        <em>JSON schema type: <strong>boolean</strong><br />
+        Default value: <code>true</code></em>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th><code>useAppDomain</code><br />[Runners v2.1 Beta 4+]</th>
+    <td class="wrapped-wide">
+      <p>
+        Set this to <code>true</code> to use an app domain to discover and execute
+        tests. Set this to <code>false</code> to use the runner's app domain to
+        discover and execute tests. Note that not all runners support app domains,
+        so this flag may be ignored.
+      </p>
+      <p>
+        <em>JSON schema type: <strong>boolean</strong><br />
+        Default value: <code>true</code></em>
+      </p>
+    </td>
+  </tr>
+</table>
