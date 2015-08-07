@@ -9,6 +9,9 @@ p {
 p, pre, table {
   margin-left: 20px;
 }
+.note p {
+  margin-left: 0;
+}
 h1, .h1, h2, .h2, h3, .h3 {
   margin: 20px 0 10px 0;
   font-weight: 600;
