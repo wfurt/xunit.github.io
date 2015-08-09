@@ -208,3 +208,6 @@ li>blockquote {
 .version-ci {
   display: none;
 }
+.prerelease-more {
+  display: none;
+}
