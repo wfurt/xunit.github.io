@@ -58,7 +58,7 @@ breadcrumb: Documentation
 }
 {% endhighlight %}
 <p>
-  A <a href="../schema/v1/xunit.runner.schema.json">JSON schema</a> is published
+  A <a href="../schema/v2.1-rc1/xunit.runner.schema.json">JSON schema</a> is published
   on this site, and referenced from <a href="http://schemastore.org">SchemaStore</a>;
   versions of Visual Studio with JSON support should be able to automatically detect
   the schema based on the configuration filename, and automatically provide
@@ -69,6 +69,24 @@ breadcrumb: Documentation
   <tr>
     <th>Key</th>
     <th>Supported Values</th>
+  </tr>
+  <tr>
+    <th><code>appDomain</code><br />[Runners v2.1 RC 1+]</th>
+    <td class="wrapped-wide">
+      <p>
+        Set this value to determine whether app domains are used. By default, they
+        will be used when available (the <code>ifAvailable</code> value). If you
+        set this to <code>required</code>, it will require that app domains are
+        available; if you set this to <code>denied</code>, it will not use app domains.
+        Note that only desktop runners (and desktop unit tests) can use app domains,
+        so this value will be ignored when used with non-desktop runners or with
+        unit tests that are not targetting the desktop CLR.
+      </p>
+      <p>
+        <em>JSON schema type: <strong>enum</strong><br />
+        Default value: <code>ifAvailable</code></em>
+      </p>
+    </td>
   </tr>
   <tr>
     <th><code>diagnosticMessages</code><br />[Runners v2.1 Beta 4+]</th>
@@ -162,13 +180,12 @@ breadcrumb: Documentation
     </td>
   </tr>
   <tr>
-    <th><code>useAppDomain</code><br />[Runners v2.1 Beta 4+]</th>
+    <th><code>shadowCopy</code><br />[Runners v2.1 RC 1+]</th>
     <td class="wrapped-wide">
       <p>
-        Set this to <code>true</code> to use an app domain to discover and execute
-        tests. Set this to <code>false</code> to use the runner's app domain to
-        discover and execute tests. Note that not all runners support app domains,
-        so this flag may be ignored.
+        Set this to <code>true</code> to use shadow copying when running tests in
+        separate app domains; set to <code>false</code> to run tests without shadow
+        copying. When running tests without app domains, this value is ignored.
       </p>
       <p>
         <em>JSON schema type: <strong>boolean</strong><br />
