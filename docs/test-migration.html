@@ -120,6 +120,24 @@ breadcrumb: Documentation
     </p>
   </li>
   <li>
+    <p>
+      <strong>Compiler error:</strong><br />
+      <code>The type or namespace name 'IUseFixture&lt;T&gt;' could not be found (are you missing a using directive or an assembly reference?)</code>
+    </p>
+    <p>
+      The interface has been renamed, and its behavior is slightly different now.
+    </p>
+    <p>
+      <ol>
+        <li>Change from <code>IUseFixture</code> to <code>IClassFixture</code>.</li>
+        <li>Remove the <code>SetFixture</code> method. If you need access to your fixture object, you can accept it as a constructor argument instead.</li>
+      </ol>
+    </p>
+    <p>
+      See <a href="shared-context.html">Sharing Context between Tests</a> for more information about <code>IClassFixture</code>.
+    </p>
+  </li>
+  <li>
     <p><strong>Missing classes from xunit.extensions</strong></p>
     <p>
       Please see
