@@ -18,6 +18,19 @@ breadcrumb: Documentation
 </ul>
 <p><em>More supported platforms will be coming soon.</em></p>
 
+<p class="note">
+  In these examples, we tell you to use the file name <code>xunit.runner.json</code>.
+  You can also use <code>&lt;AssemblyName&gt;.xunit.runner.json</code> (where
+  <code>&lt;AssemblyName&gt;</code> is the name of your unit test assembly,
+  without the file extension like <code>.dll</code> or <code>.exe</code>).
+  You should only need to use this longer name format if your unit tests DLLs will
+  all be placed into the same output folder, and you need to disambiguate the
+  various configuration files.<br />
+  <br />
+  The assembly-specific filename takes precedence over the non-specific filename;
+  there is <strong>no merging</strong> of values between files.
+</p>
+
 <h2 id="desktop">Configuring desktop and PCL test projects</h2>
 
 <p>

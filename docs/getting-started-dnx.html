@@ -24,16 +24,41 @@ redirect_from: "/docs/getting-started-aspnet.html"
 <div class="note">
   <p>
     Note: Specific versions of xUnit.net only support specific versions of DNX.
-    The examples shown here are done with xUnit.net 2.1 beta 4, and DNX 1.0
-    beta 6. The version compatibility list is:
+    The examples shown here are done with xUnit.net 2.1 RC 1, xUnit.net DNX
+    runner 2.1 beta 5, and DNX 1.0 beta 7. The version compatibility list is:
   </p>
-  <ul>
-    <li>xUnit.net 2.1 Beta 2 => DNX 1.0 Beta 4</li>
-    <li>xUnit.net 2.1 Beta 3 => DNX 1.0 Beta 5</li>
-    <li>xUnit.net 2.1 Beta 4 => DNX 1.0 Beta 6</li>
-  </ul>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>DNX version</th>
+        <th>xunit packages</th>
+        <th>xunit.runner.dnx package</th>
+        <th>Execution command</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>1.0.0-beta4</code></td>
+        <td><code>2.1.0-beta2-build2981</code></td>
+        <td><code>2.1.0-beta2-build79</code></td>
+        <td><code>dnx <em>path</em> test</code></td>
+      </tr>
+      <tr>
+        <td><code>1.0.0-beta5</code><br /><code>1.0.0-beta6</code></td>
+        <td><code>2.1.0-beta3-build3029</code></td>
+        <td><code>2.1.0-beta3-build99</code></td>
+        <td><code>dnx <em>path</em> test</code></td>
+      </tr>
+      <tr>
+        <td><code>1.0.0-beta7</code></td>
+        <td><code>2.1.0-rc1-build3168</code></td>
+        <td><code>2.1.0-beta5-build169</code></td>
+        <td><code>dnx test</code> or <code>dnx -p <em>path</em> test</code></td>
+      </tr>
+    </tbody>
+  </table>
   <strong><em>Attempting to use any version of DNX other than the supported version will
-  result in undetermined behavior, and is not officially supported.</em></strong> If you
+  result in indeterminate behavior, and is not officially supported.</em></strong> If you
   get unexpected errors running tests, use <code>dnvm list</code> in your shell (or
   check <code>global.json</code> in Visual Studio) to validate that you are using the
   right DNX versions.
@@ -68,8 +93,8 @@ redirect_from: "/docs/getting-started-aspnet.html"
     "projectUrl": "",
     "licenseUrl": "",
     "dependencies": {
-        "xunit": "2.1.0-beta4-*",
-        "xunit.runner.dnx": "2.1.0-beta4-*"
+        "xunit": "2.1.0-rc1-build3168",
+        "xunit.runner.dnx": "2.1.0-beta5-build169"
     },
     "commands": {
         "test": "xunit.runner.dnx"
@@ -129,11 +154,11 @@ namespace MyFirstDnxUnitTests
 </p>
 
 <p>
-  To run the DNX runner, type <code>dnx . test</code>, as shown below:
+  To run the DNX runner, type <code>dnx test</code>, as shown below:
 </p>
 
 <pre>
-&gt; <span style="background-color: #ff0">dnx . test</span>
+&gt; <span style="background-color: #ff0">dnx test</span>
 xUnit.net DNX test runner (32-bit DNX 4.5.1)
 Copyright (C) 2015 Outercurve Foundation.
 

@@ -107,6 +107,14 @@ table, .table {
 .table p+p {
   margin-top: 15px;
 }
+.note .table>thead>tr>th {
+  border-bottom: 2px solid #9c9;
+  text-align: left;
+}
+.note .table>tbody>tr>td {
+  border-top: 1px solid #9c9;
+  text-align: left;
+}
 .smaller {
   font-size: 90%;
 }
@@ -123,9 +131,9 @@ li p, blockquote p {
 }
 pre, code {
   background-color: #faf7f0;
-  font-family: "Source Code Pro", monospace;
+  font-family: Inconsolata, monospace;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 15px;
 }
 h2 code {
   background: inherit;
@@ -207,7 +215,7 @@ li>blockquote {
 }
 .note code {
   background-color: #cec;
-  color: #090;
+  color: #363;
 }
 .version-selector {
   color: #666;
