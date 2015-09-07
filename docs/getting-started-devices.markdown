@@ -13,7 +13,7 @@ xUnit for Devices projects all follow a similar approach: create a new blank app
 ## Supported devices
 xUnit for Devices supports the following platforms. Click for a platform-specific getting started guide.
  
-* [Universal Windows Platform](/docs/getting-started-with-devices-uwp.html) ( Desktop, Mobile, Tablet, IoT, etc)
+* [Universal Windows Platform](/docs/getting-started-devices-uwp.html) ( Desktop, Mobile, Tablet, IoT, etc)
 * Windows 8.1
 * Windows Phone 8.1
 * Windows Phone Silverlight 8.0
