@@ -11,7 +11,7 @@ breadcrumb: Documentation
 ![](../images/getting-started-devices-uwp/AddPackages.png){: .border }
 3. Replace App.xaml and App.xaml.cs with the following (using your namespace in `x:Class`):
 	* **App.xaml**
-{% highlight xaml %}
+{% highlight xml %}
 <ui:RunnerApplication
     x:Class="UwpTestRunner.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
