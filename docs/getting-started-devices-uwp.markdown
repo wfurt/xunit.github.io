@@ -7,9 +7,12 @@ breadcrumb: Documentation
 
 1. File -> New Project and create a Blank UWP project:
 
-<img src="../images/getting-started-devices-uwp/CreateProject.png" width="944" height="590" />
+<img src="../images/getting-started-devices-uwp/CreateProject.png" width="944" height="590" />{: .border }
+&nbsp;
 2. Add the `xunit.runner.devices` package. If you want unit tests in this project, also add `xunit`:
-<img src="../images/getting-started-devices-uwp/AddPackages.png" width="527" height="350"/>
+
+<img src="../images/getting-started-devices-uwp/AddPackages.png" width="527" height="350"/>{: .border }
+&nbsp;
 3. Replace `App.xaml` and `App.xaml.cs` with the following (using your namespace in `x:Class`):
 
 * **App.xaml**
@@ -23,7 +26,8 @@ breadcrumb: Documentation
     RequestedTheme="Light">
 </ui:RunnerApplication>
 {% endhighlight %} 
-<img src="../images/getting-started-devices-uwp/App.xaml.png" width="601" height="171" />
+<img src="../images/getting-started-devices-uwp/App.xaml.png" width="601" height="171" />{: .border }
+
 * **App.xaml.cs**
 
   {% highlight C# %}
@@ -45,11 +49,14 @@ namespace UwpTestRunner
 }
 {% endhighlight %} 
 
-<img src="../images/getting-started-devices-uwp/App.xaml.cs.png" width="670" height="354" />
+<img src="../images/getting-started-devices-uwp/App.xaml.cs.png" width="670" height="354" />{: .border }
+&nbsp;
 4. Delete `MainPage.xaml` and `MainPage.xaml.cs`:
 
-<img src="../images/getting-started-devices-uwp/DeleteMainPage.png" width="308" height="269" />
+<img src="../images/getting-started-devices-uwp/DeleteMainPage.png" width="308" height="269" />{: .border }
+&nbsp;
 5. Add your unit tests:
 
-<img src="../images/getting-started-devices-uwp/AddTests.png" width="543" height="439" />
+<img src="../images/getting-started-devices-uwp/AddTests.png" width="543" height="439" />{: .border }
+&nbsp;
 6. (optional) If your tests are in other assemblies, add a project reference and modify the `App.xaml.cs` to include the assembly containing your tests
