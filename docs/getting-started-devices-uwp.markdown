@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Getting started with Devices: Universal Windows Platform
+title: Getting started with Devices on Universal Windows Platform
 breadcrumb: Documentation
 ---
 # Getting started with Devices: Universal Windows Platform
@@ -46,3 +46,4 @@ namespace UwpTestRunner
 5. Add your unit tests:
 <img src="../images/getting-started-devices-uwp/AddTests.png" width="543" height="439" />{: .border }
 6. (optional) If your tests are in other assemblies, add a project reference and modify the `App.xaml.cs` to include the assembly containing your tests
+
