@@ -21,4 +21,4 @@ The runners in xUnit.net detect TeamCity is running through environment variable
 
 *For more information on using the Console runner, see [Getting Started](getting-started.html).*<br>
 *For more information on using the DNX runner, see [Getting Started with DNX](getting-started-dnx.html).*<br>
-*For more information on using MSBuild, see [Running xUnit.net Tests in MSBuild](how-to-use-msbuild.html).*<br>
+*For more information on using MSBuild, see [Running xUnit.net Tests in MSBuild](running-tests-in-msbuild.html).*<br>
