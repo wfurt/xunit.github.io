@@ -22,7 +22,7 @@ breadcrumb: Documentation
 </ul>
 
 <p><em>
-  Note: The examples were done with xUnit.net v2.0. The version numbers
+  Note: The examples were done with xUnit.net v2.1. The version numbers
   and paths may differ for you, depending on which version you're using.
 </em></p>
 
@@ -66,11 +66,12 @@ breadcrumb: Documentation
 {% highlight xml %}
 <?xml version="1.0" encoding="utf-8"?>
 <packages>
-  <package id="xunit" version="2.0.0" targetFramework="net45" />
-  <package id="xunit.abstractions" version="2.0.0" targetFramework="net45" />
-  <package id="xunit.assert" version="2.0.0" targetFramework="net45" />
-  <package id="xunit.core" version="2.0.0" targetFramework="net45" />
-  <package id="xunit.extensibility.core" version="2.0.0" targetFramework="net45" />
+  <package id="xunit" version="2.1.0" targetFramework="net45" />
+  <package id="xunit.abstractions" version="2.1.0" targetFramework="net45" />
+  <package id="xunit.assert" version="2.1.0" targetFramework="net45" />
+  <package id="xunit.core" version="2.1.0" targetFramework="net45" />
+  <package id="xunit.extensibility.core" version="2.1.0" targetFramework="net45" />
+  <package id="xunit.extensibility.execution" version="2.1.0" targetFramework="net45" />
 </packages>
 {% endhighlight %}
 
@@ -146,9 +147,9 @@ namespace MyFirstUnitTests
 </p>
 
 <pre>
-&gt; <span style="background-color: #ff0">packages\xunit.runner.console.2.0.0\tools\xunit.console MyFirstUnitTests\bin\Debug\MyFirstUnitTests.dll</span>
+&gt; <span style="background-color: #ff0">packages\xunit.runner.console.2.1.0\tools\xunit.console MyFirstUnitTests\bin\Debug\MyFirstUnitTests.dll</span>
 xUnit.net console test runner (64-bit .NET 4.0.30319.34014)
-Copyright (C) 2014 Outercurve Foundation.
+Copyright (C) 2015 Outercurve Foundation.
 
 Starting: MyFirstUnitTests.dll
    <span style="color: #e03030">MyFirstUnitTests.Class1.FailingTest [FAIL]</span>
