@@ -115,6 +115,10 @@ table, .table {
   border-top: 1px solid #9c9;
   text-align: left;
 }
+.note .table .left-border {
+  border-left: 1px solid #9c9;
+  padding-left: 10px;
+}
 .smaller {
   font-size: 90%;
 }
