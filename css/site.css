@@ -107,6 +107,20 @@ table, .table {
 .table p+p {
   margin-top: 15px;
 }
+.note .table-bordered>thead>tr>th,
+.note .table-bordered>tbody>tr>th,
+.note .table-bordered>tfoot>tr>th,
+.note .table-bordered>thead>tr>td,
+.note .table-bordered>tbody>tr>td,
+.note .table-bordered>tfoot>tr>td,
+.note .table>caption+thead>tr:first-child>th,
+.note .table>colgroup+thead>tr:first-child>th,
+.note .table>thead:first-child>tr:first-child>th,
+.note .table>caption+thead>tr:first-child>td,
+.note .table>colgroup+thead>tr:first-child>td,
+.note .table>thead:first-child>tr:first-child>td {
+  border: 1px solid #9c9;
+}
 .note .table>thead>tr>th {
   border-bottom: 2px solid #9c9;
   text-align: left;
@@ -114,10 +128,6 @@ table, .table {
 .note .table>tbody>tr>td {
   border-top: 1px solid #9c9;
   text-align: left;
-}
-.note .table .left-border {
-  border-left: 1px solid #9c9;
-  padding-left: 10px;
 }
 .smaller {
   font-size: 90%;
