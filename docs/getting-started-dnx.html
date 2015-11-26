@@ -25,8 +25,8 @@ redirect_from: "/docs/getting-started-aspnet.html"
 <div class="note">
   <p>
     Note: Specific versions of xUnit.net only support specific versions of DNX.
-    The examples shown here are done with xUnit.net 2.1 RC 1, xUnit.net DNX
-    runner 2.1 beta 5, and DNX 1.0 beta 7. The version compatibility list is:
+    The examples shown here are done with xUnit.net 2.1 RTM, xUnit.net DNX
+    runner 2.1 RC 1, and DNX 1.0 RC 1. The version compatibility list is:
   </p>
   <table class="table">
     <thead>
@@ -120,11 +120,13 @@ redirect_from: "/docs/getting-started-aspnet.html"
 {% endhighlight %}
 
 <div class="note">
-  As of RC1, the Visual Studio tooling for class library projects will use the <code>net451</code> and
-  <code>dotnet5.4</code> frameworks in your <code>project.json</code> file. Unit tests are a special
-  kind of platform-specific class library, so you must use the <code>dnx451</code> and <code>dnxcore50</code>
+  As of DNX RC 1, the Visual Studio tooling for class library projects will use the <code>net451</code> and
+  <code>dotnet5.4</code> frameworks in your <code>project.json</code> file. Unit tests are an application(*), not
+  a class library, so you must use the <code>dnx451</code> and <code>dnxcore50</code>
   framework names when writing unit tests; otherwise, the <code>xunit.runner.dnx</code> dependency
-  will cause package restore failures.
+  will cause package restore failures.<br />
+  <br />
+  * = The application's Main function is provided by the DNX runner, not by you.
 </div>
 
 <h2 id="write-first-tests">Write your first tests</h2>
