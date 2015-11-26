@@ -121,12 +121,12 @@ redirect_from: "/docs/getting-started-aspnet.html"
 
 <div class="note">
   As of DNX RC 1, the Visual Studio tooling for class library projects will use the <code>net451</code> and
-  <code>dotnet5.4</code> frameworks in your <code>project.json</code> file. Unit tests are an application(*), not
+  <code>dotnet5.4</code> frameworks in your <code>project.json</code> file. Unit tests are an application<sup>*</sup>, not
   a class library, so you must use the <code>dnx451</code> and <code>dnxcore50</code>
   framework names when writing unit tests; otherwise, the <code>xunit.runner.dnx</code> dependency
   will cause package restore failures.<br />
   <br />
-  * = The application's Main function is provided by the DNX runner, not by you.
+  <sup>*</sup> The application's <code>Main</code> function is provided by the DNX runner, not by you.
 </div>
 
 <h2 id="write-first-tests">Write your first tests</h2>
