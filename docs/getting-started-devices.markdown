@@ -21,7 +21,7 @@ xUnit for Devices supports the following platforms. Click for a platform-specifi
 * Xamarin.iOS Classic* 
 * Xamarin.iOS Unified
 
-*Xamarin.iOS Classic is deprected and won't be supported after xUnit for Devices 1.2.
+*Xamarin.iOS Classic is deprecated and won't be supported after xUnit for Devices 1.2.
 
 
 
