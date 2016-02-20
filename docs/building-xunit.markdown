@@ -15,7 +15,7 @@ Download a Git client, such as:
 
 ## Get the xUnit.net source code
 
-Using your Git client of choice, do a clone of <https://github.com/xunit/xunit.git>.
+Using your Git client of choice, do a clone of <https://github.com/xunit/xunit.git>. When cloning, ensure the client automatically checks out Git submodules (from the command line, add the `--recurse-submodules` switch).
 
 If you want help understanding and using Git, please see the [Pro Git](http://learn.github.com/p/intro.html) e-book.
 
@@ -36,3 +36,5 @@ For the purposes of demonstration, we will assume that you checked out the sourc
 * Change to the directory with the source code: `cd C:\xUnit`
 * Type the following command to build and run the tests: `.\build`
 * Ensure there are no errors at the end of the build process.
+
+_If you have problems building the assertion library, you may have forgotten to update the submodules. From the command line, run `git submodule update --init`._
