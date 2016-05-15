@@ -18,12 +18,7 @@ xUnit for Devices supports the following platforms. Click for a platform-specifi
 * Windows Phone 8.1
 * Windows Phone Silverlight 8.0
 * Xamarin.Android
-* Xamarin.iOS Classic* 
+* Xamarin.iOS Classic †
 * Xamarin.iOS Unified
 
-*Xamarin.iOS Classic is deprecated and won't be supported after xUnit for Devices 1.2.
-
-
-
-
-
+† Xamarin.iOS Classic is deprecated and won't be supported after xUnit for Devices 1.2.
