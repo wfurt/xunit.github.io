@@ -275,10 +275,12 @@ xUnit.net .NET CLI test runner (64-bit win10-x64)
   to the top-level of <code>project.json</code> file:
 </p>
 
-{% highlight javascript %}
-"buildOptions": {
-    "copyToOutput": {
-        "include": [ "xunit.runner.json" ]
+{% highlight json %}
+{
+    "buildOptions": {
+        "copyToOutput": {
+            "include": [ "xunit.runner.json" ]
+        }
     }
 }
 {% endhighlight %}
