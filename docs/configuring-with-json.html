@@ -13,6 +13,7 @@ breadcrumb: Documentation
 </p>
 <ul>
   <li><a href="#desktop">Configuring desktop and PCL test projects</a></li>
+  <li><a href="#dotnet-cli">Configuring .NET CLI projects</a></li>
   <li><a href="#dnx">Configuring DNX test projects</a></li>
   <li><a href="#items">Supported configuration items</a></li>
 </ul>
@@ -51,7 +52,29 @@ breadcrumb: Documentation
 </ol>
 <p><em>Now proceed to the list of <a href="#items">supported configuration items</a>.</em></p>
 
+<h2 id="dotnet-cli">Configuring .NET CLI test projects</h2>
+
+<p>
+  To use JSON-based configuration in a .NET CLI unit test project, add a file to the root of your
+  test project named <code>xunit.runner.json</code>. Then, add the following configuration option
+  to your <code>project.json</code> file:
+</p>
+
+{% highlight json %}
+{
+    "buildOptions": {
+        "copyToOutput": {
+            "include": [ "xunit.runner.json" ]
+        }
+    }
+}
+{% endhighlight %}
+
+<p><em>Now proceed to the list of <a href="#items">supported configuration items</a>.</em></p>
+
 <h2 id="dnx">Configuring DNX test projects</h2>
+
+<p class="important">DNX support is deprecated, and these instructions will be removed soon.</p>
 
 <p>
   To use JSON-based configuration in a DNX unit test project, just add a file to the root of your
