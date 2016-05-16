@@ -19,6 +19,7 @@ redirect_from: "/docs/getting-started-aspnet.html"
   <li><a href="#run-tests-console">Run tests from the console</a></li>
   <li><a href="#write-first-theory">Write your first theory</a></li>
   <li><a href="#run-tests-vs">Run tests from Visual Studio</a></li>
+  <li><a href="#adding-config-file">Adding a configuration file</a></li>
   <li><a href="#console-return-codes">Console runner return codes</a></li>
 </ul>
 
@@ -71,15 +72,17 @@ redirect_from: "/docs/getting-started-aspnet.html"
     "version": "1.0.0-*",
     "testRunner": "xunit",
     "dependencies": {
-        "Microsoft.NETCore.App": {
-            "type": "platform",
-            "version": "1.0.0-rc2-3002702"
-        },
         "xunit": "2.1.0",
         "dotnet-test-xunit": "1.0.0-rc2-build10015"
     },
     "frameworks": {
         "netcoreapp1.0": {
+            "dependencies": {
+                "Microsoft.NETCore.App": {
+                    "type": "platform",
+                    "version": "1.0.0-rc2-3002702"
+                }
+            },
             "imports": [
                 "dnxcore50",
                 "portable-net45+win8"
@@ -262,6 +265,23 @@ xUnit.net .NET CLI test runner (64-bit win10-x64)
 </p>
 
 <p><img class="border" src="../images/getting-started-dotnet-core/vs-runner-tests-run.png" width="321" /></p>
+
+<h2 id="adding-config-file">Adding a configuration file</h2>
+
+<p>
+  The .NET CLI runner supports <a href="">JSON-based configuration files</a>.
+  When using a configuration file with .NET CLI, you need to instruct the build system
+  to copy the config file into the bin folder when it builds. To do this, add the following
+  to the top-level of <code>project.json</code> file:
+</p>
+
+{% highlight javascript %}
+"buildOptions": {
+    "copyToOutput": {
+        "include": [ "xunit.runner.json" ]
+    }
+}
+{% endhighlight %}
 
 <h2 id="console-return-codes">Console runner return codes</h2>
 
