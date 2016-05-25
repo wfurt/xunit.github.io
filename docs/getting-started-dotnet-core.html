@@ -20,6 +20,7 @@ redirect_from: "/docs/getting-started-aspnet.html"
   <li><a href="#write-first-theory">Write your first theory</a></li>
   <li><a href="#run-tests-vs">Run tests from Visual Studio</a></li>
   <li><a href="#adding-config-file">Adding a configuration file</a></li>
+  <li><a href="#targeting-desktop">Targeting desktop .NET</a></li>
   <li><a href="#console-return-codes">Console runner return codes</a></li>
 </ul>
 
@@ -39,7 +40,7 @@ redirect_from: "/docs/getting-started-aspnet.html"
       <tr>
         <td><code>1.0.0-preview1-002702</td>
         <td><code>2.1.0</code></td>
-        <td><code>1.0.0-rc2-build10015</code></td>
+        <td><code>1.0.0-rc2-build10025</code></td>
         <td><code>dotnet test [<em>path</em>]</code></td>
       </tr>
     </tbody>
@@ -155,7 +156,7 @@ namespace MyFirstDotNetCoreTests
 
 <pre>
 &gt; <span style="background-color: #ff0">dotnet test</span>
-xUnit.net .NET CLI test runner (64-bit win10-x64)
+xUnit.net .NET CLI test runner (64-bit .NET Core win10-x64)
   Discovering: MyFirstDotNetCoreTests
   Discovered:  MyFirstDotNetCoreTests
   Starting:    MyFirstDotNetCoreTests
@@ -217,7 +218,7 @@ bool IsOdd(int value)
 <p>This time when we compile and run our tests, we see a second failure, for our theory that was given 6:</p>
 
 <pre>
-xUnit.net .NET CLI test runner (64-bit win10-x64)
+xUnit.net .NET CLI test runner (64-bit .NET Core win10-x64)
   Discovering: MyFirstDotNetCoreTests
   Discovered:  MyFirstDotNetCoreTests
   Starting:    MyFirstDotNetCoreTests
@@ -284,6 +285,34 @@ xUnit.net .NET CLI test runner (64-bit win10-x64)
     }
 }
 {% endhighlight %}
+
+<h2 id="targeting-desktop">Targeting desktop .NET</h2>
+
+<p>
+  The .NET CLI runner is capable of running tests which target desktop .NET (minimum version 4.51),
+  in addition to .NET Core. To target desktop .NET, use this frameworks section instead:
+</p>
+
+{% highlight json %}
+{
+    "frameworks": {
+        "net451": {
+            "dependencies": {
+                "Microsoft.NETCore.Platforms": "1.0.1-rc2-24027"
+            }
+        }
+    }
+}
+{% endhighlight %}
+
+<p>
+  You can target both <code>net4xx</code> and <code>netcoreapp</code> simply by adding both frameworks
+  together in your <code>project.json</code> file. When you run <code>dotnet test</code> with multiple
+  framework entries, the system will run all your framework tests, one after another. <em>There appears
+  to be a bug with the Preview 1 Visual Studio tooling which prevents unit tests from being run inside
+  Test Explorer when you are targeting more than one framework. If you wish to run your tests from
+  within Visual Studio, you will need to limit yourself to a single framework.</em>
+</p>
 
 <h2 id="console-return-codes">Console runner return codes</h2>
 
