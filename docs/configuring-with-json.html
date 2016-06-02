@@ -143,7 +143,9 @@ breadcrumb: Documentation
     <td class="wrapped-wide">
       <p>
         Set this to override the maximum number of threads to be used when parallelizing
-        tests within this assembly.
+        tests within this assembly. Use a value of <code>0</code> to indicate that you would
+        like the default behavior; use a value of <code>-1</code> to indicate that you do not
+        wish to limit the number of threads used for parallelization.
       </p>
       <p>
         <em>JSON schema type: <strong>integer</strong><br />
