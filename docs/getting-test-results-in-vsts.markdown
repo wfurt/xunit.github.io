@@ -3,7 +3,13 @@ layout: default
 title: Getting Test Results in Visual Studio Team Services (VSTS)
 breadcrumb: Documentation
 ---
+
 # Getting Test Results in Visual Studio Team Services (VSTS)
+
+<p class="important">
+  <strong>Important note</strong>: These directions are for testing <strong>desktop</strong> unit test assemblies only.
+  In particular, these directions will not work for .NET Core.
+</p>
 
 ## Referencing the Visual Studio test runner
 
@@ -38,4 +44,3 @@ After a successful build, the test results are available on the main view of the
 * Sometimes you get this error one or many times  
 `Warning: System.AppDomainUnloadedException: Attempted to access an unloaded AppDomain. This can happen if the test(s) started a thread but did not stop it. Make sure that all the threads started by the test(s) are stopped before completion.`  
 It is not related to VSTS and does not affect the results. For more information, see [xUnit Issue 490](https://github.com/xunit/xunit/issues/490) and [MS Connect](https://connect.microsoft.com/VisualStudio/feedback/details/797525/unexplained-appdomainunloadedexception-when-running-a-unit-test-on-tfs-build-server).
-
