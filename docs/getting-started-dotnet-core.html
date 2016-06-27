@@ -33,7 +33,6 @@ redirect_from: "/docs/getting-started-aspnet.html"
         <th>dotnet --version</th>
         <th>xunit packages</th>
         <th>dotnet-test-xunit package</th>
-        <th>Execution command</th>
       </tr>
     </thead>
     <tbody>
@@ -41,12 +40,22 @@ redirect_from: "/docs/getting-started-aspnet.html"
         <td><code>1.0.0-preview1-002702</td>
         <td><code>2.1.0</code></td>
         <td><code>1.0.0-rc2-build10025</code></td>
-        <td><code>dotnet test [<em>path</em>]</code></td>
+      </tr>
+      <tr>
+        <td><code>1.0.0-preview2-003121</td>
+        <td><code>2.2.0-beta2-build3300</code></td>
+        <td><code>2.2.0-preview2-build1029</code></td>
       </tr>
     </tbody>
   </table>
-  The examples shown here are done with xUnit.net 2.1 RTM, xUnit.net .NET CLI
-  runner 1.0 RC 2, and .NET CLI 1.0 Preview 1 (including .NET Core 1.0 RC 2).
+  <p>
+    To run tests from the current folder, type <code>dotnet test</code>; to run tests
+    from an arbitrary folder, type <code>dotnet test <em>folder</em></code>. You can
+    pass command line options to these commands; type <code>dotnet test -help</code>
+    for a full list of supported commands.
+  </p>
+  The examples shown here are done with xUnit.net 2.2 Beta 2, xUnit.net .NET CLI
+  runner 2.2 Preview 2, and .NET CLI 1.0 Preview 2 (including .NET Core 1.0 RTM).
   <em>Attempting to use any version of .NET CLI other than the supported version will
   result in indeterminate behavior, and is not officially supported.</em>
 </div>
@@ -73,21 +82,17 @@ redirect_from: "/docs/getting-started-aspnet.html"
     "version": "1.0.0-*",
     "testRunner": "xunit",
     "dependencies": {
-        "xunit": "2.1.0",
-        "dotnet-test-xunit": "1.0.0-rc2-build10025"
+        "xunit": "2.2.0-beta2-build3300",
+        "dotnet-test-xunit": "2.2.0-preview2-build1029"
     },
     "frameworks": {
         "netcoreapp1.0": {
             "dependencies": {
                 "Microsoft.NETCore.App": {
                     "type": "platform",
-                    "version": "1.0.0-rc2-3002702"
+                    "version": "1.0.0"
                 }
-            },
-            "imports": [
-                "dnxcore50",
-                "portable-net45+win8"
-            ]
+            }
         }
     }
 }
@@ -298,7 +303,7 @@ xUnit.net .NET CLI test runner (64-bit .NET Core win10-x64)
     "frameworks": {
         "net451": {
             "dependencies": {
-                "Microsoft.NETCore.Platforms": "1.0.1-rc2-24027"
+                "Microsoft.NETCore.Platforms": "1.0.1"
             }
         }
     }
@@ -308,10 +313,7 @@ xUnit.net .NET CLI test runner (64-bit .NET Core win10-x64)
 <p>
   You can target both <code>net4xx</code> and <code>netcoreapp</code> simply by adding both frameworks
   together in your <code>project.json</code> file. When you run <code>dotnet test</code> with multiple
-  framework entries, the system will run all your framework tests, one after another. <em>There appears
-  to be a bug with the Preview 1 Visual Studio tooling which prevents unit tests from being run inside
-  Test Explorer when you are targeting more than one framework. If you wish to run your tests from
-  within Visual Studio, you will need to limit yourself to a single framework.</em>
+  framework entries, the system will run all your framework tests, one after another.
 </p>
 
 <h2 id="console-return-codes">Console runner return codes</h2>
