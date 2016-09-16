@@ -1,3 +1,4 @@
 permalink: :section
 gems:
   - jekyll-redirect-from
+exclude: ["CNAME", "CONTRIBUTING.md", "LICENSE.txt", "README.md"]
