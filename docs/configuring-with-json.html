@@ -14,7 +14,6 @@ breadcrumb: Documentation
 <ul>
   <li><a href="#desktop">Configuring desktop and PCL test projects</a></li>
   <li><a href="#dotnet-cli">Configuring .NET CLI projects</a></li>
-  <li><a href="#dnx">Configuring DNX test projects</a></li>
   <li><a href="#items">Supported configuration items</a></li>
 </ul>
 <p><em>More supported platforms will be coming soon.</em></p>
@@ -72,17 +71,6 @@ breadcrumb: Documentation
 
 <p><em>Now proceed to the list of <a href="#items">supported configuration items</a>.</em></p>
 
-<h2 id="dnx">Configuring DNX test projects</h2>
-
-<p class="important">DNX support is deprecated, and these instructions will be removed soon.</p>
-
-<p>
-  To use JSON-based configuration in a DNX unit test project, just add a file to the root of your
-  test project named <code>xunit.runner.json</code>. The test runner will automatically find the
-  configuration settings from this file.
-</p>
-<p><em>Now proceed to the list of <a href="#items">supported configuration items</a>.</em></p>
-
 <h2 id="items">Supported configuration items</h2>
 
 <p>The configuration elements are placed inside a top-level object:</p>
@@ -135,6 +123,21 @@ breadcrumb: Documentation
       <p>
         <em>JSON schema type: <strong>boolean</strong><br />
         Default value: <code>false</code></em>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th><code>longRunningTestSeconds</code><br />[Runners v2.2 Beta 3+]</th>
+    <td class="wrapped-wide">
+      <p>
+        Set this value to enable long-running (hung) test detection. When the runner is
+        idle waiting for tests to finished, it will report that fact once the timeout
+        has passed. Use a value of <code>0</code> to disable the feature, or a positive
+        integer value to enable the feature (time in seconds).
+      </p>
+      <p>
+        <em>JSON schema type: <strong>integer</strong><br />
+        Default value: <code>0</code> (disabled)</em>
       </p>
     </td>
   </tr>

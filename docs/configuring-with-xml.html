@@ -77,6 +77,21 @@ redirect_from: "/docs/configuration-files.html"
     </td>
   </tr>
   <tr>
+    <th><code>xunit.longRunningTestSeconds</code><br />[Runners v2.2 Beta 3+]</th>
+    <td class="wrapped-wide">
+      <p>
+        Set this value to enable long-running (hung) test detection. When the runner is
+        idle waiting for tests to finished, it will report that fact once the timeout
+        has passed. Use a value of <code>0</code> to disable the feature, or a positive
+        integer value to enable the feature (time in seconds).
+      </p>
+      <p>
+        <em>Default value: <code>0</code> (disabled)<br />
+        Supported by: xUnit.net v1 and v2</em>
+      </p>
+    </td>
+  </tr>
+  <tr>
     <th><code>xunit.maxParallelThreads</code><br />[Runners v2.0+]</th>
     <td class="wrapped-wide">
       <p>
