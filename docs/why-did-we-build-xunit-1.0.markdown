@@ -24,7 +24,7 @@ While any one of these reasons would not necessarily have been sufficient to cre
 * **Aspect-Like Functionality.** End users extended NUnit and MbUnit with cross-cutting concerns that could be attached to test methods (an example is automatically rolling back changes made to a database during the test). This made the tests simpler to write and allowed more consistent usage of the cross-cutting operations. xUnit.net makes it very simple to create such operations and attach them to test methods.
 * **Reducing the number of custom attributes.** Sometimes, the excessive use of attributes can make you feel like you've diverged far from the underlying language. xUnit.net removed some attributes from the framework, instead relying on language features to provide similar functionality:
  * `[TestFixture]` was removed entirely; tests can be in any public class. Test methods can be static or instance, to better facilitate testing with F#.
- * `[Ignore]` is expressed using the Skip= parameter on [Fact].
+ * `[Ignore]` is expressed using the Skip= parameter on `[Fact]`.
  * `[SetUp]` and `[TearDown]` are removed in favor of constructors and IDisposable.
  * `[ExpectedException]` was replaced with Assert.Throws (or Record.Exception, which provides better adherence to the 3A pattern).
  * `[TestFixtureSetup]` and `[TestFixtureTearDown]` are removed in favor of implementing reusable fixture data classes, which are attached to test classes by having them implement `IUseFixture<T>`.
