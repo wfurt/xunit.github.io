@@ -21,8 +21,14 @@ If you want help understanding and using Git, please see the [Pro Git](http://le
 
 ## Open Visual Studio solution
 
-xUnit.net's source code currently requires Visual Studio 2015. You should open
-`xunit.vs2015.sln`.
+The core project ([https://github.com/xunit/xunit](https://github.com/xunit/xunit)) requires the following things installed:
+
+* [.NET Core 1.0 w/ VS2015 Tooling Preview 2](https://www.microsoft.com/net/core#windows) (or later) 
+* [Visual Studio 2015](https://www.visualstudio.com/downloads/) w/ Update 3 (or later), with the following options enabled:
+  * Programming Languages &gt; Visual F#
+  * Windows and Web Development &gt; Microsoft Web Developer Tools
+
+Other projects may require other additional features (like Windows 10 SDK 10.0.10240, Windows Phone 8.1 SDK, and Xamarin).
 
 You should be able to immediately build the solution, as all external dependencies are automatically retrieved with
 [NuGet Package Restore](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages). If you want to
