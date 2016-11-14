@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title }%}{{page.title}} &gt; {% endif %}xUnit.net</title>
+  <title>{% if page.title %}{{page.title}} &gt; {% endif %}xUnit.net</title>
   <link href='//fonts.googleapis.com/css?family=Open+Sans:400,400italic,600' rel='stylesheet' type='text/css'>
   <link href='//fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
@@ -20,7 +20,7 @@
       <div class="navbar-header">
         <span class="navbar-brand">
           <span class="slack-float"><script async defer src="https://xunit-slackin.herokuapp.com/slackin.js"></script></span>
-          <a href="/"><img src="/images/full-logo.svg" onerror="this.src='https://raw.github.com/xunit/media/master/full-logo.png'" title="xUnit.net" width="141" height="29" /></a>{% if page.breadcrumb }%} &raquo; {{page.breadcrumb}}{% endif %}
+          <a href="/"><img src="/images/full-logo.svg" onerror="this.src='https://raw.github.com/xunit/media/master/full-logo.png'" title="xUnit.net" width="141" height="29" /></a>{% if page.breadcrumb %} &raquo; {{page.breadcrumb}}{% endif %}
         </span>
       </div>
     </div>
