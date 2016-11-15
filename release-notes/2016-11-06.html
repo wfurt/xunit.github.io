@@ -48,7 +48,7 @@ breadcrumb: Release Notes
 
 <h3>Assertion library</h3>
 <ul>
-  <li><code>Assert.All</code> now includes the fauly item in the failure message.</li>
+  <li><code>Assert.All</code> now includes the faulty item in the failure message.</li>
   <li>
     Improve compatibility of <code>Assert.Equal</code> when given two equivalent collections
     that are different types (f.e., <code>string[]</code> and <code>List&lt;string&gt;</code>).
@@ -69,7 +69,7 @@ breadcrumb: Release Notes
   <li>
     There is a slight breaking contract with <code>XunitFilters</code> wherein
     <code>IncludedMethods</code> was changed from exposed as <code>HashSet&lt;string&gt;</code>
-    to <code>ICollection&lt;string&lt;</code>, in order to better support the new
+    to <code>ICollection&lt;string&gt;</code>, in order to better support the new
     wildcard method feature. Hopefully this will have minimal impact on runner
     authors.
   </li>
