@@ -59,7 +59,9 @@ breadcrumb: Release Notes
     The Visual Studio runner has been updated to support .NET Core in Visual
     Studio 2017, as well as from the command line (with <code>dotnet test</code>).
     Both the .NET CLI SDK and Visual Studio 2017 ship with templates for
-    making xUnit.net projects.
+    making xUnit.net projects. (Note: .NET Core support is limited to Visual
+    Studio 2017--aka, MSBuild SDK-style projects. We have discontinued support
+    for Visual Studio 2015--aka, project.json-style projects.)
   </li>
   <li>
     We have enabled support for detecting when tests may be running too long.
