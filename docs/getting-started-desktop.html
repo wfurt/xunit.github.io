@@ -24,18 +24,19 @@ redirect_from: "/docs/getting-started.html"
 </ul>
 
 <p><em>
-  Note: The examples were done with xUnit.net v2.1. The version numbers
-  and paths may differ for you, depending on which version you're using.
+  Note: The examples were done with xUnit.net v2.2 and Visual Studio 2017. The version
+  numbers, paths, and Visual Studio UI may differ for you, depending on which
+  version you're using.
 </em></p>
 
 <h2 id="create-class-library">Create a class library project</h2>
 
 <p>
-  Let's start by creating a class library project, targeting .NET 4.5 (or later).
+  Let's start by creating a class library project, targeting .NET 4.5.2 (or later).
   Open Visual Studio, and choose <code>File &gt; New &gt; Project</code>:
 </p>
 
-<p><img class="border" src="../images/getting-started/new-project.png" width="791" /></p>
+<p><img class="border" src="../images/getting-started/new-project.png" width="835" /></p>
 
 <h2 id="add-xunit-ref">Add a reference to xUnit.net</h2>
 
@@ -44,17 +45,18 @@ redirect_from: "/docs/getting-started.html"
   <code>Manage NuGet Packages</code>:
 </p>
 
-<p><img class="border" src="../images/manage-nuget-packages.png" width="352" /></p>
+<p><img class="border" src="../images/manage-nuget-packages.png" width="357" /></p>
 
 <p>Now in the NuGet package manager window, take the following steps:</p>
 
 <ol>
-  <li>On the left side, ensure <code>nuget.org</code> is selected under <code>Online</code></li>
-  <li>In the search box in the upper right corner, type <code>xunit</code></li>
+  <li>Along the top edge, make sure <code>Browse</code> is selected.</li>
+  <li>On the upper right side, ensure <code>nuget.org</code> is selected under <code>Package source</code></li>
+  <li>In the search box, type <code>xunit</code></li>
   <li>Select the <code>xUnit.net</code> package, and click <code>Install</code></li>
 </ol>
 
-<p><img class="border" src="../images/add-xunit.png" width="791" /></p>
+<p><img class="border" src="../images/add-xunit.png" width="845" /></p>
 
 <p>
   This package (<code>xunit</code>) is what's called a <em>meta-package</em>;
@@ -68,12 +70,12 @@ redirect_from: "/docs/getting-started.html"
 {% highlight xml %}
 <?xml version="1.0" encoding="utf-8"?>
 <packages>
-  <package id="xunit" version="2.1.0" targetFramework="net45" />
-  <package id="xunit.abstractions" version="2.0.0" targetFramework="net45" />
-  <package id="xunit.assert" version="2.1.0" targetFramework="net45" />
-  <package id="xunit.core" version="2.1.0" targetFramework="net45" />
-  <package id="xunit.extensibility.core" version="2.1.0" targetFramework="net45" />
-  <package id="xunit.extensibility.execution" version="2.1.0" targetFramework="net45" />
+  <package id="xunit" version="2.2.0" targetFramework="net452" />
+  <package id="xunit.abstractions" version="2.0.1" targetFramework="net452" />
+  <package id="xunit.assert" version="2.2.0" targetFramework="net452" />
+  <package id="xunit.core" version="2.2.0" targetFramework="net452" />
+  <package id="xunit.extensibility.core" version="2.2.0" targetFramework="net452" />
+  <package id="xunit.extensibility.execution" version="2.2.0" targetFramework="net452" />
 </packages>
 {% endhighlight %}
 
@@ -126,7 +128,7 @@ namespace MyFirstUnitTests
   (and install) a package named <code>xunit.runner.console</code>:
 </p>
 
-<p><img class="border" src="../images/getting-started/add-xunit-runner-console.png" width="820" /></p>
+<p><img class="border" src="../images/getting-started/add-xunit-runner-console.png" width="845" /></p>
 
 <p>
   Unlike the previous package (which added references to the unit testing
@@ -149,21 +151,20 @@ namespace MyFirstUnitTests
 </p>
 
 <pre>
-&gt; <span style="background-color: #ff0">packages\xunit.runner.console.2.1.0\tools\xunit.console MyFirstUnitTests\bin\Debug\MyFirstUnitTests.dll</span>
-xUnit.net console test runner (64-bit .NET 4.0.30319.34014)
-Copyright (C) 2016 .NET Foundation.
-
-Starting: MyFirstUnitTests.dll
-   <span style="color: #e03030">MyFirstUnitTests.Class1.FailingTest [FAIL]</span>
+&gt; <span style="background-color: #ff0">packages\xunit.runner.console.2.2.0\tools\xunit.console MyFirstUnitTests\bin\Debug\MyFirstUnitTests.dll</span>
+xUnit.net Console Runner (64-bit .NET 4.0.30319.42000)
+  Discovering: MyFirstUnitTests
+  Discovered:  MyFirstUnitTests
+  Starting:    MyFirstUnitTests
+    <span style="color: #e03030">MyFirstUnitTests.Class1.FailingTest [FAIL]</span>
       Assert.Equal() Failure
       Expected: 5
       Actual:   4
       <span style="color: #a8a8a8">Stack Trace:</span>
-         MyFirstUnitTests\Class1.cs(16,0): at MyFirstUnitTests.Class1.FailingTest()
-Finished: MyFirstUnitTests.dll
-
+        MyFirstUnitTests\Class1.cs(16,0): at MyFirstUnitTests.Class1.FailingTest()
+  Finished:    MyFirstUnitTests
 === TEST EXECUTION SUMMARY ===
-   MyFirstUnitTests.DLL  Total: 2, Failed: 1, Skipped: 0, Time: 0.165s, Errors: 0
+   MyFirstUnitTests  Total: 2, Errors: 0, Failed: 1, Skipped: 0, Time: 0.159s
 </pre>
 
 <p><em>
@@ -233,24 +234,25 @@ bool IsOdd(int value)
 </p>
 
 <pre>
-xUnit.net console test runner (64-bit .NET 4.0.30319.34014)
-Copyright (C) 2016 .NET Foundation.
-
-Starting:  MyFirstUnitTests.dll
-   <span style="color: #e03030">MyFirstUnitTests.Class1.FailingTest [FAIL]</span>
+xUnit.net Console Runner (64-bit .NET 4.0.30319.42000)
+  Discovering: MyFirstUnitTests
+  Discovered:  MyFirstUnitTests
+  Starting:    MyFirstUnitTests
+    <span style="color: #e03030">MyFirstUnitTests.Class1.MyFirstTheory(value: 6) [FAIL]</span>
+      Assert.True() Failure
+      Expected: True
+      Actual:   False
+      <span style="color: #a8a8a8">Stack Trace:</span>
+        MyFirstUnitTests\Class1.cs(30,0): at MyFirstUnitTests.Class1.MyFirstTheory(Int32 value)
+    <span style="color: #e03030">MyFirstUnitTests.Class1.FailingTest [FAIL]</span>
       Assert.Equal() Failure
       Expected: 5
       Actual:   4
       <span style="color: #a8a8a8">Stack Trace:</span>
-         MyFirstUnitTests\Class1.cs(16,0): at MyFirstUnitTests.Class1.FailingTest()
-   <span style="color: #E03030">MyFirstUnitTests.Class1.MyFirstTheory(value: 6) [FAIL]</span>
-      Assert.True() Failure
-      <span style="color: #a8a8a8">Stack Trace:</span>
-         MyFirstUnitTests\Class1.cs(30,0): at MyFirstUnitTests.Class1.MyFirstTheory(Int32 value)
-Finished: MyFirstUnitTests.dll
-
+        MyFirstUnitTests\Class1.cs(16,0): at MyFirstUnitTests.Class1.FailingTest()
+  Finished:    MyFirstUnitTests
 === TEST EXECUTION SUMMARY ===
-   MyFirstUnitTests.DLL  Total: 5, Failed: 2, Skipped: 0, Time: 0.176s, Errors: 0
+   MyFirstUnitTests  Total: 5, Errors: 0, Failed: 2, Skipped: 0, Time: 0.171s
 </pre>
 
 <p>
@@ -291,7 +293,7 @@ Finished: MyFirstUnitTests.dll
   Search for (and install) a package named <code>xunit.runner.visualstudio</code>:
 </p>
 
-<p><img class="border" src="../images/running-tests-in-vs/add-xunit-runner-visualstudio.png" width="868" /></p>
+<p><img class="border" src="../images/running-tests-in-vs/add-xunit-runner-visualstudio.png" width="981" /></p>
 
 <p>
   Make sure Test Explorer is visible (go to <code>Test &gt; Windows &gt; Test Explorer</code>). Every
@@ -299,42 +301,23 @@ Finished: MyFirstUnitTests.dll
   discovery, you should see the list of discovered tests:
 </p>
 
-<p><img class="border" src="../images/running-tests-in-vs/test-explorer.png" width="330" /></p>
+<p><img class="border" src="../images/running-tests-in-vs/test-explorer.png" width="314" /></p>
 
 <p>
   Click the <code>Run All</code> link in the Test Explorer window, and you should see the results update
   in the Test Explorer window as the tests are run:
 </p>
 
-<p><img class="border" src="../images/running-tests-in-vs/test-explorer-post-run.png" width="330" /></p>
+<p><img class="border" src="../images/running-tests-in-vs/test-explorer-post-run.png" width="347" /></p>
 
 <p>
   You can click on a failed test to see the failure message, and the stack trace. You can click on the
   stack trace lines to take you directly to the failing line of code.
 </p>
 
-<p>
-  If you have Visual Studio Ultimate and you have the CodeLens feature turned on, your source code will
-  now show icons and text related to your tests:
-</p>
-
-<p><img class="border" src="../images/running-tests-in-vs/code-lens.png" width="224" /></p>
-
-<p>
-  CodeLens not only shows you the last run status of your unit tests, it also offers a convenient
-  place to click to run an individual test.
-</p>
-
 <p><em>
   Note: Only xUnit.net v2 supports pre-enumeration of theories; when discovering theories with v1,
   it will only show a single test method for the theory.
-</em></p>
-
-<p><em>
-  Note: CodeLens does not support icons for pre-enumerated theories; this is a limitation of the Visual
-  Studio test runner. In a future release, we will enable the ability to turn off theory pre-enumeration
-  of theory data for users who would prefer to have the CodeLens icons rather than individually
-  runnable tests.
 </em></p>
 
 <h2 id="console-return-codes">Console runner return codes</h2>
