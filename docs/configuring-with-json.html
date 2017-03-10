@@ -12,8 +12,7 @@ breadcrumb: Documentation
   get that configuration file recognized by xUnit.net vary by platform.
 </p>
 <ul>
-  <li><a href="#desktop">Configuring desktop and PCL test projects</a></li>
-  <li><a href="#dotnet-cli">Configuring .NET CLI projects</a></li>
+  <li><a href="#file">Adding the configuration file</a></li>
   <li><a href="#items">Supported configuration items</a></li>
 </ul>
 <p><em>More supported platforms will be coming soon.</em></p>
@@ -31,10 +30,11 @@ breadcrumb: Documentation
   there is <strong>no merging</strong> of values between files.
 </p>
 
-<h2 id="desktop">Configuring desktop and PCL test projects</h2>
+<h2 id="file">Adding the configuration file</h2>
 
 <p>
-  To use JSON-based configuration in a desktop or PCL unit test project, you need to take two steps:
+  To use JSON-based configuration, you must instruct Visual Studio to copy the JSON file into the output
+  folder of your project.
 </p>
 <ol>
   <li>
@@ -49,27 +49,6 @@ breadcrumb: Documentation
     folder where the xUnit.net runners can find it.
   </li>
 </ol>
-<p><em>Now proceed to the list of <a href="#items">supported configuration items</a>.</em></p>
-
-<h2 id="dotnet-cli">Configuring .NET CLI test projects</h2>
-
-<p>
-  To use JSON-based configuration in a .NET CLI unit test project, add a file to the root of your
-  test project named <code>xunit.runner.json</code>. Then, add the following configuration option
-  to your <code>project.json</code> file:
-</p>
-
-{% highlight json %}
-{
-    "buildOptions": {
-        "copyToOutput": {
-            "include": [ "xunit.runner.json" ]
-        }
-    }
-}
-{% endhighlight %}
-
-<p><em>Now proceed to the list of <a href="#items">supported configuration items</a>.</em></p>
 
 <h2 id="items">Supported configuration items</h2>
 
@@ -82,7 +61,7 @@ breadcrumb: Documentation
 }
 {% endhighlight %}
 <p>
-  A <a href="../schema/v2.1-rc1/xunit.runner.schema.json">JSON schema</a> is published
+  A <a href="../schema/v2.2/xunit.runner.schema.json">JSON schema</a> is published
   on this site, and referenced from <a href="http://schemastore.org">SchemaStore</a>;
   versions of Visual Studio with JSON support should be able to automatically detect
   the schema based on the configuration filename, and automatically provide
@@ -127,7 +106,7 @@ breadcrumb: Documentation
     </td>
   </tr>
   <tr>
-    <th><code>longRunningTestSeconds</code><br />[Runners v2.2 Beta 3+]</th>
+    <th><code>longRunningTestSeconds</code><br />[Runners v2.2+]</th>
     <td class="wrapped-wide">
       <p>
         Set this value to enable long-running (hung) test detection. When the runner is
