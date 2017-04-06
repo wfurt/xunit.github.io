@@ -234,6 +234,7 @@ li>blockquote {
 .version-ci {
   display: none;
 }
+.release-more,
 .prerelease-more {
   display: none;
 }
