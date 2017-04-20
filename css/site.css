@@ -40,24 +40,6 @@ h3, .h3 {
   margin: 0 0 15px 20px;
   padding: 2px 0;
 }
-h3.release {
-  background-color: #6cc644;
-  border: none;
-  border-radius: 3px;
-  color: White;
-  font-size: 16px;
-  margin-bottom: 10px;
-  padding: 5px 8px;
-}
-h3.prerelease {
-  background-color: #c9510c;
-  border: none;
-  border-radius: 3px;
-  color: White;
-  font-size: 16px;
-  margin-bottom: 10px;
-  padding: 5px 8px;
-}
 h5 {
   color: #999;
   font-size: 12px;
@@ -118,6 +100,10 @@ table, .table {
 .note .table td.tall {
   border-left: 1px solid #9c9;
   vertical-align: middle;
+}
+.table.latest th,
+.table.latest td {
+  text-align: left;
 }
 .smaller {
   font-size: 90%;
@@ -237,4 +223,28 @@ li>blockquote {
 .release-more,
 .prerelease-more {
   display: none;
+}
+.release,
+.prerelease {
+  border: none;
+  border-radius: 3px;
+  color: White;
+  display: inline-block;
+  padding: 2px 8px;
+  margin-right: 5px;
+}
+.release {
+  background-color: #6cc644;
+}
+.prerelease {
+  background-color: #c9510c;
+}
+.table.releases th,
+.table.releases td {
+  text-align: left;
+  vertical-align: middle;
+}
+.release:hover,
+.prerelease:hover {
+  color: White;
 }

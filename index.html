@@ -32,6 +32,7 @@ redirect_from: "/docs/running-tests-in-vs.html"
 <h2>Table of Contents</h2>
 
 <ul>
+  <li><a href="#latest-builds">Latest Builds</a></li>
   <li><a href="#documentation">Documentation</a></li>
   <li><a href="#releases">Release Notes</a></li>
   <li><a href="#runners">Test Runner Compatibility</a></li>
@@ -41,20 +42,78 @@ redirect_from: "/docs/running-tests-in-vs.html"
   <li><a href="#stickers">Laptop stickers!</a></li>
 </ul>
 
+<h2 id="latest-builds">Latest Builds</h2>
+
+<table class="table latest">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Core framework</th>
+      <th>Visual Studio runner</th>
+      <th>Devices runner</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Stable</th>
+      <td><a href="https://www.nuget.org/packages/xunit"><img src="https://img.shields.io/nuget/v/xunit.svg?style=flat"></a></td>
+      <td><a href="https://www.nuget.org/packages/xunit.runner.visualstudio"><img src="https://img.shields.io/nuget/v/xunit.runner.visualstudio.svg?style=flat"></a></td>
+      <td><a href="https://www.nuget.org/packages/xunit.runner.devices"><img src="https://img.shields.io/nuget/v/xunit.runner.devices.svg?style=flat"></a></td>
+    </tr>
+    <tr>
+      <th>Pre-Release (on <a href="https://www.nuget.org/">NuGet</a>)</th>
+      <td><a href="https://www.nuget.org/packages/xunit/absoluteLatest"><img src="https://img.shields.io/nuget/vpre/xunit.svg?style=flat"></a></td>
+      <td><a href="https://www.nuget.org/packages/xunit.runner.visualstudio/absoluteLatest"><img src="https://img.shields.io/nuget/vpre/xunit.runner.visualstudio.svg?style=flat"></a></td>
+      <td><a href="https://www.nuget.org/packages/xunit.runner.devices/absoluteLatest"><img src="https://img.shields.io/nuget/vpre/xunit.runner.devices.svg?style=flat"></a></td>
+    </tr>
+    <tr>
+      <th>CI Build (on <a href="https://myget.org/gallery/xunit">MyGet</a>)</th>
+      <td><a href="https://myget.org/feed/xunit/package/nuget/xunit"><img src="https://img.shields.io/myget/xunit/vpre/xunit.svg?style=flat"></a></td>
+      <td><a href="https://myget.org/feed/xunit/package/nuget/xunit.runner.visualstudio"><img src="https://img.shields.io/myget/xunit/vpre/xunit.runner.visualstudio.svg?style=flat"></a></td>
+      <td><a href="https://myget.org/feed/xunit-xamarin/package/nuget/xunit.runner.devices"><img src="https://img.shields.io/myget/xunit-xamarin/vpre/xunit.runner.devices.svg?style=flat"></a></td>
+    </tr>
+    <tr>
+      <td colspan="4"><em>For information about features and bug fixes, see the <a href="#releases">release notes</a>.</em></td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="documentation">Documentation</h2>
 
 <h3>Getting Started</h3>
 
+<p><em>
+  New to xUnit.net? These guides will help you get started. (If you're not sure which
+  tutorial to use, start with the Desktop CLR tutorial.)
+</em></p>
+
 <ul>
-  <li><a href="docs/getting-started-desktop.html">Getting started with xUnit.net (desktop)</a></li>
-  <li><a href="docs/getting-started-dotnet-core.html">Getting started with xUnit.net (.NET Core / ASP.NET Core)</a></li>
-  <li><a href="docs/getting-started-uwp.html">Getting started with xUnit.net (Universal Windows Applications)</a></li>
-  <li><a href="docs/getting-started-devices.html">Getting started with xUnit.net for Devices</a> (UWP, Windows 8.1, Windows Phone, Xamarin Android and Xamarin iOS)</li>
+  <li><a href="docs/getting-started-desktop.html">Desktop CLR</a> (traditional applications, including ASP.NET)</li>
+  <li><a href="docs/getting-started-dotnet-core.html">.NET Core</a> (including ASP.NET Core)</a></li>
+  <li><a href="docs/getting-started-uwp.html">Universal Windows Applications</a> (Windows 10, Windows Phone 10)</li>
+  <li><a href="docs/getting-started-devices.html">Devices</a> (UWP, Windows 8.1, Windows Phone, Xamarin Android and Xamarin iOS)</li>
+  <li><a href="docs/nuget-packages.html">What NuGet packages should I use?</a></li>
+</ul>
+
+<h3>Configuration</h3>
+
+<ul>
   <li><a href="docs/configuring-with-json.html">Configuring xUnit.net with JSON</a> (all project types)</li>
-  <li><a href="docs/configuring-with-xml.html">Configuring xUnit.net with XML</a> (desktop &amp; PCL projects only)</li>
-  <li><a href="docs/shared-context.html">Sharing context between tests</a> (class and collection fixtures)</li>
-  <li><a href="docs/capturing-output.html">Capturing output</a></li>
+  <li><a href="docs/configuring-with-xml.html">Configuring xUnit.net with XML</a> (desktop CLR projects only)</li>
+  <li><a href="schema/v2.2/xunit.runner.schema.json">What is the JSON schema for <code>xunit.runner.json</code>?</a></li>
+</ul>
+
+<h3>Unit Test Parallelism</h3>
+
+<ul>
   <li><a href="docs/running-tests-in-parallel.html">Running tests in parallel</a></li>
+  <li><a href="docs/shared-context.html">Sharing context between tests</a> (class and collection fixtures)</li>
+</ul>
+
+<h3>Other Topics</h3>
+
+<ul>
+  <li><a href="docs/capturing-output.html">Capturing output</a></li>
   <li><a href="docs/running-tests-in-msbuild.html">Running tests in MSBuild</a></li>
   <li><a href="docs/getting-test-results-in-teamcity.html">Getting Test Results in TeamCity</a></li>
   <li><a href="docs/getting-test-results-in-ccnet.html">Getting Test Results in CruiseControl.NET</a></li>
@@ -62,9 +121,9 @@ redirect_from: "/docs/running-tests-in-vs.html"
 </ul>
 
 <h3>Frequently Asked Questions</h3>
+
 <ul>
   <li><a href="docs/why-did-we-build-xunit-1.0.html">Why did we build xUnit 1.0?</a></li>
-  <li><a href="docs/nuget-packages.html">What NuGet packages should I use?</a></li>
   <li><a href="docs/format-xml-v2.html">What is the format of the XML generated by the test runners?</a></li>
   <li><a href="docs/comparisons.html">Comparing xUnit.net to other frameworks</a></li>
   <li><a href="docs/building-xunit.html">Getting the source and building xUnit.net</a></li>
@@ -79,129 +138,59 @@ redirect_from: "/docs/running-tests-in-vs.html"
 
 <h2 id="releases">Release Notes</h2>
 
-<h3 class="release">Release</h3>
-
-<ul>
-  <li>
-    <a href="release-notes/2017-02-19.html">February 19, 2017</a> (includes
-    <strong>xUnit.net 2.2</strong> and <strong>Visual Studio runner
-    2.2</strong>)
-  </li>
-  <li>
-    <a href="release-notes/2015-09-27.html">September 27, 2015</a> (includes
-    <strong>xUnit.net 2.1</strong> and <strong>Visual Studio runner
-    2.1</strong>)
-  </li>
-  <li class="release-more">
-    <a href="release-notes/2015-07-13.html">July 13, 2015</a> (includes
-    <strong>Visual Studio runner 2.0.1</strong>)
-  </li>
-  <li class="release-more">
-    <a href="release-notes/2015-03-16.html">March 16, 2015</a> (includes
-    <strong>xUnit.net 2.0</strong> and <strong>Visual Studio runner
-    2.0</strong>)
-  </li>
-</ul>
-<p id="releaseMoreText"><a href="#">More &raquo;</a></p>
-
-<h3 class="prerelease">Pre-release</h3>
-
-<ul>
-  <li>
-    <a href="release-notes/2017-04-06.html">April 6, 2017</a> (includes
-    <strong>xUnit.net 2.3 Beta 1</strong> and <strong>Visual Studio runner
-    2.3 Beta 1</strong>)
-  </li>
-  <li>
-    <a href="release-notes/2016-11-06.html">November 6, 2016</a> (includes
-    <strong>xUnit.net 2.2 Beta 4</strong> and <strong>Visual Studio runner
-    2.2 Beta 4</strong>)
-  </li>
-  <li class="prerelease-more">
-    <a href="release-notes/2016-10-05.html">October 5, 2016</a> (includes
-    <strong>xUnit.net 2.2 Beta 3</strong> and <strong>Visual Studio runner
-    2.2 Beta 3</strong>)
-  </li>
-  <li class="prerelease-more">
-    <a href="release-notes/2016-06-27.html">June 27, 2016</a> (includes
-    <strong>xUnit.net 2.2 Beta 2</strong>, <strong>Visual Studio runner
-    2.2 Beta 2</strong>, and <strong>.NET CLI runner 2.2 Preview 2</strong>)
-  </li>
-  <li class="prerelease-more">
-    <a href="release-notes/2015-12-20.html">December 20, 2015</a> (includes
-    <strong>xUnit.net 2.2 Beta 1</strong> and <strong>Visual Studio runner
-    2.2 Beta 1</strong>)
-  </li>
-  <li class="prerelease-more">
-    <a href="release-notes/2015-11-18.html">November 18, 2015</a> (includes
-    <strong>DNX Runner 2.1 RC 1</strong>)
-  </li>
-  <li class="prerelease-more">
-    <a href="release-notes/2015-10-15.html">October 15, 2015</a> (includes
-    <strong>DNX Runner 2.1 beta 6</strong>)
-  </li>
-  <li class="prerelease-more">
-    <a href="release-notes/2015-09-20.html">September 20, 2015</a> (includes
-    <strong>xUnit.net 2.1 RC 2</strong>, <strong>Visual Studio runner
-    2.1 RC 2</strong>, and <strong>Devices runner 1.2 RC 4</strong>)
-  </li>
-  <li class="prerelease-more">
-    <a href="release-notes/2015-09-06.html">September 6, 2015</a> (includes
-    <strong>xUnit.net 2.1 RC 1</strong>, <strong>Visual Studio runner
-    2.1 RC 1</strong>, <strong>DNX runner 2.1 Beta 5</strong>,
-    and <strong>Devices runner 1.2 RC 3</strong>)
-  </li>
-  <li class="prerelease-more">
-    <a href="release-notes/2015-08-04.html">August 4, 2015</a> (includes
-    <strong>xUnit.net 2.1 Beta 4</strong>, <strong>Visual Studio runner
-    2.1 Beta 4</strong>, and <strong>DNX runner 2.1 Beta 4</strong>)
-  </li>
-  <li class="prerelease-more">
-    <a href="release-notes/2015-07-04.html">July 4, 2015</a> (includes
-    <strong>Visual Studio runner 2.0.1 RC 1</strong>)
-  </li>
-  <li class="prerelease-more">
-    <a href="release-notes/2015-06-30.html">June 30, 2015</a> (includes
-    <strong>xUnit.net 2.1 Beta 3</strong>, <strong>Visual Studio runner
-    2.1 Beta 3</strong>, and <strong>DNX runner 2.1 Beta 3</strong>)
-  </li>
-  <li class="prerelease-more">
-    <a href="release-notes/2015-05-03.html">May 3, 2015</a> (includes
-    <strong>xUnit.net 2.1 Beta 2</strong>, <strong>Visual Studio runner
-    2.1 Beta 2</strong>, and <strong>DNX runner 2.1 Beta 2</strong>)
-  </li>
-  <li class="prerelease-more">
-    <a href="release-notes/2015-03-21.html">March 21, 2015</a> (includes
-    <strong>xUnit.net 2.1 Beta 1</strong>, <strong>Visual Studio runner
-    2.1 Beta 1</strong>, and <strong>ASP.NET 5 runner 2.1 Beta 1</strong>)
-  </li>
-  <li class="prerelease-more">
-    <a href="release-notes/2015-03-09.html">March 9, 2015</a> (includes
-    <strong>xUnit.net 2.0 RC 4</strong> and <strong>Visual Studio runner
-    2.0 RC 4</strong>)
-  </li>
-  <li class="prerelease-more">
-    <a href="release-notes/2015-02-23.html">February 23, 2015</a> (includes
-    <strong>xUnit.net 2.0 RC 3</strong>, <strong>Visual Studio runner
-    2.0 RC 3</strong>, and <strong>ASP.NET 5 runner 2.0 RC 3</strong>)
-  </li>
-  <li class="prerelease-more">
-    <a href="release-notes/2015-02-17.html">February 17, 2015</a> (includes
-    <strong>xUnit.net 2.0 RC 2</strong>, <strong>Visual Studio runner
-    2.0 RC 2</strong>, and <strong>ASP.NET 5 runner 2.0 RC 2</strong>)
-  </li>
-  <li class="prerelease-more">
-    <a href="release-notes/2015-01-20.html">January 20, 2015</a> (includes
-    <strong>xUnit.net 2.0 RC 1</strong> and <strong>Visual Studio runner
-    2.0 RC 1</strong>)
-  </li>
-  <li class="prerelease-more">
-    <a href="release-notes/2014-11-19.html">November 19, 2014</a> (includes
-    <strong>xUnit.net 2.0 Beta 5</strong> and <strong>Visual Studio runner
-    0.99.9</strong>)
-  </li>
-</ul>
-<p id="prereleaseMoreText"><a href="#">More &raquo;</a></p>
+<table class="table releases">
+  <thead>
+    <tr><th>Version</th><th>Releases</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2.3</th>
+      <td>
+        <a href="releases/2.3-beta1" class="prerelease">Beta 1</a>
+      </td>
+    </tr>
+    <tr>
+      <th>2.2</th>
+      <td>
+        <a href="releases/2.2" class="release">RTM</a>
+        <a href="releases/2.2-beta4" class="prerelease">Beta 4</a>
+        <a href="releases/2.2-beta3" class="prerelease">Beta 3</a>
+        <a href="releases/2.2-beta2" class="prerelease">Beta 2</a>
+        <a href="releases/2.2-beta1" class="prerelease">Beta 1</a>
+      </td>
+    </tr>
+    <tr>
+      <th>2.1</th>
+      <td>
+        <a href="releases/2.1" class="release">RTM</a>
+        <a href="releases/2.1-rc2" class="prerelease">RC 2</a>
+        <a href="releases/2.1-rc1" class="prerelease">RC 1</a>
+        <a href="releases/2.1-beta4" class="prerelease">Beta 4</a>
+        <a href="releases/2.1-beta3" class="prerelease">Beta 3</a>
+        <a href="releases/2.1-beta2" class="prerelease">Beta 2</a>
+        <a href="releases/2.1-beta1" class="prerelease">Beta 1</a>
+      </td>
+    </tr>
+    <tr>
+      <th>2.0.1</th>
+      <td>
+        <a href="releases/2.0.1" class="release">RTM</a>
+        <a href="releases/2.0.1-rc1" class="prerelease">RC 1</a>
+      </td>
+    </tr>
+    <tr>
+      <th>2.0</th>
+      <td>
+        <a href="releases/2.0" class="release">RTM</a>
+        <a href="releases/2.0-rc4" class="prerelease">RC 4</a>
+        <a href="releases/2.0-rc3" class="prerelease">RC 3</a>
+        <a href="releases/2.0-rc2" class="prerelease">RC 2</a>
+        <a href="releases/2.0-rc1" class="prerelease">RC 1</a>
+        <a href="releases/2.0-beta5" class="prerelease">Beta 5</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="runners">Test Runner Compatibility</h2>
 
@@ -214,7 +203,6 @@ redirect_from: "/docs/running-tests-in-vs.html"
       <th>MSBuild</th>
       <th>TestDriven.NET</th>
       <th>Visual Studio <sup>2</sup></th>
-      <th>Resharper</th>
       <th>Devices</th>
     </tr>
   </thead>
@@ -226,7 +214,6 @@ redirect_from: "/docs/running-tests-in-vs.html"
       <td>&check; <sup>3a</sup></td>
       <td>&check; <sup>3a</sup></td>
       <td>&check; <sup>3b (2012+)</sup></td>
-      <td>&check;</td>
       <td>&nbsp;</td>
     </tr>
     <tr>
@@ -236,7 +223,6 @@ redirect_from: "/docs/running-tests-in-vs.html"
       <td>&check; <sup>3a</sup></td>
       <td>&check; <sup>3a</sup></td>
       <td>&nbsp;</td>
-      <td>&check;</td>
       <td>&check; <sup>3c</sup></td>
     </tr>
     <tr>
@@ -247,7 +233,6 @@ redirect_from: "/docs/running-tests-in-vs.html"
       <td>&nbsp;</td>
       <td>&check; <sup>3b (2017+)</sup></td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
     </tr>
     <tr>
       <th>.NET Standard Class Library 1.1+</th>
@@ -255,7 +240,6 @@ redirect_from: "/docs/running-tests-in-vs.html"
       <td>&check; <sup>3a</sup></td>
       <td>&check; <sup>3a</sup></td>
       <td>&check; <sup>3a</sup></td>
-      <td>&nbsp;</td>
       <td>&nbsp;</td>
       <td>&check; <sup>3c</sup></td>
     </tr>
@@ -266,7 +250,6 @@ redirect_from: "/docs/running-tests-in-vs.html"
       <td>&nbsp;</td>
       <td>&nbsp;</td>
       <td>&check; <sup>3b (2015+)</sup></td>
-      <td>&nbsp;</td>
       <td>&check; <sup>3c</sup></td>
     </tr>
     <tr>
@@ -276,13 +259,11 @@ redirect_from: "/docs/running-tests-in-vs.html"
       <td>&nbsp;</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
       <td>&check; <sup>3c</sup></td>
     </tr>
     <tr>
       <th>Xamarin iOS Unified <sup>1</sup></th>
       <td>2.0+</td>
-      <td>&nbsp;</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
@@ -302,13 +283,11 @@ redirect_from: "/docs/running-tests-in-vs.html"
       <td>&nbsp;</td>
       <td>&nbsp;</td>
       <td>&check; <sup>3b (2013+)</sup></td>
-      <td>&nbsp;</td>
       <td>&check; <sup>3c</sup></td>
     </tr>
     <tr>
       <th>Windows Phone 8 (Silverlight)</th>
       <td>2.0 - 2.1</td>
-      <td>&nbsp;</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
@@ -322,16 +301,14 @@ redirect_from: "/docs/running-tests-in-vs.html"
       <td>&nbsp;</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
       <td>&check; <sup>3c</sup></td>
     </tr>
   </tbody>
   <tfoot>
     <tr>
       <td colspan="8">
-        <em><strong>Note:</strong> A GUI runner ships with xUnit.net 1.9.2, but is no longer supported.</em><br />
-        <sup>1</sup> Requires Xamarin for Visual Studio or Xamarin Studio<br />
-        <sup>2</sup> Visual Studio support requires Visual Studio Community, or a paid-for version of Visual Studio (Express editions are not supported)<br />
+        <sup>1</sup> Requires Xamarin for Visual Studio or Xamarin Studio.<br />
+        <sup>2</sup> Visual Studio support includes the VS UI, <code>vstest.console.exe</code>, and <code>dotnet test</code>. Express editions are not supported.<br />
         <sup>3</sup> Test runner source code availability:<br />
         &nbsp; &nbsp; <sup>a</sup> <a href="https://github.com/xunit/xunit">https://github.com/xunit/xunit</a><br />
         &nbsp; &nbsp; <sup>b</sup> <a href="https://github.com/xunit/visualstudio.xunit">https://github.com/xunit/visualstudio.xunit</a><br />
@@ -387,26 +364,3 @@ redirect_from: "/docs/running-tests-in-vs.html"
     <td class="border" style="padding: 5px 10px"><a href="https://www.stickermule.com/marketplace/4404-xunit-dot-net-small-logo"><img src="https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/4404/large/1425068890/xunit-dot-net-small-logo.png" width="103"></a></td>
   </tr>
 </table>
-<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-<script>
-  $(function() {
-    var $prereleaseMoreText = $("#prereleaseMoreText"),
-        $prereleaseMoreItems = $(".prerelease-more"),
-        $releaseMoreText = $("#releaseMoreText"),
-        $releaseMoreItems = $(".release-more");
-
-    $("#prereleaseMoreText a")
-      .click(function(e) {
-        $prereleaseMoreItems.show();
-        $prereleaseMoreText.hide();
-        return false;
-      });
-
-    $("#releaseMoreText a")
-      .click(function(e) {
-        $releaseMoreItems.show();
-        $releaseMoreText.hide();
-        return false;
-      });
-  });
-</script>

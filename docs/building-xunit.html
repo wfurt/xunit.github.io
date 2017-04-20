@@ -1,0 +1,69 @@
+---
+layout: default
+title: Getting the source and building xUnit.net
+breadcrumb: Documentation
+---
+
+<h1>Getting the source and building xUnit.net</h1>
+
+<h2>Get a Git Client</h2>
+
+<p>Download a Git client, such as:</p>
+
+<ul>
+  <li><a href="http://code.google.com/p/tortoisegit/downloads/list">TortoiseGit</a></li>
+  <li><a href="http://windows.github.com/">Github for Windows</a></li>
+  <li><a href="http://code.google.com/p/msysgit/downloads/list">Command line client</a></li>
+</ul>
+
+<h2>Get the xUnit.net source code</h2>
+
+<p>
+  Using your Git client of choice, do a clone of <a href="https://github.com/xunit/xunit.git">https://github.com/xunit/xunit.git</a>.
+  When cloning, ensure the client automatically checks out Git submodules (from the command line, add the
+  <code>--recurse-submodules</code> switch).
+</p>
+
+<p>If you want help understanding and using Git, please see the <a href="http://learn.github.com/p/intro.html">Pro Git</a> e-book.</p>
+
+<h2>Open Visual Studio solution</h2>
+
+<p>
+  The core project (<a href="https://github.com/xunit/xunit">https://github.com/xunit/xunit</a>) requires you to install
+  <a href="https://www.visualstudio.com/downloads/">Visual Studio 2017</a> with the following workloads enabled:
+</p>
+
+<ul>
+  <li>Windows &gt; .NET desktop development</li>
+  <li>Web &amp; Cloud &gt; ASP.NET and web development</li>
+  <li>Other Toolsets &gt; .NET Core cross-platform development</li>
+</ul>
+
+<p>And the following individual components:</p>
+
+<ul>
+  <li>Development activities &gt; F# language support</li>
+</ul>
+
+<p>
+  You should be able to immediately build the solution, as all external dependencies are automatically retrieved with
+  <a href="http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages">NuGet Package Restore</a>.
+  If you want to run the unit tests from within Visual Studio, we strongly recommend you use
+  <a href="http://www.testdriven.net/">TestDriven.net</a>.
+</p>
+
+<h2>Build and run the tests from the command</h2>
+
+<p>For the purposes of demonstration, we will assume that you checked out the source code to <code>C:\xUnit</code>.</p>
+
+<ul>
+  <li>Open a Developer Command Prompt</li>
+  <li>Change to the directory with the source code: <code class="highlighter-rouge">cd C:\xUnit</code></li>
+  <li>Type the following command to build and run the tests: <code class="highlighter-rouge">.\build.ps1</code></li>
+  <li>Ensure there are no errors at the end of the build process.</li>
+</ul>
+
+<p><em>
+  If you have problems building the assertion library, you may have forgotten to update the submodules. From the command line,
+  run <code>git submodule update --init</code>.
+</em></p>
