@@ -20,6 +20,8 @@ breadcrumb: Documentation
 
 * Add a build step of type `Visual Studio Test`.
 
+These instructions are written for `Version 1.*` of the `Visual Studio Test` task. You may need to change the version as it defaults to `Version 2.*` or whichever is latest.
+
 ### Locate test assemblies
 
 * Under `Execution Options/Test Assembly`, point to your generated test assemblies, e.g. `**\bin\$(BuildConfiguration)\*test*.dll;-:**\xunit.runner.visualstudio.testadapter.dll`.  
