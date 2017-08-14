@@ -23,9 +23,9 @@ redirect_from: "/docs/getting-started-aspnet.html"
 </ul>
 
 <p><em>
-  Note: The examples were done with xUnit.net v2.3 Beta 2, .NET Core SDK 1.0.2, and
-  .NET Core 1.1.x. The version numbers, paths, and generated templates may differ for
-  you, depending on which version you're using. .NET Core 1.0.x is also supported.
+  Note: The examples were done with xUnit.net v2.3 Beta 4, .NET Core SDK 2.0, and
+  .NET Core 2.0. The version numbers, paths, and generated templates may differ for
+  you, depending on which version you're using. .NET Core 1.x is also supported.
 </em></p>
 
 <h2 id="download-dotnet">Download the .NET Core SDK</h2>
@@ -42,7 +42,7 @@ redirect_from: "/docs/getting-started-aspnet.html"
 
 <pre>
 $ <span style="background-color: #ff0">dotnet --version</span>
-1.0.2
+2.0.0
 </pre>
 
 <p><em>
@@ -78,12 +78,12 @@ The template "Class library" created successfully.
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="xunit" Version="2.3.0-beta2-build3683" />
-    <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.0-beta2-build3683" />
+    <PackageReference Include="xunit" Version="2.3.0-beta4-build3742" />
+    <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.0-beta4-build3742" />
   </ItemGroup>
 
 </Project>
@@ -93,8 +93,8 @@ The template "Class library" created successfully.
 
 <ol>
   <li>
-    We changed the target framework to <code>netcoreapp1.1</code>, which means
-    that our tests will use .NET Core 1.1.x (whatever is the latest version
+    We changed the target framework to <code>netcoreapp2.0</code>, which means
+    that our tests will use .NET Core 2.0.x (whatever is the latest version
     installed on our machine);
   </li>
   <li>
@@ -110,19 +110,16 @@ The template "Class library" created successfully.
 <pre>
 $ <span style="background-color: #ff0">dotnet restore</span>
   Restoring packages for C:\...\MyFirstUnitTests\MyFirstUnitTests.csproj...
-  Restoring packages for C:\...\MyFirstUnitTests\MyFirstUnitTests.csproj...
-  Restore completed in 650.29 ms for C:\...\MyFirstUnitTests\MyFirstUnitTests.csproj.
+  Restore completed in 48.87 ms for C:\...\MyFirstUnitTests\MyFirstUnitTests.csproj.
   Generating MSBuild file C:\...\MyFirstUnitTests\obj\MyFirstUnitTests.csproj.nuget.g.props.
   Generating MSBuild file C:\...\MyFirstUnitTests\obj\MyFirstUnitTests.csproj.nuget.g.targets.
-  Writing lock file to disk. Path: C:\...\MyFirstUnitTests\obj\project.assets.json
-  Restore completed in 768.58 ms for C:\...\MyFirstUnitTests\MyFirstUnitTests.csproj.
-  [...]
+  Restore completed in 217.08 ms for C:\...\MyFirstUnitTests\MyFirstUnitTests.csproj.
 $ <span style="background-color: #ff0">dotnet xunit</span>
 <b>Detecting target frameworks in MyFirstUnitTests.csproj...</b>
-<b>Building for framework netcoreapp1.1...</b>
-  MyFirstUnitTests -> C:\...\MyFirstUnitTests\bin\Debug\netcoreapp1.1\MyFirstUnitTests.dll
-<b>Running .NET Core tests for framework netcoreapp1.1...</b>
-xUnit.net Console Runner (64-bit .NET Core 4.6.25009.03)
+<b>Building for framework netcoreapp2.0...</b>
+  MyFirstUnitTests -> C:\...\MyFirstUnitTests\bin\Debug\netcoreapp2.0\MyFirstUnitTests.dll
+<b>Running .NET Core tests for framework netcoreapp2.0...</b>
+xUnit.net Console Runner (64-bit .NET Core 4.6.00001.0)
   Discovering: MyFirstUnitTests
   Discovered:  MyFirstUnitTests
 === TEST EXECUTION SUMMARY ===
@@ -174,10 +171,10 @@ namespace MyFirstUnitTests
 <pre>
 $ <span style="background-color: #ff0">dotnet xunit</span>
 <b>Detecting target frameworks in MyFirstUnitTests.csproj...</b>
-<b>Building for framework netcoreapp1.1...</b>
-  MyFirstUnitTests -> C:\...\MyFirstUnitTests\bin\Debug\netcoreapp1.1\MyFirstUnitTests.dll
-<b>Running .NET Core tests for framework netcoreapp1.1...</b>
-xUnit.net Console Runner (64-bit .NET Core 4.6.25009.03)
+<b>Building for framework netcoreapp2.0...</b>
+  MyFirstUnitTests -> C:\...\MyFirstUnitTests\bin\Debug\netcoreapp2.0\MyFirstUnitTests.dll
+<b>Running .NET Core tests for framework netcoreapp2.0...</b>
+xUnit.net Console Runner (64-bit .NET Core 4.6.00001.0)
   Discovering: MyFirstUnitTests
   Discovered:  MyFirstUnitTests
   Starting:    MyFirstUnitTests
@@ -259,7 +256,7 @@ bool IsOdd(int value)
 </p>
 
 <pre>
-xUnit.net Console Runner (64-bit .NET Core 4.6.25009.03)
+xUnit.net Console Runner (64-bit .NET Core 4.6.00001.0)
   Discovering: MyFirstUnitTests
   Discovered:  MyFirstUnitTests
   Starting:    MyFirstUnitTests
@@ -299,7 +296,7 @@ xUnit.net Console Runner (64-bit .NET Core 4.6.25009.03)
 
 {% highlight xml %}
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 {% endhighlight %}
 
@@ -307,7 +304,7 @@ xUnit.net Console Runner (64-bit .NET Core 4.6.25009.03)
 
 {% highlight xml %}
   <PropertyGroup>
-    <TargetFrameworks>net452;netcoreapp1.1</TargetFrameworks>
+    <TargetFrameworks>net452;netcoreapp2.0</TargetFrameworks>
   </PropertyGroup>
 {% endhighlight %}
 
@@ -351,10 +348,10 @@ xUnit.net Console Runner (64-bit Desktop .NET 4.0.30319.42000)
   Finished:    MyFirstUnitTests
 === TEST EXECUTION SUMMARY ===
    MyFirstUnitTests  Total: 5, Errors: 0, Failed: 2, Skipped: 0, Time: 0.167s
-<b>Building for framework netcoreapp1.1...</b>
-  MyFirstUnitTests -> C:\...\MyFirstUnitTests\bin\Debug\netcoreapp1.1\MyFirstUnitTests.dll
-<b>Running .NET Core tests for framework netcoreapp1.1...</b>
-xUnit.net Console Runner (64-bit .NET Core 4.6.25009.03)
+<b>Building for framework netcoreapp2.0...</b>
+  MyFirstUnitTests -> C:\...\MyFirstUnitTests\bin\Debug\netcoreapp2.0\MyFirstUnitTests.dll
+<b>Running .NET Core tests for framework netcoreapp2.0...</b>
+xUnit.net Console Runner (64-bit .NET Core 4.6.00001.0)
   Discovering: MyFirstUnitTests
   Discovered:  MyFirstUnitTests
   Starting:    MyFirstUnitTests
