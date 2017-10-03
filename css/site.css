@@ -146,6 +146,9 @@ li>blockquote {
   font-style: italic;
   font-size: 13px;
 }
+blockquote.padded {
+  margin: 8px 0 8px 15px;
+}
 .navbar-inverse {
   background-color: #c0c7c4;
   border: 0;

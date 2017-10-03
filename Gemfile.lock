@@ -135,9 +135,9 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  github-pages (= 101)
+  github-pages
   jekyll-redirect-from
   wdm (>= 0.1.0)
 
 BUNDLED WITH
-   1.14.6
+   1.15.4
