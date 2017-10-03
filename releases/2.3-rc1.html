@@ -21,7 +21,6 @@ breadcrumb: Release Notes
 
 <h3>dotnet xunit runner</h3>
 <ul>
-  <li>Removed the need to reference <code>Microsoft.NET.Test.Sdk</code> package.</li>
   <li>Added a new <code>-stoponfail</code> switch to stop running tests after the first test failure.</li>
   <li>
     Added a new <code>-msbuildverbosity</code> switch to allow the user to choose which verbosity
@@ -74,13 +73,13 @@ breadcrumb: Release Notes
 <h3>Runner Utility</h3>
 <ul>
   <li>
-    A new <code>NetCoreAssemblyDependencyResolver</code> clas was added which can be
+    A new <code>NetCoreAssemblyDependencyResolver</code> class was added which can be
     used by runner authors to provide support for loading dependencies of test assemblies
     by reading the <code>.deps.json</code> file that's generated, and resolving those
     dependencies from the user's local NuGet cache. To use it, call its constructor
     with the full path to the test assembly on disk, just before creating the controller
     (for example, <code>XunitFrontController</code>). The object is disposable, so placing
-    it inside a <code>using</code> block is strongly suggested. For an example, please see
+    it inside a <code>using</code> block is strongly advised. For an example, please see
     <a href="https://github.com/xunit/xunit/blob/2c85a423aa7b3aff3ddfe45fb689dfb7585169f3/src/xunit.console/ConsoleRunner.cs#L358-L362">ConsoleRunner.cs</a>
     in the console runner.
   </li>
@@ -107,7 +106,6 @@ breadcrumb: Release Notes
   tests with Visual Studio</a> in the Getting Started documentation.
 </em></p>
 <ul>
-  <li>Removed the need to reference <code>Microsoft.NET.Test.Sdk</code> package.</li>
   <li>
     The GUID that appeared on the end of the tooltip for test cases in the Visual Studio
     Test Explorer UI has been removed. The tooltip will now just show the fully qualified
