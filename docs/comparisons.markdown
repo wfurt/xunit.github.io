@@ -12,22 +12,20 @@ breadcrumb: Documentation
 
 ## Attributes
 
-*Note: This table was written back when xUnit.net 1.0 has shipped, and needs to be updated with information regarding the latest versions of the unit testing frameworks.*
-
 {: .table .smaller }
-| NUnit 2.2               | MSTest 2005           | xUnit.net 2.x                         | Comments |
-| :---------------------- | :-------------------- | :------------------------------------ | :------- |
-| `[Test]`                | `[TestMethod]`        | `[Fact]`                              | Marks a test method. |
-| `[TestFixture]`         | `[TestClass]`         | *n/a*                                 | xUnit.net does not require an attribute for a test class; it looks for all test methods in all public (exported) classes in the assembly.
-| `[ExpectedException]`   | `[ExpectedException]` | `Assert.Throws`<br>`Record.Exception` | xUnit.net has done away with the ExpectedException attribute in favor of `Assert.Throws`. See [Note 1](#note1) |
-| `[SetUp]`               | `[TestInitialize]`    | Constructor                           | We believe that use of `[SetUp]` is generally bad. However, you can implement a parameterless constructor as a direct replacement. See [Note 2](#note2) |
-| `[TearDown]`            | `[TestCleanup]`       | `IDisposable.Dispose`                 | We believe that use of `[TearDown]` is generally bad. However, you can implement `IDisposable.Dispose` as a direct replacement. See [Note 2](#note2) |
-| `[TestFixtureSetUp]`    | `[ClassInitialize]`   | `IClassFixture<T>`                    | To get per-class fixture setup, implement `IClassFixture<T>` on your test class. See [Note 3](#note3) |
-| `[TestFixtureTearDown]` | `[ClassCleanup]`      | `IClassFixture<T>`                    | To get per-class fixture teardown, implement `IClassFixture<T>` on your test class. See [Note 3](#note3) |
-| *n/a*                   | *n/a*                 | `ICollectionFixture<T>`               | To get per-collection fixture setup and teardown, implement `ICollectionFixture<T>` on your test collection. See [Note 3](#note3) |
-| `[Ignore]`              | `[Ignore]`            | `[Fact(Skip="reason")]`               | Set the Skip parameter on the `[Fact]` attribute to temporarily skip a test. |
-| `[Property]`            | `[TestProperty]`      | `[Trait]`                             | Set arbitrary metadata on a test |
-| *n/a*                   | `[DataSource]`        | `[Theory]`<br>`[XxxData]`             | Theory (data-driven test). See [Note 4](#note4) |
+| NUnit 3.x                           | MSTest 15.x           | xUnit.net 2.x                         | Comments |
+| :---------------------------------- | :-------------------- | :------------------------------------ | :------- |
+| `[Test]`                            | `[TestMethod]`        | `[Fact]`                              | Marks a test method. |
+| `[TestFixture]`                     | `[TestClass]`         | *n/a*                                 | xUnit.net does not require an attribute for a test class; it looks for all test methods in all public (exported) classes in the assembly.
+| `Assert.That`<br>`Record.Exception` | `[ExpectedException]` | `Assert.Throws`<br>`Record.Exception` | xUnit.net has done away with the ExpectedException attribute in favor of `Assert.Throws`. See [Note 1](#note1) |
+| `[SetUp]`                           | `[TestInitialize]`    | Constructor                           | We believe that use of `[SetUp]` is generally bad. However, you can implement a parameterless constructor as a direct replacement. See [Note 2](#note2) |
+| `[TearDown]`                        | `[TestCleanup]`       | `IDisposable.Dispose`                 | We believe that use of `[TearDown]` is generally bad. However, you can implement `IDisposable.Dispose` as a direct replacement. See [Note 2](#note2) |
+| `[OneTimeSetUp]`                    | `[ClassInitialize]`   | `IClassFixture<T>`                    | To get per-class fixture setup, implement `IClassFixture<T>` on your test class. See [Note 3](#note3) |
+| `[OneTimeTearDown]`                 | `[ClassCleanup]`      | `IClassFixture<T>`                    | To get per-class fixture teardown, implement `IClassFixture<T>` on your test class. See [Note 3](#note3) |
+| *n/a*                               | *n/a*                 | `ICollectionFixture<T>`               | To get per-collection fixture setup and teardown, implement `ICollectionFixture<T>` on your test collection. See [Note 3](#note3) |
+| `[Ignore("reason")]`                | `[Ignore]`            | `[Fact(Skip="reason")]`               | Set the Skip parameter on the `[Fact]` attribute to temporarily skip a test. |
+| `[Property]`                        | `[TestProperty]`      | `[Trait]`                             | Set arbitrary metadata on a test |
+| `[Theory]`                          | `[DataSource]`        | `[Theory]`<br>`[XxxData]`             | Theory (data-driven test). See [Note 4](#note4) |
 
 ## Attribute Notes
 
@@ -37,38 +35,42 @@ breadcrumb: Documentation
 
 <a name="note3">**Note 3:**</a> xUnit.net provides a new way to think about per-fixture data with the use of the `IClassFixture<T>` and `ICollectionFixture<T>` interfaces. The runner will create a single instance of the fixture data and pass it through to your constructor before running each test. All the tests share the same instance of fixture data. After all the tests have run, the runner will dispose of the fixture data, if it implements `IDisposable`. For more information, see [Shared Context](shared-context.html).
 
-<a name="note4">**Note 4:**</a> xUnit.net ships with support for data-driven tests call Theories. Mark your test with the `[Theory]` attribute (instead of `[Fact]`), then decorate it with one or more `[XxxData]` attributes, including `[InlineData]` and `[MemberData]`. For more information, see [Getting Started](getting-started.html).
+<a name="note4">**Note 4:**</a> xUnit.net ships with support for data-driven tests call Theories. Mark your test with the `[Theory]` attribute (instead of `[Fact]`), then decorate it with one or more `[XxxData]` attributes, including `[InlineData]` and `[MemberData]`. For more information, see [Getting Started](getting-started-desktop.html).
 
 ## Assertions
 
-*Note: this table was written back when xUnit.net 1.0 has shipped, and needs to be updated with information regarding the latest versions of the unit testing frameworks.*
+NUnit uses a [Constraint Model](https://github.com/nunit/docs/wiki/Constraint-Model). All the assertions start with `Asser.That` followed by a constraint. In the table below we compare NUnit contraints, MSTest asserts, and xUnit asserts. 
 
 {: .table .smaller }
-| NUnit 2.2             | MSTest 2005           | xUnit.net 1.x      | Comments |
-| :-------------------- | :-------------------- | :----------------- | :------- |
-| `AreEqual`            | `AreEqual`            | `Equal`            | MSTest and xUnit.net support generic versions of this method |
-| `AreNotEqual`         | `AreNotEqual`         | `NotEqual`         | MSTest and xUnit.net support generic versions of this method |
-| `AreNotSame`          | `AreNotSame`          | `NotSame`          | |
-| `AreSame`             | `AreSame`             | `Same`             | |
-| `Contains`            | `Contains`            | `Contains`         | |
-| `DoAssert`            | *n/a*                 | *n/a*              | |
-| *n/a*                 | `DoesNotContain`      | `DoesNotContain`   | |
-| *n/a*                 | *n/a*                 | `DoesNotThrow`     | Ensures that the code does not throw any exceptions |
-| `Fail`                | `Fail`                | *n/a*              | xUnit.net alternative: `Assert.True(false, "message")` |
-| `Greater`             | *n/a*                 | *n/a*              | xUnit.net alternative: `Assert.True(x > y)` |
-| `Ignore`              | `Inconclusive`        | *n/a*              | |
-| *n/a*                 | *n/a*                 | `InRange`          | Ensures that a value is in a given inclusive range (note: NUnit and MSTest have limited support for `InRange` on their `AreEqual` methods) |
-| `IsAssignableFrom`    | *n/a*                 | `IsAssignableFrom` | |
-| `IsEmpty`             | *n/a*                 | `Empty`            | |
-| `IsFalse`             | `IsFalse`             | `False`            | |
-| `IsInstanceOfType`    | `IsInstanceOfType`    | `IsType`           | |
-| `IsNaN`               | *n/a*                 | *n/a*              | xUnit.net alternative: `Assert.True(double.IsNaN(x))` |
-| `IsNotAssignableFrom` | *n/a*                 | *n/a*              | xUnit.net alternative: `Assert.False(obj is Type)` |
-| `IsNotEmpty`          | *n/a*                 | `NotEmpty`         | |
-| `IsNotInstanceOfType` | `IsNotInstanceOfType` | `IsNotType`        | |
-| `IsNotNull`           | `IsNotNull`           | `NotNull`          | |
-| `IsNull`              | `IsNull`              | `Null`             | |
-| `IsTrue`              | `IsTrue`              | `True`             | |
-| `Less`                | *n/a*                 | *n/a*              | xUnit.net alternative: `Assert.True(x < y)` |
-| *n/a*                 | *n/a*                 | `NotInRange`       | Ensures that a value is not in a given inclusive range |
-| *n/a*                 | *n/a*                 | `Throws`           | Ensures that the code throws an exact exception |
+| NUnit 3.x (Contraint)      | MSTest 15.x           | xUnit.net 2.x      | Comments |
+| :------------------------- | :-------------------- | :----------------- | :------- |
+| `Is.EqualTo`               | `AreEqual`            | `Equal`            | MSTest and xUnit.net support generic versions of this method |
+| `Is.Not.EqualTo`           | `AreNotEqual`         | `NotEqual`         | MSTest and xUnit.net support generic versions of this method |
+| `Is.Not.SameAs`            | `AreNotSame`          | `NotSame`          | |
+| `Is.SameAs`                | `AreSame`             | `Same`             | |
+| `Does.Contain`             | `Contains`            | `Contains`         | |
+| `Does.Not.Contain`         | `DoesNotContain`      | `DoesNotContain`   | |
+| `Throws.Nothing`           | *n/a*                 | `DoesNotThrow`     | Ensures that the code does not throw any exceptions |
+| *n/a*                      | `Fail`                | *n/a*              | xUnit.net alternative: `Assert.True(false, "message")` |
+| `Is.GreaterThan`           | *n/a*                 | *n/a*              | xUnit.net alternative: `Assert.True(x > y)` |
+| `Is.InRange`               | *n/a*                 | `InRange`          | Ensures that a value is in a given inclusive range |
+| `Is.AssignableFrom`        | *n/a*                 | `IsAssignableFrom` | |
+| `Is.Empty`                 | *n/a*                 | `Empty`            | |
+| `Is.False`                 | `IsFalse`             | `False`            | |
+| `Is.InstanceOf<T>`         | `IsInstanceOfType`    | `IsType<T>`        | |
+| `Is.NaN`                   | *n/a*                 | *n/a*              | xUnit.net alternative: `Assert.True(double.IsNaN(x))` |
+| `Is.Not.AssignableFrom<T>` | *n/a*                 | *n/a*              | xUnit.net alternative: `Assert.False(obj is Type)` |
+| `Is.Not.Empty`             | *n/a*                 | `NotEmpty`         | |
+| `Is.Not.InstanceOf<T>`     | `IsNotInstanceOfType` | `IsNotType<T>`      | |
+| `Is.Not.Null`              | `IsNotNull`           | `NotNull`          | |
+| `Is.Null`                  | `IsNull`              | `Null`             | |
+| `Is.True`                  | `IsTrue`              | `True`             | |
+| `Is.LessThan`              | *n/a*                 | *n/a*              | xUnit.net alternative: `Assert.True(x < y)` |
+| `Is.Not.InRange`           | *n/a*                 | `NotInRange`       | Ensures that a value is not in a given inclusive range |
+| `Throws.TypeOf<T>`         | *n/a*                 | `Throws<T>`         | Ensures that the code throws an exact exception |
+
+## Sources
+
+*https://github.com/nunit/nunit
+*https://msdn.microsoft.com/en-us/library/ms243147.aspx
+*https://github.com/xunit/xunit
