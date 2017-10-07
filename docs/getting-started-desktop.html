@@ -81,6 +81,16 @@ redirect_from: "/docs/running-tests-in-vs.html"
 </packages>
 {% endhighlight %}
 
+<p class="note">
+  When creating a new project with Visual Studio 2017, you may not end up with a <code>packages.config</code>
+  file. That's okay: newer versions of Visual Studio place the NuGet package references directly into your
+  <code>.csproj</code> file as <code>&lt;PackageReference&gt;</code> elements like you see here in our
+  <a href="https://github.com/xunit/xunit.integration/blob/d6897d6dfe9c4123c9d24f56ca21cba9d664461c/console/v2x_net452/v2x_net452.csproj#L32-L33">xunit.integration</a>
+  project. The advantage is that you not only have one fewer file, but you also only have packages
+  listed for which you've taken direct references. That makes it easier to differentiate between the
+  packages you've chosen to install and the dependencies they bring with them.
+</p>
+
 <h2 id="write-first-tests">Write your first tests</h2>
 
 <p>

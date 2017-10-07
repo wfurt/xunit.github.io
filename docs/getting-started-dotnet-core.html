@@ -23,7 +23,7 @@ redirect_from: "/docs/getting-started-aspnet.html"
 </ul>
 
 <p><em>
-  Note: The examples were done with xUnit.net v2.3 Beta 4, .NET Core SDK 2.0, and
+  Note: The examples were done with xUnit.net v2.3, .NET Core SDK 2.0, and
   .NET Core 2.0. The version numbers, paths, and generated templates may differ for
   you, depending on which version you're using. .NET Core 1.x is also supported.
 </em></p>
@@ -82,8 +82,8 @@ The template "Class library" created successfully.
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="xunit" Version="2.3.0-beta4-build3742" />
-    <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.0-beta4-build3742" />
+    <PackageReference Include="xunit" Version="2.3.0" />
+    <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.0" />
   </ItemGroup>
 
 </Project>
@@ -118,7 +118,7 @@ $ <span style="background-color: #ff0">dotnet xunit</span>
 <b>Detecting target frameworks in MyFirstUnitTests.csproj...</b>
 <b>Building for framework netcoreapp2.0...</b>
   MyFirstUnitTests -> C:\...\MyFirstUnitTests\bin\Debug\netcoreapp2.0\MyFirstUnitTests.dll
-<b>Running .NET Core tests for framework netcoreapp2.0...</b>
+<b>Running .NET Core 2.0.0 tests for framework netcoreapp2.0...</b>
 xUnit.net Console Runner (64-bit .NET Core 4.6.00001.0)
   Discovering: MyFirstUnitTests
   Discovered:  MyFirstUnitTests
@@ -173,7 +173,7 @@ $ <span style="background-color: #ff0">dotnet xunit</span>
 <b>Detecting target frameworks in MyFirstUnitTests.csproj...</b>
 <b>Building for framework netcoreapp2.0...</b>
   MyFirstUnitTests -> C:\...\MyFirstUnitTests\bin\Debug\netcoreapp2.0\MyFirstUnitTests.dll
-<b>Running .NET Core tests for framework netcoreapp2.0...</b>
+<b>Running .NET Core 2.0.0 tests for framework netcoreapp2.0...</b>
 xUnit.net Console Runner (64-bit .NET Core 4.6.00001.0)
   Discovering: MyFirstUnitTests
   Discovered:  MyFirstUnitTests
@@ -311,7 +311,10 @@ xUnit.net Console Runner (64-bit .NET Core 4.6.00001.0)
 <p>
   Note that in addition to adding a new target framework, we also renamed the
   element from <code>&lt;TargetFramework&gt;</code> (singular) to
-  <code>&lt;TargetFrameworks&gt;</code>(plural).
+  <code>&lt;TargetFrameworks&gt;</code>(plural). You can run against any
+  combination of .NET 4.5.2+ and/or .NET Core 1.0+, including multiple
+  desktop or .NET Core frameworks (for example, it's legal to have something like
+  <code>&lt;TargetFrameworks&gt;net452;net461;net47;netcoreapp1.0;netcoreapp1.1;netcoreapp2.0&lt;/TargetFrameworks&gt;</code>).
 </p>
 
 <p>
@@ -350,7 +353,7 @@ xUnit.net Console Runner (64-bit Desktop .NET 4.0.30319.42000)
    MyFirstUnitTests  Total: 5, Errors: 0, Failed: 2, Skipped: 0, Time: 0.167s
 <b>Building for framework netcoreapp2.0...</b>
   MyFirstUnitTests -> C:\...\MyFirstUnitTests\bin\Debug\netcoreapp2.0\MyFirstUnitTests.dll
-<b>Running .NET Core tests for framework netcoreapp2.0...</b>
+<b>Running .NET Core 2.0.0 tests for framework netcoreapp2.0...</b>
 xUnit.net Console Runner (64-bit .NET Core 4.6.00001.0)
   Discovering: MyFirstUnitTests
   Discovered:  MyFirstUnitTests
@@ -395,13 +398,9 @@ xUnit.net Console Runner (64-bit .NET Core 4.6.00001.0)
   You will need to install two packages:
 </p>
 <ul>
-  <li><code>xunit.runner.visualstudio</code> (version <code>2.3.0-beta4-build3742</code> or later)</li>
-  <li><code>Microsoft.NET.Test.Sdk</code> (version <code>15.0.0</code> or later)</li>
+  <li><code>xunit.runner.visualstudio</code> (version <code>2.3.0</code> or later)</li>
+  <li><code>Microsoft.NET.Test.Sdk</code> (version <code>15.0.0</code> or later; we recommend using whatever the latest RTM build is)</li>
 </ul>
-
-<p>Here is an example of the NuGet window:</p>
-
-<p><img class="border" src="../images/running-tests-in-vs/add-xunit-runner-visualstudio.png" width="981" /></p>
 
 <p>
   Make sure Test Explorer is visible (go to <code>Test &gt; Windows &gt; Test Explorer</code>). Every
