@@ -16,7 +16,7 @@ breadcrumb: Release Notes
 <p><img class="border" src="../images/releases/2.3.png" width="448" /></p>
 
 <p>
-  It's been nearly 10 months since the release of <a href="2.2">2.2 RTM</a>. That was
+  It's been nearly 8 months since the release of <a href="2.2">2.2 RTM</a>. That was
   strongly aligned with .NET Core 1.0, and in the intervening time, that team has now
   shipped a substantial 2.0 update. Similarly, xUnit.net 2.3 feels like it has a much
   improved experience for .NET Core users (both 1.x and 2.x).
@@ -24,24 +24,23 @@ breadcrumb: Release Notes
 
 <p>
   One of the core reasons we've done xUnit.net has been to improve the day-to-day
-  unit testing experience for .NET developers. Some of those discussions happened
-  in our previous job when we decided that writing Roslyn code analyzers would add
-  a great deal of value to codify the lessons we've tried to each into concrete
-  rules and fixes. <a href="https://github.com/marcind">Marcin Dobosz</a>, one
-  of our co-workers at the time, stepped up and has done a tremendous job with the
+  unit testing experience for .NET developers. At a previous job, we had discussions
+  about adding Roslyn code analyzers to xUnit.net as a way to make our guidance
+  more concrete. These rules and fixes would represent our knowledge with issues
+  commonly faced by unit testers in general, and xUnit.net users in particular.
+  <a href="https://github.com/marcind">Marcin Dobosz</a>, one of our co-workers at
+  the time, has stepped up and has done a tremendous job with the
   <a href="https://github.com/xunit/xunit.analyzers">xUnit.net Analyzers</a> project.
-  Although this hasn't yet reaching 1.0 status, we are already including them when
-  you reference the <code>xunit</code> meta-package, so you should start seeing
-  those errors and warning start to light up in your test code.
+  Although this hasn't yet reached 1.0 status, we've already started including them
+  when you reference the <code>xunit</code> meta-package; as a result, you will see
+  our guidance light up as warnings and errors in your code.
 </p>
 
 <p>
-  Visual Studio 2017 has seen some substantial improvements since its release 9
-  months ago, with some great things on the horizon with 15.4 and 15.5. We feel that
-  xUnit.net is well poised to take advantage of these upcoming releases, especially as
-  we see UWP start to support .NET Standard 2.0. We are currently working on updated
-  templates for the next releases of the .NET SDK and Visual Studio 2017 which will
-  include 2.3 references.
+  Visual Studio 2017 has seen some substantial improvements since its release 7
+  months ago, with some great things on the horizon with 15.4 and 15.5. We are
+  currently working on updated templates for the next release of the .NET SDK
+  and a future update to Visual Studio 2017 which will include 2.3 references.
 </p>
 
 <p>
@@ -80,7 +79,7 @@ breadcrumb: Release Notes
   <li>
     There have been several improvements to the assertion library, as well as new
     command line options (and MSBuild properties) to the test runners. Make sure to
-    check out the help to see what's new!
+    check out Intellisense and the command line runner help to see what's new!
   </li>
 </ul>
 
