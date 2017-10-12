@@ -39,7 +39,7 @@ breadcrumb: Documentation
 
 ## Assertions
 
-NUnit uses a [Constraint Model](https://github.com/nunit/docs/wiki/Constraint-Model). All the assertions start with `Asser.That` followed by a constraint. In the table below we compare NUnit contraints, MSTest asserts, and xUnit asserts. 
+NUnit uses a [Constraint Model](https://github.com/nunit/docs/wiki/Constraint-Model). All the assertions start with `Assert.That` followed by a constraint. In the table below we compare NUnit constraints, MSTest asserts, and xUnit asserts. 
 
 {: .table .smaller }
 | NUnit 3.x (Contraint)      | MSTest 15.x           | xUnit.net 2.x      | Comments |
