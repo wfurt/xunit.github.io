@@ -81,15 +81,6 @@ breadcrumb: Release Notes
   </li>
 </ul>
 
-<h3>Runner reporters</h3>
-<ul>
-  <li>
-    <strong>BUG:</strong> Fixed an issue with the JSON reporter which caused floating point numbers
-    to use the current computer's locale to format numbers, instead of the invariant locale. This
-    caused invalid JSON to be generated on systems which use non-period decimal separators.
-  </li>
-</ul>
-
 <h3>Visual Studio runner</h3>
 <p><em>
   For information on using xUnit.net from within Visual Studio, see
@@ -109,5 +100,14 @@ breadcrumb: Release Notes
   <li>
     <strong>BUG:</strong> Fixed an issue where sometimes source file mappings were broken,
     especially with projects whose name started with 'n'. (Yes, really.)
+  </li>
+</ul>
+
+<h3>Runner reporters</h3>
+<ul>
+  <li>
+    <strong>BUG:</strong> Fixed an issue with the JSON reporter which caused floating point numbers
+    to use the current computer's locale to format numbers, instead of the invariant locale. This
+    caused invalid JSON to be generated on systems which use non-period decimal separators.
   </li>
 </ul>
