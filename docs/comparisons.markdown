@@ -71,6 +71,6 @@ NUnit uses a [Constraint Model](https://github.com/nunit/docs/wiki/Constraint-Mo
 
 ## Sources
 
-*https://github.com/nunit/nunit
-*https://msdn.microsoft.com/en-us/library/ms243147.aspx
-*https://github.com/xunit/xunit
+* https://github.com/nunit/nunit
+* https://msdn.microsoft.com/en-us/library/ms243147.aspx
+* https://github.com/xunit/xunit
