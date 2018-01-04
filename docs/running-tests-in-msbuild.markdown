@@ -23,7 +23,7 @@ Here is an example MSBuild file using the &lt;xunit&gt; task to run a single ass
     xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <UsingTask
-    AssemblyFile="path\to\xunit.runner.msbuild.dll"
+    AssemblyFile="path\to\xunit.runner.msbuild.net452.dll"
     TaskName="Xunit.Runner.MSBuild.xunit"/>
 
   <Target Name="Test">
@@ -45,7 +45,7 @@ Here is an example MSBuild file using the &lt;xunit&gt; task to run several asse
     xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <UsingTask
-    AssemblyFile="path\to\xunit.runner.msbuild.dll"
+    AssemblyFile="path\to\xunit.runner.msbuild.net452.dll"
     TaskName="Xunit.Runner.MSBuild.xunit" />
 
   <ItemGroup>
