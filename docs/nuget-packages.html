@@ -223,26 +223,6 @@ breadcrumb: Documentation
     </td>
   </tr>
   <tr>
-    <th id="xunit.runner.dnx">
-      xunit.runner.dnx<br />
-      <a href="https://www.nuget.org/packages/xunit.runner.dnx" class="version-stable"><img src="https://img.shields.io/nuget/v/xunit.runner.dnx.svg?style=flat"></a>
-      <a href="https://www.nuget.org/packages/xunit.runner.dnx" class="version-pre"><img src="https://img.shields.io/nuget/vpre/xunit.runner.dnx.svg?style=flat"></a>
-      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.runner.dnx" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.runner.dnx.svg?style=flat"></a>
-    </th>
-    <td class="wrapped-wide">
-      <p>
-        This package contains code to run tests written for DNX applications (including ASP.NET 5 or later).
-        The runner code contained in this package includes both the console runner (invoked with
-        <code>k test</code>) as well as the Visual Studio runner (which supports VS2015 or later).
-      </p>
-      <h5>
-        Introduced: 2.1.0<br />
-        Depends on:
-          <a href="#xunit.runner.utility">xunit.runner.utility</a>
-      </h5>
-    </td>
-  </tr>
-  <tr>
     <th id="xunit.runner.msbuild">
       xunit.runner.msbuild<br />
       <a href="https://www.nuget.org/packages/xunit.runner.msbuild" class="version-stable"><img src="https://img.shields.io/nuget/v/xunit.runner.msbuild.svg?style=flat"></a>
@@ -313,6 +293,27 @@ breadcrumb: Documentation
     </td>
   </tr>
   <tr>
+    <th id="dotnet-xunit">
+      dotnet-xunit<br />
+      <a href="https://www.nuget.org/packages/dotnet-xunit" class="version-stable"><img src="https://img.shields.io/nuget/v/dotnet-xunit.svg?style=flat"></a>
+      <a href="https://www.nuget.org/packages/dotnet-xunit" class="version-pre"><img src="https://img.shields.io/nuget/vpre/dotnet-xunit.svg?style=flat"></a>
+      <a href="https://www.myget.org/feed/xunit/package/nuget/dotnet-xunit" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/dotnet-xunit.svg?style=flat"></a>
+    </th>
+    <td class="wrapped-wide">
+      <p>
+        This package contains a .NET Core command line runner for unit tests. Unlike standard NuGet
+        packages, this one must be referenced via <code>&lt;DotNetCliToolReference&gt;</code> rather than
+        <code>&lt;PackageReference</code>. It allows developers to run the <code>dotnet xunit</code>
+        command from a test project directory to use the xUnit.net console runner to run tests which
+        target .NET Core and/or the Desktop CLR.
+      </p>
+      <h5>
+        Introduced: 2.3.0<br />
+        Depends on: <em>None</em>
+      </h5>
+    </td>
+  </tr>
+  <tr>
     <th id="retired" colspan="2" class="title">Retired Packages</th>
   </tr>
   <tr>
@@ -338,8 +339,13 @@ breadcrumb: Documentation
   <tr>
     <th id="xunit.runner.aspnet">xunit.runner.aspnet</th>
     <td class="wrapped-wide">
-      This package was renamed to <a href="#xunit.runner.dnx">xunit.runner.dnx</a>
-      as of 2.1 Beta 2.
+      This package was retired as of 2.1 Beta 2.
+    </td>
+  </tr>
+  <tr>
+    <th id="xunit.runner.dnx">xunit.runner.dnx</th>
+    <td class="wrapped-wide">
+      This package was retired as of 2.3.
     </td>
   </tr>
   <tr>

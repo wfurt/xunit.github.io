@@ -126,6 +126,46 @@ redirect_from: "/docs/configuration-files.html"
     </td>
   </tr>
   <tr>
+    <th><code>xunit.methodDisplayOptions</code><br />[Runners v2.4 beta 1+]</th>
+    <td class="wrapped-wide">
+      <p>
+        Set this to automatically perform transforms on default test names. This value
+        can either be <code>all</code>, <code>none</code>, or a comma-separated
+        combination of one or more of the following values:
+      </p>
+      <ul>
+        <li><code>replaceUnderscoreWithSpace</code> Replaces all underscores with spaces</li>
+        <li>
+          <code>useOperatorMonikers</code> Replaces operator names with matching symbols
+          <ul>
+            <li><code>eq</code> becomes <code>=</code></li>
+            <li><code>ne</code> becomes <code>!=</code></li>
+            <li><code>lt</code> becomes <code>&lt;</code></li>
+            <li><code>le</code> becomes <code>&lt;=</code></li>
+            <li><code>gt</code> becomes <code>&gt;</code></li>
+            <li><code>ge</code> becomes <code>&gt;=</code></li>
+          </ul>
+        </li>
+        <li>
+          <code>useEscapeSequences</code> Replaces escape sequences in the format <code>Xnn</code>
+          or <code>Unnnn</code> with their ASCII or Unicode character equivalents. Examples:
+          <ul>
+            <li><code>X2C</code> becomes <code>,</code></li>
+            <li><code>U1D0C</code> becomes <code>&#x1d0c;</code></li>
+          </ul>
+        </li>
+        <li>
+          <code>replacePeriodWithComma</code> Replaced periods with a comma and a space. This
+          option is typically only useful if <code>methodDisplay</code> is <code>classAndMethod</code>.
+        </li>
+      </ul>
+      <p>
+        <em>Default value: <code>none</code><br />
+        Supported by: xUnit.net v2.4 beta 1 or later</em>
+      </p>
+    </td>
+  </tr>
+  <tr>
     <th><code>xunit.parallelizeAssembly</code><br />[Runners v2.0+]</th>
     <td class="wrapped-wide">
       <p>
