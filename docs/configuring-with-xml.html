@@ -7,36 +7,18 @@ redirect_from: "/docs/configuration-files.html"
 
 <h1>Configuring xUnit.net with XML</h1>
 
-<p>
-  Configuration files can be used to configure xUnit.net on a per test-assembly basis.
-  Desktop and portable class library (PCL) test projects are configured using the built-in
-  configuration system from .NET. If your test project does not already have an
-  <code>App.config</code> file, use Visual Studio to add one for you.
+<p class="important">
+  <strong><u>DEPRECATION WARNING</u>:</strong><br />
+  Configuration via <code>App.config</code> file is <strong>officially deprecated</strong>.
+  The documentation page exists for historical purposes. You should convert to
+  <a href="configuring-with-json">JSON-based configuration</a> at your earliest convenience.
 </p>
-<p>
-  The configuration elements are placed inside the <code>&lt;appSettings&gt;</code>
-  section:
-</p>
-
-{% highlight xml %}
-<?xml version="1.0" encoding="utf-8"?>
-<configuration>
-  <appSettings>
-    <add key="key-name" value="your-value"/>
-  </appSettings>
-</configuration>
-{% endhighlight %}
-
-<p><em>
-  Note: Only desktop and PCL test projects support XML-based configuration. For other
-  project types, see <a href="configuring-with-json.html">Configuring xUnit.net with
-  JSON</a>.
-</em></p>
 
 <p>
   Below is a list of supported keys and values (the version column is the version of
   <code>xunit.runner.utility</code> where the configuration element support was
-  added):
+  added). The configuration items should be added to the <code>&lt;appSettings&gt;</code>
+  section of your <code>App.config</code> file.
 </p>
 
 <table class="table">
