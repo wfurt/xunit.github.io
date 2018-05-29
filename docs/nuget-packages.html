@@ -293,28 +293,16 @@ breadcrumb: Documentation
     </td>
   </tr>
   <tr>
-    <th id="dotnet-xunit">
-      dotnet-xunit<br />
-      <a href="https://www.nuget.org/packages/dotnet-xunit" class="version-stable"><img src="https://img.shields.io/nuget/v/dotnet-xunit.svg?style=flat"></a>
-      <a href="https://www.nuget.org/packages/dotnet-xunit" class="version-pre"><img src="https://img.shields.io/nuget/vpre/dotnet-xunit.svg?style=flat"></a>
-      <a href="https://www.myget.org/feed/xunit/package/nuget/dotnet-xunit" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/dotnet-xunit.svg?style=flat"></a>
-    </th>
-    <td class="wrapped-wide">
-      <p>
-        This package contains a .NET Core command line runner for unit tests. Unlike standard NuGet
-        packages, this one must be referenced via <code>&lt;DotNetCliToolReference&gt;</code> rather than
-        <code>&lt;PackageReference</code>. It allows developers to run the <code>dotnet xunit</code>
-        command from a test project directory to use the xUnit.net console runner to run tests which
-        target .NET Core and/or the Desktop CLR.
-      </p>
-      <h5>
-        Introduced: 2.3.0<br />
-        Depends on: <em>None</em>
-      </h5>
-    </td>
+    <th id="retired" colspan="2" class="title">Retired Packages</th>
   </tr>
   <tr>
-    <th id="retired" colspan="2" class="title">Retired Packages</th>
+    <th id="dotnet-xunit">dotnet-xunit</th>
+    <td class="wrapped-wide">
+      <p>
+        This package was retired as of 2.4 Beta 2. .NET Core users should use <code>xunit.runner.visualstudio</code>
+        and the <code>dotnet test</code> command line.
+      </p>
+    </td>
   </tr>
   <tr>
     <th id="xunit.execution">xunit.execution</th>

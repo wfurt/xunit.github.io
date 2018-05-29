@@ -23,9 +23,9 @@ redirect_from: "/docs/getting-started-aspnet.html"
 </ul>
 
 <p><em>
-  Note: The examples were done with xUnit.net v2.3.1, .NET Core SDK 2.0, and
-  .NET Core 2.0. The version numbers, paths, and generated templates may differ for
-  you, depending on which version you're using. .NET Core 1.x is also supported.
+  Note: The examples were done with xUnit.net v2.3.1, .NET Core SDK 2.1.300, and
+  .NET Core 2.1. The version numbers, paths, and generated templates may differ for
+  you, depending on which version you're using. .NET Core 1.x and 2.0 are also supported.
 </em></p>
 
 <h2 id="download-dotnet">Download the .NET Core SDK</h2>
@@ -42,7 +42,7 @@ redirect_from: "/docs/getting-started-aspnet.html"
 
 <pre>
 $ <span style="background-color: #ff0">dotnet --version</span>
-2.0.0
+2.1.300
 </pre>
 
 <p><em>
@@ -63,13 +63,21 @@ $ <span style="background-color: #ff0">dotnet --version</span>
 $ <span style="background-color: #ff0">mkdir MyFirstUnitTests</span>
 $ <span style="background-color: #ff0">cd MyFirstUnitTests</span>
 $ <span style="background-color: #ff0">dotnet new classlib</span>
-Content generation time: 23.3746 ms
-The template "Class library" created successfully.
+The template "Class library" was created successfully.
+
+Processing post-creation actions...
+Running 'dotnet restore' on C:\src\MyFirstUnitTests\MyFirstUnitTests.csproj...
+  Restoring packages for C:\src\MyFirstUnitTests\MyFirstUnitTests.csproj...
+  Generating MSBuild file C:\src\MyFirstUnitTests\obj\MyFirstUnitTests.csproj.nuget.g.props.
+  Generating MSBuild file C:\src\MyFirstUnitTests\obj\MyFirstUnitTests.csproj.nuget.g.targets.
+  Restore completed in 116.76 ms for C:\src\MyFirstUnitTests\MyFirstUnitTests.csproj.
+
+Restore succeeded.
 </pre>
 
 <p>
   The result of this project template creates a .NET Standard class library. We
-  actually want a .NET Core class library (since we're writing .NET Core tests),
+  actually want a .NET Core application (since we're writing .NET Core tests),
   so open the generated <code>.csproj</code> file and edit it so that it looks
   like this:
 </p>
@@ -78,12 +86,13 @@ The template "Class library" created successfully.
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.0" />
     <PackageReference Include="xunit" Version="2.3.1" />
-    <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
   </ItemGroup>
 
 </Project>
@@ -93,37 +102,32 @@ The template "Class library" created successfully.
 
 <ol>
   <li>
-    We changed the target framework to <code>netcoreapp2.0</code>, which means
-    that our tests will use .NET Core 2.0.x (whatever is the latest version
+    We changed the target framework to <code>netcoreapp2.1</code>, which means
+    that our tests will use .NET Core 2.1.x (whatever is the latest version
     installed on our machine);
   </li>
   <li>
-    We added a new package reference to <code>xunit</code>, as well as a new
-    .NET CLI Tool reference to <code>dotnet-xunit</code>. The former is the
-    unit testing framework, and the latter is the command line tooling that
-    allows you to run the unit tests.
+    We added a new package references to <code>xunit</code> and
+    <code>xunit.runner.visualstudio</code>. The former is the unit testing framework,
+    and the latter is the library that enables support for both command line and
+    Visual Studio execution.
   </li>
 </ol>
 
 <p>Now let's verify that everything is working:</p>
 
 <pre>
-$ <span style="background-color: #ff0">dotnet restore</span>
-  Restoring packages for C:\...\MyFirstUnitTests\MyFirstUnitTests.csproj...
-  Restore completed in 48.87 ms for C:\...\MyFirstUnitTests\MyFirstUnitTests.csproj.
-  Generating MSBuild file C:\...\MyFirstUnitTests\obj\MyFirstUnitTests.csproj.nuget.g.props.
-  Generating MSBuild file C:\...\MyFirstUnitTests\obj\MyFirstUnitTests.csproj.nuget.g.targets.
-  Restore completed in 217.08 ms for C:\...\MyFirstUnitTests\MyFirstUnitTests.csproj.
-$ <span style="background-color: #ff0">dotnet xunit</span>
-<b>Detecting target frameworks in MyFirstUnitTests.csproj...</b>
-<b>Building for framework netcoreapp2.0...</b>
-  MyFirstUnitTests -> C:\...\MyFirstUnitTests\bin\Debug\netcoreapp2.0\MyFirstUnitTests.dll
-<b>Running .NET Core 2.0.0 tests for framework netcoreapp2.0...</b>
-xUnit.net Console Runner (64-bit .NET Core 4.6.00001.0)
-  Discovering: MyFirstUnitTests
-  Discovered:  MyFirstUnitTests
-=== TEST EXECUTION SUMMARY ===
-   MyFirstUnitTests.dll  Total: 0
+$ <span style="background-color: #ff0">dotnet test</span>
+Build started, please wait...
+Build completed.
+
+Test run for C:\src\MyFirstUnitTests\bin\Debug\netcoreapp2.1\MyFirstUnitTests.dll(.NETCoreApp,Version=v2.1)
+Microsoft (R) Test Execution Command Line Tool Version 15.7.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+<b>No test is available in C:\src\MyFirstUnitTests\bin\Debug\netcoreapp2.1\MyFirstUnitTests.dll. Make sure that test discoverer &
+executors are registered and platform & framework version settings are appropriate and try again.</b>
 </pre>
 
 <p>
@@ -169,37 +173,28 @@ namespace MyFirstUnitTests
 <p>Now let's go run the tests again and see what happens:</p>
 
 <pre>
-$ <span style="background-color: #ff0">dotnet xunit</span>
-<b>Detecting target frameworks in MyFirstUnitTests.csproj...</b>
-<b>Building for framework netcoreapp2.0...</b>
-  MyFirstUnitTests -> C:\...\MyFirstUnitTests\bin\Debug\netcoreapp2.0\MyFirstUnitTests.dll
-<b>Running .NET Core 2.0.0 tests for framework netcoreapp2.0...</b>
-xUnit.net Console Runner (64-bit .NET Core 4.6.00001.0)
-  Discovering: MyFirstUnitTests
-  Discovered:  MyFirstUnitTests
-  Starting:    MyFirstUnitTests
-    <span style="color: #e03030">MyFirstUnitTests.Class1.FailingTest [FAIL]</span>
-      Assert.Equal() Failure
-      Expected: 5
-      Actual:   4
-      <span style="color: #a8a8a8">Stack Trace:</span>
-        C:\...\MyFirstUnitTests\Class1.cs(16,0): at MyFirstUnitTests.Class1.FailingTest()
-  Finished:    MyFirstUnitTests
-=== TEST EXECUTION SUMMARY ===
-   MyFirstUnitTests  Total: 2, Errors: 0, Failed: 1, Skipped: 0, Time: 0.132s
+$ <span style="background-color: #ff0">dotnet test</span>
+Build started, please wait...
+Build completed.
+
+Test run for C:\src\MyFirstUnitTests\bin\Debug\netcoreapp2.1\MyFirstUnitTests.dll(.NETCoreApp,Version=v2.1)
+Microsoft (R) Test Execution Command Line Tool Version 15.7.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+<span style="color: #e03030">[xUnit.net 00:00:01.8833990]     MyFirstUnitTests.Class1.FailingTest [FAIL]
+Failed   MyFirstUnitTests.Class1.FailingTest
+Error Message:
+ Assert.Equal() Failure
+Expected: 5
+Actual:   4
+Stack Trace:
+   at MyFirstUnitTests.Class1.FailingTest() in C:\src\MyFirstUnitTests\Class1.cs:line 16</span>
+
+Total tests: 2. Passed: 1. Failed: 1. Skipped: 0.
+<span style="color: #e03030">Test Run Failed.</span>
+Test execution time: 3.9954 Seconds
 </pre>
-
-<p><em>
-  Note: We didn't run <code>dotnet restore</code> this time. You only need to run that
-  command when you have changed something inside the <code>.csproj</code> file, like
-  package references.
-</em></p>
-
-<p>
-  The .NET Core CLI test runner has several command line options, which include options for
-  parallelization, test filtering, and result reporting. To learn more about the console
-  runner options, run <code>dotnet xunit --help</code>.
-</p>
 
 <p>
   Now that we've gotten your first unit tests to run, let's introduce one more
@@ -250,31 +245,33 @@ bool IsOdd(int value)
 }
 {% endhighlight %}
 
-<p>
-  This time when we compile and run our tests, we see a second failure, for our
-  theory that was given 6:
-</p>
+<p>This time when we run our tests, we see a second failure, for our theory that was given 6:</p>
 
 <pre>
-xUnit.net Console Runner (64-bit .NET Core 4.6.00001.0)
-  Discovering: MyFirstUnitTests
-  Discovered:  MyFirstUnitTests
-  Starting:    MyFirstUnitTests
-    <span style="color: #e03030">MyFirstUnitTests.Class1.MyFirstTheory(value: 6) [FAIL]</span>
-      Assert.True() Failure
-      Expected: True
-      Actual:   False
-      <span style="color: #a8a8a8">Stack Trace:</span>
-        C:\...\MyFirstUnitTests\Class1.cs(30,0): at MyFirstUnitTests.Class1.MyFirstTheory(Int32 value)
-    <span style="color: #e03030">MyFirstUnitTests.Class1.FailingTest [FAIL]</span>
-      Assert.Equal() Failure
-      Expected: 5
-      Actual:   4
-      <span style="color: #a8a8a8">Stack Trace:</span>
-        C:\...\MyFirstUnitTests\Class1.cs(16,0): at MyFirstUnitTests.Class1.FailingTest()
-  Finished:    MyFirstUnitTests
-=== TEST EXECUTION SUMMARY ===
-   MyFirstUnitTests  Total: 5, Errors: 0, Failed: 2, Skipped: 0, Time: 0.146s
+Microsoft (R) Test Execution Command Line Tool Version 15.7.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+<span style="color: #e03030">[xUnit.net 00:00:00.5661695]     MyFirstUnitTests.Class1.MyFirstTheory(value: 6) [FAIL]
+[xUnit.net 00:00:00.5701272]     MyFirstUnitTests.Class1.FailingTest [FAIL]
+Failed   MyFirstUnitTests.Class1.MyFirstTheory(value: 6)
+Error Message:
+ Assert.True() Failure
+Expected: True
+Actual:   False
+Stack Trace:
+   at MyFirstUnitTests.Class1.MyFirstTheory(Int32 value) in C:\src\MyFirstUnitTests\Class1.cs:line 30
+Failed   MyFirstUnitTests.Class1.FailingTest
+Error Message:
+ Assert.Equal() Failure
+Expected: 5
+Actual:   4
+Stack Trace:
+   at MyFirstUnitTests.Class1.FailingTest() in C:\src\MyFirstUnitTests\Class1.cs:line 16</span>
+
+Total tests: 5. Passed: 3. Failed: 2. Skipped: 0.
+<span style="color: #e03030">Test Run Failed.</span>
+Test execution time: 4.0307 Seconds
 </pre>
 
 <p>
@@ -296,7 +293,7 @@ xUnit.net Console Runner (64-bit .NET Core 4.6.00001.0)
 
 {% highlight xml %}
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 {% endhighlight %}
 
@@ -304,7 +301,7 @@ xUnit.net Console Runner (64-bit .NET Core 4.6.00001.0)
 
 {% highlight xml %}
   <PropertyGroup>
-    <TargetFrameworks>net452;netcoreapp2.0</TargetFrameworks>
+    <TargetFrameworks>net452;netcoreapp2.1</TargetFrameworks>
   </PropertyGroup>
 {% endhighlight %}
 
@@ -314,7 +311,7 @@ xUnit.net Console Runner (64-bit .NET Core 4.6.00001.0)
   <code>&lt;TargetFrameworks&gt;</code>(plural). You can run against any
   combination of .NET 4.5.2+ and/or .NET Core 1.0+, including multiple
   desktop or .NET Core frameworks (for example, it's legal to have something like
-  <code>&lt;TargetFrameworks&gt;net452;net461;net47;netcoreapp1.0;netcoreapp1.1;netcoreapp2.0&lt;/TargetFrameworks&gt;</code>).
+  <code>&lt;TargetFrameworks&gt;net452;net461;net47;netcoreapp1.0;netcoreapp2.0;netcoreapp2.1&lt;/TargetFrameworks&gt;</code>).
 </p>
 
 <p>
@@ -327,52 +324,60 @@ xUnit.net Console Runner (64-bit .NET Core 4.6.00001.0)
 <pre>
 $ <span style="background-color: #ff0">dotnet restore</span>
   [...]
-$ <span style="background-color: #ff0">dotnet xunit</span>
-<b>Detecting target frameworks in MyFirstUnitTests.csproj...</b>
-<b>Building for framework net452...</b>
-  MyFirstUnitTests -> C:\...\MyFirstUnitTests\bin\Debug\net452\MyFirstUnitTests.dll
-<b>Running desktop CLR tests for framework net452...</b>
-xUnit.net Console Runner (64-bit Desktop .NET 4.0.30319.42000)
-  Discovering: MyFirstUnitTests
-  Discovered:  MyFirstUnitTests
-  Starting:    MyFirstUnitTests
-    <span style="color: #e03030">MyFirstUnitTests.Class1.MyFirstTheory(value: 6) [FAIL]</span>
-      Assert.True() Failure
-      Expected: True
-      Actual:   False
-      <span style="color: #a8a8a8">Stack Trace:</span>
-        C:\...\MyFirstUnitTests\Class1.cs(30,0): at MyFirstUnitTests.Class1.MyFirstTheory(Int32 value)
-    <span style="color: #e03030">MyFirstUnitTests.Class1.FailingTest [FAIL]</span>
-      Assert.Equal() Failure
-      Expected: 5
-      Actual:   4
-      <span style="color: #a8a8a8">Stack Trace:</span>
-        C:\...\MyFirstUnitTests\Class1.cs(16,0): at MyFirstUnitTests.Class1.FailingTest()
-  Finished:    MyFirstUnitTests
-=== TEST EXECUTION SUMMARY ===
-   MyFirstUnitTests  Total: 5, Errors: 0, Failed: 2, Skipped: 0, Time: 0.167s
-<b>Building for framework netcoreapp2.0...</b>
-  MyFirstUnitTests -> C:\...\MyFirstUnitTests\bin\Debug\netcoreapp2.0\MyFirstUnitTests.dll
-<b>Running .NET Core 2.0.0 tests for framework netcoreapp2.0...</b>
-xUnit.net Console Runner (64-bit .NET Core 4.6.00001.0)
-  Discovering: MyFirstUnitTests
-  Discovered:  MyFirstUnitTests
-  Starting:    MyFirstUnitTests
-    <span style="color: #e03030">MyFirstUnitTests.Class1.MyFirstTheory(value: 6) [FAIL]</span>
-      Assert.True() Failure
-      Expected: True
-      Actual:   False
-      <span style="color: #a8a8a8">Stack Trace:</span>
-        C:\...\MyFirstUnitTests\Class1.cs(30,0): at MyFirstUnitTests.Class1.MyFirstTheory(Int32 value)
-    <span style="color: #e03030">MyFirstUnitTests.Class1.FailingTest [FAIL]</span>
-      Assert.Equal() Failure
-      Expected: 5
-      Actual:   4
-      <span style="color: #a8a8a8">Stack Trace:</span>
-        C:\...\MyFirstUnitTests\Class1.cs(16,0): at MyFirstUnitTests.Class1.FailingTest()
-  Finished:    MyFirstUnitTests
-=== TEST EXECUTION SUMMARY ===
-   MyFirstUnitTests  Total: 5, Errors: 0, Failed: 2, Skipped: 0, Time: 0.146s
+$ <span style="background-color: #ff0">dotnet test</span>
+Build started, please wait...
+Build completed.
+
+Test run for C:\src\MyFirstUnitTests\bin\Debug\net452\MyFirstUnitTests.dll(.NETFramework,Version=v4.5.2)
+Microsoft (R) Test Execution Command Line Tool Version 15.7.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+<span style="color: #e03030">[xUnit.net 00:00:00.4900449]     MyFirstUnitTests.Class1.MyFirstTheory(value: 6) [FAIL]
+[xUnit.net 00:00:00.4996935]     MyFirstUnitTests.Class1.FailingTest [FAIL]
+Failed   MyFirstUnitTests.Class1.MyFirstTheory(value: 6)
+Error Message:
+ Assert.True() Failure
+Expected: True
+Actual:   False
+Stack Trace:
+   at MyFirstUnitTests.Class1.MyFirstTheory(Int32 value)
+Failed   MyFirstUnitTests.Class1.FailingTest
+Error Message:
+ Assert.Equal() Failure
+Expected: 5
+Actual:   4
+Stack Trace:
+   at MyFirstUnitTests.Class1.FailingTest()</span>
+
+Total tests: 5. Passed: 3. Failed: 2. Skipped: 0.
+<span style="color: #e03030">Test Run Failed.</span>
+Test execution time: 0.8473 Seconds
+Test run for C:\src\MyFirstUnitTests\bin\Debug\netcoreapp2.1\MyFirstUnitTests.dll(.NETCoreApp,Version=v2.1)
+Microsoft (R) Test Execution Command Line Tool Version 15.7.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+<span style="color: #e03030">[xUnit.net 00:00:00.5321251]     MyFirstUnitTests.Class1.MyFirstTheory(value: 6) [FAIL]
+[xUnit.net 00:00:00.5366347]     MyFirstUnitTests.Class1.FailingTest [FAIL]
+Failed   MyFirstUnitTests.Class1.MyFirstTheory(value: 6)
+Error Message:
+ Assert.True() Failure
+Expected: True
+Actual:   False
+Stack Trace:
+   at MyFirstUnitTests.Class1.MyFirstTheory(Int32 value) in C:\src\MyFirstUnitTests\Class1.cs:line 30
+Failed   MyFirstUnitTests.Class1.FailingTest
+Error Message:
+ Assert.Equal() Failure
+Expected: 5
+Actual:   4
+Stack Trace:
+   at MyFirstUnitTests.Class1.FailingTest() in C:\src\MyFirstUnitTests\Class1.cs:line 16</span>
+
+Total tests: 5. Passed: 3. Failed: 2. Skipped: 0.
+<span style="color: #e03030">Test Run Failed.</span>
+Test execution time: 1.1250 Seconds
 </pre>
 
 <h2 id="run-tests-visualstudio">Running tests with Visual Studio</h2>
@@ -394,18 +399,9 @@ xUnit.net Console Runner (64-bit .NET Core 4.6.00001.0)
 </p>
 
 <p>
-  Right click on the project in Solution Explorer and choose <code>Manage NuGet Packages</code>.
-  You will need to install two packages:
-</p>
-<ul>
-  <li><code>xunit.runner.visualstudio</code> (version <code>2.3.1</code> or later)</li>
-  <li><code>Microsoft.NET.Test.Sdk</code> (version <code>15.0.0</code> or later; we recommend using whatever the latest RTM build is)</li>
-</ul>
-
-<p>
-  Make sure Test Explorer is visible (go to <code>Test &gt; Windows &gt; Test Explorer</code>). Every
-  time you build your project, the runner will discover unit tests in your project. After a moment of
-  discovery, you should see the list of discovered tests:
+  Make sure Test Explorer is visible (go to <code>Test &gt; Windows &gt; Test Explorer</code>). Depending
+  on the version of Visual Studio you have, you may need to build your test assembly before tests
+  are discovered. After a moment of discovery, you should see the list of discovered tests:
 </p>
 
 <p><img class="border" src="../images/running-tests-in-vs/test-explorer.png" width="314" /></p>
@@ -421,48 +417,3 @@ xUnit.net Console Runner (64-bit .NET Core 4.6.00001.0)
   You can click on a failed test to see the failure message, and the stack trace. You can click on the
   stack trace lines to take you directly to the failing line of code.
 </p>
-
-<h2 id="console-return-codes">Console runner return codes</h2>
-
-<p>When running tests from the command line, the following return codes are used by the runner:</p>
-
-<table class="table">
-  <tr>
-    <th>Return code</th>
-    <th>Meaning</th>
-  </tr>
-  <tr>
-    <td><code>0</code></td>
-    <td class="wrapped-wide">The tests ran successfully.</td>
-  </tr>
-  <tr>
-    <td><code>1</code></td>
-    <td class="wrapped-wide">One or more of the tests failed.</td>
-  </tr>
-  <tr>
-    <td><code>2</code></td>
-    <td class="wrapped-wide">
-      The help page was shown, either because it was requested, or because the user did not provide any
-      command line arguments.
-    </td>
-  </tr>
-  <tr>
-    <td><code>3</code></td>
-    <td class="wrapped-wide">
-      There was a problem with one of the command line options passed to the runner.
-    </td>
-  </tr>
-  <tr>
-    <td><code>4</code></td>
-    <td class="wrapped-wide">
-      There was a problem loading one or more of the test assemblies (for example, if a 64-bit only assembly
-      is run with the 32-bit test runner).
-    </td>
-  </tr>
-  <tr>
-    <td><code>0xC000013A (-1073741510)</code></td>
-    <td class="wrapped-wide">
-      The user canceled the test execution by pressing Ctrl+C.
-    </td>
-  </tr>
-</table>
