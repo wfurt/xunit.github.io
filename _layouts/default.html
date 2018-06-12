@@ -30,13 +30,18 @@
     {{ content }}
 
     <h6>
-      Copyright &copy; 2017 .NET Foundation. Contributions welcomed at
+      Copyright &copy; <span id="year"></span> .NET Foundation. Contributions welcomed at
       <a href="https://github.com/xunit/xunit.github.io">https://github.com/xunit/xunit.github.io</a>.
     </h6>
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+  <script>
+     var currentYear = new Date().getFullYear();
+     document.getElementById("year").innerHTML = currentYear;
+  </script>
 </body>
 
 </html>
