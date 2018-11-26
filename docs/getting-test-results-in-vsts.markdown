@@ -31,7 +31,7 @@ These instructions are written for `Version 1.*` of the `Visual Studio Test` tas
 
 * Select the `Execution Options/Code Coverage Enabled` checkbox.
 * Add `/InIsolation` under `Advanced Execution Options/Other console options`.  
-(This will supress a warning otherwise generated.)
+(This will suppress a warning otherwise generated.)
 
 ## Viewing the results
 
