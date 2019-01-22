@@ -52,21 +52,22 @@ breadcrumb: Documentation
 
 <h2 id="items">Supported configuration items</h2>
 
-<p>The configuration elements are placed inside a top-level object:</p>
+<p>
+  The schema is online at
+  <a href="https://xunit.github.io/schema/current/xunit.runner.schema.json">https://xunit.github.io/schema/current/xunit.runner.schema.json</a>,
+  which can be set in the JSON file to aid with intellisense from development IDEs like
+  <a href="https://code.visualstudio.com/">Visual Studio Code</a>. The configuration elements are
+  placed inside a top-level object:
+</p>
+
 {% highlight json %}
 {
-  "enum-or-string-key": "value1",
-  "boolean-key": true,
-  "integer-key": 42
+    "$schema": "https://xunit.github.io/schema/current/xunit.runner.schema.json",
+    "enum-or-string-key": "value1",
+    "boolean-key": true,
+    "integer-key": 42
 }
 {% endhighlight %}
-<p>
-  A <a href="../schema/v2.2/xunit.runner.schema.json">JSON schema</a> is published
-  on this site, and referenced from <a href="http://schemastore.org">SchemaStore</a>;
-  versions of Visual Studio with JSON support should be able to automatically detect
-  the schema based on the configuration filename, and automatically provide
-  Intellisense for you.
-</p>
 
 <table class="table">
   <tr>

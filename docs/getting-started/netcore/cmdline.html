@@ -1,11 +1,15 @@
 ---
 layout: default
-title: Getting started with xUnit.net (.NET Core / ASP.NET Core)
+title: "Getting started: .NET Core with command line"
 breadcrumb: Documentation
 redirect_from: "/docs/getting-started-aspnet.html"
+redirect_from: "/docs/getting-started-dnx.html"
+redirect_from: "/docs/getting-started-dotnet-core"
+redirect_from: "/docs/getting-started-dotnet-core.html"
 ---
 
-<h1>Getting started with xUnit.net (.NET Core / ASP.NET Core)</h1>
+<h1>Getting Started with xUnit.net</h1>
+<h2>Using .NET Core with the .NET SDK command line</h2>
 
 <p>
   In this article, we will demonstrate getting started with xUnit.net and .NET Core,
@@ -13,7 +17,7 @@ redirect_from: "/docs/getting-started-aspnet.html"
 </p>
 
 <ul>
-  <li><a href="#download-dotnet">Download the .NET Core SDK</a></li>
+  <li><a href="#download-dotnet">Download the .NET SDK</a></li>
   <li><a href="#create-project">Create the unit test project</a></li>
   <li><a href="#write-first-tests">Write your first tests</a></li>
   <li><a href="#write-first-theory">Write your first theory</a></li>
@@ -22,17 +26,18 @@ redirect_from: "/docs/getting-started-aspnet.html"
 </ul>
 
 <p><em>
-  Note: The examples were done with xUnit.net v2.3.1, .NET Core SDK 2.1.300, and
+  Note: The examples were done with xUnit.net v2.4.1, .NET Core SDK 2.2.103, and
   .NET Core 2.1. The version numbers, paths, and generated templates may differ for
-  you, depending on which version you're using. .NET Core 1.x and 2.0 are also supported.
+  you, depending on which version you're using. Note that .NET Core 1.x and 2.x are
+  supported.
 </em></p>
 
-<h2 id="download-dotnet">Download the .NET Core SDK</h2>
+<h2 id="download-dotnet">Download the .NET SDK</h2>
 
 <p>
-  As of this writing, the .NET Core SDK is available for
-  <a href="https://www.microsoft.com/net/download/core">download</a> for Windows,
-  Linux, and OS X. Once you've downloaded and installed the SDK, open a fresh
+  As of this writing, the .NET SDK is available for
+  <a href="https://dotnet.microsoft.com/download">download</a> for Windows,
+  Linux, and macOS. Once you've downloaded and installed the SDK, open a fresh
   command prompt of your choice (CMD, PowerShell, Bash, etc.) and make sure
   that you can access the CLI by typing <code>dotnet --version</code>. You
   should be rewarded with a single line, describing the version of the
@@ -41,7 +46,7 @@ redirect_from: "/docs/getting-started-aspnet.html"
 
 <pre>
 $ <span style="background-color: #ff0">dotnet --version</span>
-2.1.300
+2.2.103
 </pre>
 
 <p><em>
@@ -65,11 +70,11 @@ $ <span style="background-color: #ff0">dotnet new classlib</span>
 The template "Class library" was created successfully.
 
 Processing post-creation actions...
-Running 'dotnet restore' on C:\src\MyFirstUnitTests\MyFirstUnitTests.csproj...
-  Restoring packages for C:\src\MyFirstUnitTests\MyFirstUnitTests.csproj...
-  Generating MSBuild file C:\src\MyFirstUnitTests\obj\MyFirstUnitTests.csproj.nuget.g.props.
-  Generating MSBuild file C:\src\MyFirstUnitTests\obj\MyFirstUnitTests.csproj.nuget.g.targets.
-  Restore completed in 116.76 ms for C:\src\MyFirstUnitTests\MyFirstUnitTests.csproj.
+Running 'dotnet restore' on ~/src/MyFirstUnitTests/MyFirstUnitTests.csproj...
+  Restoring packages for ~/src/MyFirstUnitTests/MyFirstUnitTests.csproj...
+  Generating MSBuild file ~/src/MyFirstUnitTests/obj/MyFirstUnitTests.csproj.nuget.g.props.
+  Generating MSBuild file ~/src/MyFirstUnitTests/obj/MyFirstUnitTests.csproj.nuget.g.targets.
+  Restore completed in 141.23 ms for ~/src/MyFirstUnitTests/MyFirstUnitTests.csproj.
 
 Restore succeeded.
 </pre>
@@ -89,9 +94,9 @@ Restore succeeded.
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.0" />
-    <PackageReference Include="xunit" Version="2.3.1" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
   </ItemGroup>
 
 </Project>
@@ -120,13 +125,14 @@ $ <span style="background-color: #ff0">dotnet test</span>
 Build started, please wait...
 Build completed.
 
-Test run for C:\src\MyFirstUnitTests\bin\Debug\netcoreapp2.1\MyFirstUnitTests.dll(.NETCoreApp,Version=v2.1)
-Microsoft (R) Test Execution Command Line Tool Version 15.7.0
-Copyright (c) Microsoft Corporation.  All rights reserved.
+Test run for ~/src/MyFirstUnitTests/bin/Debug/netcoreapp2.1/MyFirstUnitTests.dll(.NETCoreApp,Version=v2.1)
+Microsoft (R) Test Execution Command Line Tool Version 15.9.0
+Copyright (c) Microsoft Corporation. All rights reserved.
 
 Starting test execution, please wait...
-<b>No test is available in C:\src\MyFirstUnitTests\bin\Debug\netcoreapp2.1\MyFirstUnitTests.dll. Make sure that test discoverer &
-executors are registered and platform & framework version settings are appropriate and try again.</b>
+<b>No test is available in ~/src/MyFirstUnitTests/bin/Debug/netcoreapp2.1/MyFirstUnitTests.dll. Make sure
+that test discoverer & executors are registered and platform & framework version settings are appropriate
+and try again.</b>
 </pre>
 
 <p>
@@ -176,9 +182,9 @@ $ <span style="background-color: #ff0">dotnet test</span>
 Build started, please wait...
 Build completed.
 
-Test run for C:\src\MyFirstUnitTests\bin\Debug\netcoreapp2.1\MyFirstUnitTests.dll(.NETCoreApp,Version=v2.1)
-Microsoft (R) Test Execution Command Line Tool Version 15.7.0
-Copyright (c) Microsoft Corporation.  All rights reserved.
+Test run for ~/src/MyFirstUnitTests/bin/Debug/netcoreapp2.1/MyFirstUnitTests.dll(.NETCoreApp,Version=v2.1)
+Microsoft (R) Test Execution Command Line Tool Version 15.9.0
+Copyright (c) Microsoft Corporation. All rights reserved.
 
 Starting test execution, please wait...
 <span style="color: #e03030">[xUnit.net 00:00:01.8833990]     MyFirstUnitTests.Class1.FailingTest [FAIL]
@@ -188,7 +194,7 @@ Error Message:
 Expected: 5
 Actual:   4
 Stack Trace:
-   at MyFirstUnitTests.Class1.FailingTest() in C:\src\MyFirstUnitTests\Class1.cs:line 16</span>
+   at MyFirstUnitTests.Class1.FailingTest() in ~/src/MyFirstUnitTests/Class1.cs:line 16</span>
 
 Total tests: 2. Passed: 1. Failed: 1. Skipped: 0.
 <span style="color: #e03030">Test Run Failed.</span>
@@ -247,7 +253,7 @@ bool IsOdd(int value)
 <p>This time when we run our tests, we see a second failure, for our theory that was given 6:</p>
 
 <pre>
-Microsoft (R) Test Execution Command Line Tool Version 15.7.0
+Microsoft (R) Test Execution Command Line Tool Version 15.9.0
 Copyright (c) Microsoft Corporation.  All rights reserved.
 
 Starting test execution, please wait...
@@ -259,14 +265,14 @@ Error Message:
 Expected: True
 Actual:   False
 Stack Trace:
-   at MyFirstUnitTests.Class1.MyFirstTheory(Int32 value) in C:\src\MyFirstUnitTests\Class1.cs:line 30
+   at MyFirstUnitTests.Class1.MyFirstTheory(Int32 value) in ~/src/MyFirstUnitTests/Class1.cs:line 30
 Failed   MyFirstUnitTests.Class1.FailingTest
 Error Message:
  Assert.Equal() Failure
 Expected: 5
 Actual:   4
 Stack Trace:
-   at MyFirstUnitTests.Class1.FailingTest() in C:\src\MyFirstUnitTests\Class1.cs:line 16</span>
+   at MyFirstUnitTests.Class1.FailingTest() in ~/src/MyFirstUnitTests/Class1.cs:line 16</span>
 
 Total tests: 5. Passed: 3. Failed: 2. Skipped: 0.
 <span style="color: #e03030">Test Run Failed.</span>
@@ -281,6 +287,12 @@ Test execution time: 4.0307 Seconds
 </p>
 
 <h2 id="multi-targeting">Running tests against multiple targets</h2>
+
+<p><em>
+  These instructions below will work for Windows, but you must take additional steps to be able
+  to support multi-targeting on non-Windows OSes. For more information, please see
+  <a href="../multi-target/non-windows">Getting Started with Multi-Targeting for non-Windows</a>.
+</em></p>
 
 <p>
   Sometimes, you want to write tests and ensure they run against several target
@@ -327,56 +339,56 @@ $ <span style="background-color: #ff0">dotnet test</span>
 Build started, please wait...
 Build completed.
 
-Test run for C:\src\MyFirstUnitTests\bin\Debug\net452\MyFirstUnitTests.dll(.NETFramework,Version=v4.5.2)
-Microsoft (R) Test Execution Command Line Tool Version 15.7.0
+Test run for ~/src/MyFirstUnitTests/bin/Debug/net452/MyFirstUnitTests.dll(.NETFramework,Version=v4.5.2)
+Microsoft (R) Test Execution Command Line Tool Version 15.9.0
 Copyright (c) Microsoft Corporation.  All rights reserved.
 
 Starting test execution, please wait...
-<span style="color: #e03030">[xUnit.net 00:00:00.4900449]     MyFirstUnitTests.Class1.MyFirstTheory(value: 6) [FAIL]
-[xUnit.net 00:00:00.4996935]     MyFirstUnitTests.Class1.FailingTest [FAIL]
+<span style="color: #e03030">[xUnit.net 00:00:00.43]     MyFirstUnitTests.Class1.MyFirstTheory(value: 6) [FAIL]
+[xUnit.net 00:00:00.44]     MyFirstUnitTests.Class1.FailingTest [FAIL]
 Failed   MyFirstUnitTests.Class1.MyFirstTheory(value: 6)
 Error Message:
  Assert.True() Failure
 Expected: True
 Actual:   False
 Stack Trace:
-   at MyFirstUnitTests.Class1.MyFirstTheory(Int32 value)
+  at MyFirstUnitTests.Class1.MyFirstTheory (System.Int32 value) [0x00008] in &lt;ea38f081094e407290795149a3e20d66&gt;:0
 Failed   MyFirstUnitTests.Class1.FailingTest
 Error Message:
  Assert.Equal() Failure
 Expected: 5
 Actual:   4
 Stack Trace:
-   at MyFirstUnitTests.Class1.FailingTest()</span>
+  at MyFirstUnitTests.Class1.FailingTest () [0x0000a] in &lt;ea38f081094e407290795149a3e20d66&gt;:0</span>
 
 Total tests: 5. Passed: 3. Failed: 2. Skipped: 0.
 <span style="color: #e03030">Test Run Failed.</span>
-Test execution time: 0.8473 Seconds
-Test run for C:\src\MyFirstUnitTests\bin\Debug\netcoreapp2.1\MyFirstUnitTests.dll(.NETCoreApp,Version=v2.1)
-Microsoft (R) Test Execution Command Line Tool Version 15.7.0
+Test execution time: 0.9188 Seconds
+Test run for ~/src/MyFirstUnitTests/bin/Debug/netcoreapp2.1/MyFirstUnitTests.dll(.NETCoreApp,Version=v2.1)
+Microsoft (R) Test Execution Command Line Tool Version 15.9.0
 Copyright (c) Microsoft Corporation.  All rights reserved.
 
 Starting test execution, please wait...
-<span style="color: #e03030">[xUnit.net 00:00:00.5321251]     MyFirstUnitTests.Class1.MyFirstTheory(value: 6) [FAIL]
-[xUnit.net 00:00:00.5366347]     MyFirstUnitTests.Class1.FailingTest [FAIL]
+<span style="color: #e03030">[xUnit.net 00:00:00.54]     MyFirstUnitTests.Class1.MyFirstTheory(value: 6) [FAIL]
+[xUnit.net 00:00:00.54]     MyFirstUnitTests.Class1.FailingTest [FAIL]
 Failed   MyFirstUnitTests.Class1.MyFirstTheory(value: 6)
 Error Message:
  Assert.True() Failure
 Expected: True
 Actual:   False
 Stack Trace:
-   at MyFirstUnitTests.Class1.MyFirstTheory(Int32 value) in C:\src\MyFirstUnitTests\Class1.cs:line 30
+   at MyFirstUnitTests.Class1.MyFirstTheory(Int32 value) in ~/src/MyFirstUnitTests/Class1.cs:line 30
 Failed   MyFirstUnitTests.Class1.FailingTest
 Error Message:
  Assert.Equal() Failure
 Expected: 5
 Actual:   4
 Stack Trace:
-   at MyFirstUnitTests.Class1.FailingTest() in C:\src\MyFirstUnitTests\Class1.cs:line 16</span>
+   at MyFirstUnitTests.Class1.FailingTest() in ~/src/MyFirstUnitTests/Class1.cs:line 16</span>
 
 Total tests: 5. Passed: 3. Failed: 2. Skipped: 0.
 <span style="color: #e03030">Test Run Failed.</span>
-Test execution time: 1.1250 Seconds
+Test execution time: 1.1002 Seconds
 </pre>
 
 <h2 id="run-tests-visualstudio">Running tests with Visual Studio</h2>
@@ -403,14 +415,14 @@ Test execution time: 1.1250 Seconds
   are discovered. After a moment of discovery, you should see the list of discovered tests:
 </p>
 
-<p><img class="border" src="../images/running-tests-in-vs/test-explorer.png" width="314" /></p>
+<p><img class="border" src="../../../images/running-tests-in-vs/test-explorer.png" width="314" /></p>
 
 <p>
   Click the <code>Run All</code> link in the Test Explorer window, and you should see the results update
   in the Test Explorer window as the tests are run:
 </p>
 
-<p><img class="border" src="../images/running-tests-in-vs/test-explorer-post-run.png" width="347" /></p>
+<p><img class="border" src="../../../images/running-tests-in-vs/test-explorer-post-run.png" width="347" /></p>
 
 <p>
   You can click on a failed test to see the failure message, and the stack trace. You can click on the

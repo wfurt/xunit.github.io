@@ -1,13 +1,16 @@
 ---
 layout: default
-title: Getting Started with xUnit.net (desktop)
+title: "Getting Started: .NET Framework with Visual Studio"
 breadcrumb: Documentation
 redirect_from: "/docs/getting-started.html"
+redirect_from: "/docs/getting-started-desktop"
+redirect_from: "/docs/getting-started-desktop.html"
 redirect_from: "/docs/running-v1-tests-in-vs.html"
 redirect_from: "/docs/running-tests-in-vs.html"
 ---
 
-<h1>Getting Started with xUnit.net (desktop)</h1>
+<h1>Getting Started with xUnit.net</h1>
+<h2>Using .NET Framework with Visual Studio</h2>
 
 <p>
   In this article, we will demonstrate getting started with xUnit.net, showing
@@ -38,7 +41,7 @@ redirect_from: "/docs/running-tests-in-vs.html"
   Open Visual Studio, and choose <code>File &gt; New &gt; Project</code>:
 </p>
 
-<p><img class="border" src="../images/getting-started/new-project.png" width="835" /></p>
+<p><img class="border" src="../../../images/getting-started/new-project.png" width="835" /></p>
 
 <h2 id="add-xunit-ref">Add a reference to xUnit.net</h2>
 
@@ -47,7 +50,7 @@ redirect_from: "/docs/running-tests-in-vs.html"
   <code>Manage NuGet Packages</code>:
 </p>
 
-<p><img class="border" src="../images/manage-nuget-packages.png" width="357" /></p>
+<p><img class="border" src="../../../images/manage-nuget-packages.png" width="357" /></p>
 
 <p>Now in the NuGet package manager window, take the following steps:</p>
 
@@ -58,7 +61,7 @@ redirect_from: "/docs/running-tests-in-vs.html"
   <li>Select the <code>xUnit.net</code> package, and click <code>Install</code></li>
 </ol>
 
-<p><img class="border" src="../images/add-xunit.png" width="845" /></p>
+<p><img class="border" src="../../../images/add-xunit.png" width="845" /></p>
 
 <p>
   This package (<code>xunit</code>) is what's called a <em>meta-package</em>;
@@ -140,7 +143,7 @@ namespace MyFirstUnitTests
   (and install) a package named <code>xunit.runner.console</code>:
 </p>
 
-<p><img class="border" src="../images/getting-started/add-xunit-runner-console.png" width="845" /></p>
+<p><img class="border" src="../../../images/getting-started/add-xunit-runner-console.png" width="845" /></p>
 
 <p>
   Unlike the previous package (which added references to the unit testing
@@ -305,7 +308,7 @@ xUnit.net Console Runner (64-bit .NET 4.0.30319.42000)
   Search for (and install) a package named <code>xunit.runner.visualstudio</code>:
 </p>
 
-<p><img class="border" src="../images/running-tests-in-vs/add-xunit-runner-visualstudio.png" width="981" /></p>
+<p><img class="border" src="../../../images/running-tests-in-vs/add-xunit-runner-visualstudio.png" width="981" /></p>
 
 <p>
   Make sure Test Explorer is visible (go to <code>Test &gt; Windows &gt; Test Explorer</code>). Every
@@ -313,14 +316,14 @@ xUnit.net Console Runner (64-bit .NET 4.0.30319.42000)
   discovery, you should see the list of discovered tests:
 </p>
 
-<p><img class="border" src="../images/running-tests-in-vs/test-explorer.png" width="314" /></p>
+<p><img class="border" src="../../../images/running-tests-in-vs/test-explorer.png" width="314" /></p>
 
 <p>
   Click the <code>Run All</code> link in the Test Explorer window, and you should see the results update
   in the Test Explorer window as the tests are run:
 </p>
 
-<p><img class="border" src="../images/running-tests-in-vs/test-explorer-post-run.png" width="347" /></p>
+<p><img class="border" src="../../../images/running-tests-in-vs/test-explorer-post-run.png" width="347" /></p>
 
 <p>
   You can click on a failed test to see the failure message, and the stack trace. You can click on the

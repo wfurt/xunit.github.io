@@ -1,16 +1,15 @@
 ---
 layout: default
-title: Getting Started with xUnit.net (macOS) using JetBrains Rider
+title: "Getting Started: .NET Framework with JetBrains Rider"
 breadcrumb: Documentation
 ---
 
-<h1>Getting Started with xUnit.net on macOS using JetBrains Rider</h1>
+<h1>Getting Started with xUnit.net</h1>
+<h2>Using .NET Framework with JetBrains Rider</h2>
 
 <p>
-  In this article, we will demonstrate getting started with xUnit.net using JetBrains Rider on macOS.
-  The process will be the same on Windows and Linux.
-  On Windows, you can also work with xUnit.net tests
-  <a href="getting-started-desktop.html">using Visual Studio or console runner</a>.
+  In this article, we will demonstrate getting started with xUnit.net using JetBrains Rider.
+  These instructions apply to all JetBrains Rider supported platforms (macOS, Linux, and Windows).
 </p>
 
 <ul>
@@ -21,8 +20,8 @@ breadcrumb: Documentation
 </ul>
 
 <p><em>
-  Note: The examples were done with xUnit.net v2.4 and JetBrains Rider 2018.3. The version
-  numbers, paths, and JetBrains Rider UI may differ for you, depending on which
+  Note: The examples were done with xUnit.net v2.4 and JetBrains Rider 2018.3 on macOS.
+  The version numbers, paths, and JetBrains Rider UI may differ for you, depending on which
   version you're using.
 </em></p>
 
@@ -49,7 +48,7 @@ namespace Sandbox
   In the Solution Explorer, right-click the solution and choose <code>Add &gt; New Project...</code>:
 </p>
 
-<p><img class="border" src="../images/getting-started-rider-macos/rider-new-project.png" width="700"
+<p><img class="border" src="../../../images/getting-started-rider-macos/rider-new-project.png" width="700"
         alt="Creating a new xUnit.net test project"/></p>
 <p>
   Choose the Unit Test Project template targeting .NET 4.5.2 or later,
@@ -57,7 +56,7 @@ namespace Sandbox
   and provide some telling name for it, e.g. <code>Tests</code>.
 </p>
 
-<p><img class="border" src="../images/getting-started-rider-macos/rider-new-project2.png" width="700"
+<p><img class="border" src="../../../images/getting-started-rider-macos/rider-new-project2.png" width="700"
         alt="Creating a new xUnit.net test project. Project properties"/></p>
 
 <p>
@@ -84,13 +83,13 @@ namespace Tests
        [Fact]
        public void PassingTest()
        {
-           Assert.Equal(Calculator.Add(2,2), 4);
+           Assert.Equal(4, Calculator.Add(2, 2));
        }
 
        [Fact]
        public void FailingTest()
        {
-           Assert.Equal(Calculator.Add(2,2), 5);
+           Assert.Equal(5, Calculator.Add(2, 2));
        }
    }
 }
@@ -111,14 +110,14 @@ namespace Tests
   <code>Run All</code> to run all tests in that class.
 </p>
 
-<p><img class="border" src="../images/getting-started-rider-macos/rider-run-tests.png" width="700"
+<p><img class="border" src="../../../images/getting-started-rider-macos/rider-run-tests.png" width="700"
         alt="Running xUnit.net tests in Rider"/></p>
 
 <p>
   Rider will start the tests and bring up the Unit Tests window where you can see test status and results.
 </p>
 
-<p><img class="border" src="../images/getting-started-rider-macos/rider-test-results.png" width="700"
+<p><img class="border" src="../../../images/getting-started-rider-macos/rider-test-results.png" width="700"
         alt="Analyzing xUnit.net test results in Rider"/></p>
 
 <p>
@@ -154,12 +153,12 @@ namespace Tests
 
 {% highlight C# %}
 [Theory]
-[InlineData(2,2,4)]
-[InlineData(3,3,6)]
-[InlineData(2,2,5)]
+[InlineData(2, 2, 4)]
+[InlineData(3, 3, 6)]
+[InlineData(2, 2, 5)]
 public void MyTheory(int x, int y, int sum)
 {
-   Assert.Equal(Calculator.Add(x,y), sum);
+   Assert.Equal(sum, Calculator.Add(x, y));
 }
 
 {% endhighlight %}
@@ -168,7 +167,7 @@ public void MyTheory(int x, int y, int sum)
   This time when we run our tests, we see a failure for our theory when it was given a sum of 5 for 2 and 2:
 </p>
 
-<p><img class="border" src="../images/getting-started-rider-macos/rider-test-results-theory.png" width="700"
+<p><img class="border" src="../../../images/getting-started-rider-macos/rider-test-results-theory.png" width="700"
         alt="Analyzing test results for xUnit.net theory in Rider"/></p>
 <p>
   Although we've only written 3 test methods, the test runner actually ran 5 tests;
@@ -190,7 +189,7 @@ public void MyTheory(int x, int y, int sum)
   and run tests from there.
 </p>
 
-<p><img class="border" src="../images/getting-started-rider-macos/rider-test-explorer.png" width="700"
+<p><img class="border" src="../../../images/getting-started-rider-macos/rider-test-explorer.png" width="700"
         alt="Exploring xUnit.net tests in Rider"/></p>
 
 

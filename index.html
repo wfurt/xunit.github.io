@@ -80,16 +80,37 @@ title: Home
 <h3>Getting Started</h3>
 
 <p><em>
-  New to xUnit.net? These guides will help you get started. (If you're not sure which
-  tutorial to use, start with the Desktop CLR tutorial.)
+  New to xUnit.net? These guides will help you get started.
 </em></p>
 
 <ul>
-  <li><a href="docs/getting-started-desktop">Desktop CLR</a> (traditional applications, including ASP.NET)</li>
-  <li><a href="docs/getting-started-dotnet-core">.NET Core</a> (including ASP.NET Core)</a></li>
-  <li><a href="docs/getting-started-uwp">Universal Windows Applications</a> (Windows 10, Windows Phone 10)</li>
-  <li><a href="docs/getting-started-devices">Devices</a> (UWP, Windows 8.1, Windows Phone, Xamarin Android and Xamarin iOS)</li>
-  <li><a href="docs/nuget-packages">What NuGet packages should I use?</a></li>
+  <li>
+    <strong>.NET Core</strong> &ndash; cross-platform applications, including ASP.NET Core
+    <ul>
+      <li>Using <a href="docs/getting-started/netcore/cmdline">command line</a> (cross-platform)</li>
+    </ul>
+  </li>
+  <li>
+    <strong>.NET Framework</strong> &ndash; desktop &amp server applications, including ASP.NET
+    <ul>
+      <li>Using <a href="docs/getting-started/netfx/visual-studio">Visual Studio</a> (Windows)</li>
+      <li>Using <a href="docs/getting-started/netfx/jetbrains-rider">JetBrains Rider</a> (cross-platform)</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Universal Windows Apps (UWP)</strong>
+    <ul>
+      <li>Using <a href="docs/getting-started/uwp/devices-runner">Devices Runner</a></li>
+      <li>Using <a href="docs/getting-started/uwp/vstest">Visual Studio Test Explorer</a></li>
+    </ul>
+  </li>
+  <li>
+    <strong>Miscellaneous Topics</strong>
+    <ul>
+      <li><a href="docs/nuget-packages">What NuGet packages should I use?</a></li>
+      <li><a href="docs/getting-started/multi-target/non-windows">Multi-targeting on non-Windows OSes</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h3>Configuration</h3>
@@ -97,7 +118,7 @@ title: Home
 <ul>
   <li><a href="docs/configuring-with-json">Configuring xUnit.net with JSON</a> (all project types)</li>
   <li><a href="docs/configuring-with-xml">Configuring xUnit.net with XML</a> (desktop CLR projects only)</li>
-  <li><a href="schema/v2.4-beta1/xunit.runner.schema.json">What is the JSON schema for <code>xunit.runner.json</code>?</a></li>
+  <li><a href="schema/current/xunit.runner.schema.json">What is the JSON schema for <code>xunit.runner.json</code>?</a></li>
 </ul>
 
 <h3>Unit Test Parallelism</h3>
