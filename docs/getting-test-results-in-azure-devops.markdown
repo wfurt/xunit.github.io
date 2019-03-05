@@ -8,11 +8,6 @@ redirect_from:
 
 # Getting Test Results in Azure DevOps Pipelines
 
-<p class="important">
-  <strong>Important note</strong>: These directions are for testing <strong>desktop</strong> unit test assemblies only.
-  In particular, these directions will not work for .NET Core.
-</p>
-
 ## Referencing the Visual Studio test runner
 
 * Using NuGet Package Manager (or Package Manager Console), add `xunit.runner.visualstudio` to at least one of your test projects.
@@ -22,17 +17,23 @@ redirect_from:
 
 * Add a build step of type `Visual Studio Test`.
 
-These instructions are written for `Version 1.*` of the `Visual Studio Test` task. You may need to change the version as it defaults to `Version 2.*` or whichever is latest.
+These instructions are written for `Version 2.*` of the `Visual Studio Test` task.
 
 ### Locate test assemblies
 
-* Under `Execution Options/Test Assembly`, point to your generated test assemblies, e.g. `**\bin\$(BuildConfiguration)\*test*.dll;-:**\xunit.runner.visualstudio.testadapter.dll`.
-(The second part excludes the xUnit test adapter from being considered a test assembly.)
+* Under `Test selection/Test files`, point to your generated test assemblies, for example: 
+```
+**\bin\$(BuildConfiguration)\**\*test*.dll
+!**\obj\**
+!**\xunit.runner.visualstudio.testadapter.dll
+!**\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+```
+(The third and fourth line excludes the xUnit test adapters from being considered a test assembly.)
 
 ### Enable Code Coverage (optional)
 
 * Select the `Execution Options/Code Coverage Enabled` checkbox.
-* Add `/InIsolation` under `Advanced Execution Options/Other console options`.
+* Add `/InIsolation` under `Execution options/Other console options`.
 (This will suppress a warning otherwise generated.)
 
 ## Viewing the results
