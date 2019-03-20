@@ -29,17 +29,17 @@ breadcrumb: Documentation
 
 ## Attribute Notes
 
-<a name="note1">**Note 1:**</a> Long-term use of `[ExpectedException]` has uncovered various problems with it. First, it doesn't specifically say which line of code should throw the exception, which allows subtle and difficult-to-track failures that show up as passing tests. Second, it doesn't offer the opportunity to fully inspect details of the exception itself, since the handling is outside the normal code flow of the test. `Assert.Throws` allows you to test a specific set of code for throwing an exception, and returns the exception during success so you can write further asserts against the exception instance itself.
+<a name="note1"></a>**Note 1:** Long-term use of `[ExpectedException]` has uncovered various problems with it. First, it doesn't specifically say which line of code should throw the exception, which allows subtle and difficult-to-track failures that show up as passing tests. Second, it doesn't offer the opportunity to fully inspect details of the exception itself, since the handling is outside the normal code flow of the test. `Assert.Throws` allows you to test a specific set of code for throwing an exception, and returns the exception during success so you can write further asserts against the exception instance itself.
 
-<a name="note2">**Note 2:**</a> The xUnit.net team feels that per-test setup and teardown creates difficult-to-follow and debug testing code, often causing unnecessary code to run before every single test is run. For more information, see <http://jamesnewkirk.typepad.com/posts/2007/09/why-you-should-.html>.
+<a name="note2"></a>**Note 2:** The xUnit.net team feels that per-test setup and teardown creates difficult-to-follow and debug testing code, often causing unnecessary code to run before every single test is run. For more information, see <http://jamesnewkirk.typepad.com/posts/2007/09/why-you-should-.html>.
 
-<a name="note3">**Note 3:**</a> xUnit.net provides a new way to think about per-fixture data with the use of the `IClassFixture<T>` and `ICollectionFixture<T>` interfaces. The runner will create a single instance of the fixture data and pass it through to your constructor before running each test. All the tests share the same instance of fixture data. After all the tests have run, the runner will dispose of the fixture data, if it implements `IDisposable`. For more information, see [Shared Context](shared-context.html).
+<a name="note3"></a>**Note 3:** xUnit.net provides a new way to think about per-fixture data with the use of the `IClassFixture<T>` and `ICollectionFixture<T>` interfaces. The runner will create a single instance of the fixture data and pass it through to your constructor before running each test. All the tests share the same instance of fixture data. After all the tests have run, the runner will dispose of the fixture data, if it implements `IDisposable`. For more information, see [Shared Context](shared-context.html).
 
-<a name="note4">**Note 4:**</a> xUnit.net ships with support for data-driven tests call Theories. Mark your test with the `[Theory]` attribute (instead of `[Fact]`), then decorate it with one or more `[XxxData]` attributes, including `[InlineData]` and `[MemberData]`. For more information, see [Getting Started](getting-started-desktop.html).
+<a name="note4"></a>**Note 4:** xUnit.net ships with support for data-driven tests call Theories. Mark your test with the `[Theory]` attribute (instead of `[Fact]`), then decorate it with one or more `[XxxData]` attributes, including `[InlineData]` and `[MemberData]`. For more information, see [Getting Started](getting-started-desktop.html).
 
 ## Assertions
 
-NUnit uses a [Constraint Model](https://github.com/nunit/docs/wiki/Constraint-Model). All the assertions start with `Assert.That` followed by a constraint. In the table below, we compare NUnit constraints, MSTest asserts, and xUnit asserts. 
+NUnit uses a [Constraint Model](https://github.com/nunit/docs/wiki/Constraint-Model). All the assertions start with `Assert.That` followed by a constraint. In the table below, we compare NUnit constraints, MSTest asserts, and xUnit asserts.
 
 {: .table .smaller }
 | NUnit 3.x (Constraint)      | MSTest 15.x           | xUnit.net 2.x      | Comments |
@@ -50,7 +50,7 @@ NUnit uses a [Constraint Model](https://github.com/nunit/docs/wiki/Constraint-Mo
 | `Is.SameAs`                | `AreSame`             | `Same`             | |
 | `Does.Contain`             | `Contains`            | `Contains`         | |
 | `Does.Not.Contain`         | `DoesNotContain`      | `DoesNotContain`   | |
-| `Throws.Nothing`           | *n/a*                 | `DoesNotThrow`     | Ensures that the code does not throw any exceptions |
+| `Throws.Nothing`           | *n/a*                 | *n/a*              | Ensures that the code does not throw any exceptions. See [Note 5](#note5) |
 | *n/a*                      | `Fail`                | *n/a*              | xUnit.net alternative: `Assert.True(false, "message")` |
 | `Is.GreaterThan`           | *n/a*                 | *n/a*              | xUnit.net alternative: `Assert.True(x > y)` |
 | `Is.InRange`               | *n/a*                 | `InRange`          | Ensures that a value is in a given inclusive range |
@@ -68,6 +68,10 @@ NUnit uses a [Constraint Model](https://github.com/nunit/docs/wiki/Constraint-Mo
 | `Is.LessThan`              | *n/a*                 | *n/a*              | xUnit.net alternative: `Assert.True(x < y)` |
 | `Is.Not.InRange`           | *n/a*                 | `NotInRange`       | Ensures that a value is not in a given inclusive range |
 | `Throws.TypeOf<T>`         | *n/a*                 | `Throws<T>`         | Ensures that the code throws an exact exception |
+
+## Attribute Notes
+
+<a name="note5"></a>**Note 5:** Older versions of xUnit.net provided an `Assert.DoesNotThrow` which was later removed. It revealed itself to be an anti-pattern of sorts; every line of code is itself an implicit "does not throw" check, since any thrown exceptions would cause the test to fail. Simply "not throwing" is not generally a sufficient validation, so it would be expected that additional assertions would exist.
 
 ## Sources
 
