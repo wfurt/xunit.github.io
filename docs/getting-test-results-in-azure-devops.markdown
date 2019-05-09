@@ -29,6 +29,7 @@ These instructions are written for `Version 2.*` of the `Visual Studio Test` tas
 !**\xunit.runner.visualstudio.dotnetcore.testadapter.dll
 ```
 (The third and fourth line excludes the xUnit test adapters from being considered a test assembly.)
+Note: it is important to make sure the file matching pattern is valid.  `testVerAssemblyVer2` must be expressed with newlines. [vsts-doc issue 1580](https://github.com/MicrosoftDocs/vsts-docs/issues/1580)
 
 ### Enable Code Coverage (optional)
 
