@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema",
-  "id": "http://xunit.github.io/schema/v2.4-beta1/xunit.runner.schema.json",
+  "id": "https://xunit.net/schema/v2.4-beta1/xunit.runner.schema.json",
   "title": "xUnit.net Runner Configuration",
   "description": "Configuration file for unit test projects using xUnit.net",
   "type": "object",
