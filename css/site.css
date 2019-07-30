@@ -225,12 +225,13 @@ blockquote.padded {
 }
 .version-selector {
   color: #666;
-  float: right;
-  font-size: 65%;
+  font-size: 95%;
   font-weight: normal;
+  margin: 10px 0 10px 20px;
+  vertical-align: middle;
 }
 .version-selector input {
-  margin-left: 5px;
+  margin-left: 10px;
 }
 .version-pre,
 .version-ci {
@@ -263,4 +264,15 @@ blockquote.padded {
 .release:hover,
 .prerelease:hover {
   color: White;
+}
+.paperclip {
+  float: right;
+  color: #000;
+  background-color: #f8f8f8;
+  border: none;
+  border-radius: 5px;
+  padding: 0 2px;
+}
+.paperclip:hover {
+  text-decoration: none;
 }

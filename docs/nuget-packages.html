@@ -13,61 +13,39 @@ breadcrumb: Documentation
 <p>
   If you don't know where to start, try starting with a reference to <a href="#xunit">xunit</a>.
 </p>
+<div class="version-selector">
+  <strong>Version selector:</strong>
+  <input type="radio" name="version" data-selector=".version-stable" checked="checked" /> Stable (NuGet)
+  <input type="radio" name="version" data-selector=".version-pre" /> Pre-Release (NuGet)
+  <input type="radio" name="version" data-selector=".version-ci" /> Latest CI (MyGet)
+</div>
 <table class="table">
+
   <tr>
-    <th id="active" colspan="2" class="title">
-      <div class="version-selector">
-        Version selector:
-        <input type="radio" name="version" data-selector=".version-stable" checked="checked">Stable (NuGet)</input>
-        <input type="radio" name="version" data-selector=".version-pre">Pre-Release (NuGet)</input>
-        <input type="radio" name="version" data-selector=".version-ci">Latest CI (MyGet)</input>
-      </div>
-      Active Packages
-    </th>
+    <th id="testers" colspan="2" class="title"><a href="#testers" class="paperclip">&#x1F4CE;</a>Packages for writing tests</th>
   </tr>
+
   <tr>
     <th id="xunit">
       xunit<br />
       <a href="https://www.nuget.org/packages/xunit" class="version-stable"><img src="https://img.shields.io/nuget/v/xunit.svg?style=flat"></a>
       <a href="https://www.nuget.org/packages/xunit" class="version-pre"><img src="https://img.shields.io/nuget/vpre/xunit.svg?style=flat"></a>
-      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.svg?style=flat"></a>
+      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.svg?style=flat&label=myget"></a>
     </th>
     <td class="wrapped-wide">
       <p>
         This is the package that will most typically be used by unit test authors. It brings in
         references to <a href="#xunit.core">xunit.core</a> (which contains the unit testing
-        framework) and <a href="#xunit.assert">xunit.assert</a> (which contains the class you
+        framework), <a href="#xunit.analyzers">xunit.analyzers</a> (which contains source code
+        analyzers), and <a href="#xunit.assert">xunit.assert</a> (which contains the class you
         use to write assertions).
       </p>
       <h5>
         Introduced: 1.7.0<br />
         Depends on:
-          <a href="#xunit.assert">xunit.assert</a>,
-          <a href="#xunit.core">xunit.core</a>
-      </h5>
-    </td>
-  </tr>
-  <tr>
-    <th id="xunit.abstractions">
-      xunit.abstractions<br />
-      <a href="https://www.nuget.org/packages/xunit.abstractions" class="version-stable"><img src="https://img.shields.io/nuget/v/xunit.abstractions.svg?style=flat"></a>
-      <a href="https://www.nuget.org/packages/xunit.abstractions" class="version-pre"><img src="https://img.shields.io/nuget/vpre/xunit.abstractions.svg?style=flat"></a>
-      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.abstractions" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.abstractions.svg?style=flat"></a>
-    </th>
-    <td class="wrapped-wide">
-      <p>
-        This package is an internal dependency of the <a href="#xunit.core">test framework</a>,
-        the platform specific execution DLLs (<code>xunit.execution.*.dll</code>) and the
-        <a href="#xunit.runner.utility">runner utility libraries</a>. It defines a stable
-        set of interfaces that these components use to communicate with each other. As long as
-        the interfaces do not change, each component can be modified without requiring any
-        changes or rebuilds of the other components. This allows for a version independent runner API.
-
-        You should never need to directly reference this package.
-      </p>
-      <h5>
-        Introduced: 2.0.0<br />
-        Depends on: <em>None</em>
+        <a href="#xunit.assert">xunit.assert</a>,
+        <a href="#xunit.analyzers">xunit.analyzers</a>,
+        <a href="#xunit.core">xunit.core</a>
       </h5>
     </td>
   </tr>
@@ -76,7 +54,7 @@ breadcrumb: Documentation
       xunit.assert<br />
       <a href="https://www.nuget.org/packages/xunit.assert" class="version-stable"><img src="https://img.shields.io/nuget/v/xunit.assert.svg?style=flat"></a>
       <a href="https://www.nuget.org/packages/xunit.assert" class="version-pre"><img src="https://img.shields.io/nuget/vpre/xunit.assert.svg?style=flat"></a>
-      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.assert" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.assert.svg?style=flat"></a>
+      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.assert" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.assert.svg?style=flat&label=myget"></a>
     </th>
     <td class="wrapped-wide">
       <p>
@@ -92,6 +70,196 @@ breadcrumb: Documentation
       </p>
       <h5>
         Introduced: 2.0.0<br />
+        Targets: .NET Standard 1.1+<br />
+        Depends on: <em>None</em>
+      </h5>
+    </td>
+  </tr>
+  <tr>
+    <th id="xunit.analyzers">
+      xunit.analyers<br />
+      <a href="https://www.nuget.org/packages/xunit.analyzers" class="version-stable"><img src="https://img.shields.io/nuget/v/xunit.analyzers.svg?style=flat"></a>
+      <a href="https://www.nuget.org/packages/xunit.analyzers" class="version-pre"><img src="https://img.shields.io/nuget/vpre/xunit.analyzers.svg?style=flat"></a>
+      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.analyzers" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.analyzers.svg?style=flat&label=myget"></a>
+    </th>
+    <td class="wrapped-wide">
+      <p>
+        This package contains the xUnit.net source code analyzers.
+      </p>
+      <p>
+        This library provides code analysis and code fixers for common issues that are encountered both
+        by test authors and extensibility authors. It's based on the
+        <a href="https://docs.microsoft.com/en-us/visualstudio/code-quality/roslyn-analyzers-overview?view=vs-2019">.NET Compiler Platform ("Roslyn") analyzers</a>
+        which can provide real-time source code analysis inside IDEs (including Visual Studio and Visual
+        Studio Code), as well as compile-time source code analysis.
+      </p>
+      <h5>
+        Introduced: 2.3.0<br />
+        Depends on: <em>None</em>
+      </h5>
+    </td>
+  </tr>
+  <tr>
+    <th id="xunit.core">
+      xunit.core<br />
+      <a href="https://www.nuget.org/packages/xunit.core" class="version-stable"><img src="https://img.shields.io/nuget/v/xunit.core.svg?style=flat"></a>
+      <a href="https://www.nuget.org/packages/xunit.core" class="version-pre"><img src="https://img.shields.io/nuget/vpre/xunit.core.svg?style=flat"></a>
+      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.core" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.core.svg?style=flat&label=myget"></a>
+    </th>
+    <td class="wrapped-wide">
+      <p>
+        This package contains the core types for the test framework (f.e., <code>FactAttribute</code>).
+      </p>
+      <p>
+        Referencing this package includes <code>xunit.core.dll</code> and also copies (but does not
+        reference) the appropriate execution libraries (<code>xunit.exection.*.dll</code>) which are
+        required to support discovering and executing tests.
+      </p>
+      <p>
+        If you wish to use <code>xunit.core.dll</code> for extensibility purposes (for example, to
+        write your own reusable theory data providers), you should reference
+        <a href="#xunit.extensibility.core">xunit.extensibility.core</a> instead.
+      </p>
+      <h5>
+        Introduced: 2.0.0<br />
+        Targets: .NET Standard 1.1+<br />
+        Depends on:
+        <a href="#xunit.extensibility.core">xunit.extensibility.core</a>
+      </h5>
+    </td>
+  </tr>
+
+  <tr>
+    <th id="runners" colspan="2" class="title"><a href="#runners" class="paperclip">&#x1F4CE;</a>Packages for running tests</th>
+  </tr>
+
+  <tr>
+    <th id="xunit.runner.console">
+      xunit.runner.console<br />
+      <a href="https://www.nuget.org/packages/xunit.runner.console" class="version-stable"><img src="https://img.shields.io/nuget/v/xunit.runner.console.svg?style=flat"></a>
+      <a href="https://www.nuget.org/packages/xunit.runner.console" class="version-pre"><img src="https://img.shields.io/nuget/vpre/xunit.runner.console.svg?style=flat"></a>
+      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.runner.console" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.runner.console.svg?style=flat&label=myget"></a>
+    </th>
+    <td class="wrapped-wide">
+      <p>
+        This package contains the console test runner. This runner is capable
+        of running .NET Framework projects from xUnit.net v1 and v2.
+      </p>
+      <p><em>
+          To run .NET Core projects from the command line (with <code>dotnet test</code>),
+          please reference <a href="#xunit.runner.visualstudio">xunit.runner.visualstudio</a>
+          instead.
+        </em></p>
+      <h5>
+        Introduced: 2.0.0<br />
+        Supports: .NET Framework 4.5.2+<br />
+        Depends on: <em>None</em>
+      </h5>
+    </td>
+  </tr>
+  <tr>
+    <th id="xunit.runner.devices">
+      xunit.runner.devices<br />
+      <a href="https://www.nuget.org/packages/xunit.runner.devices" class="version-stable"><img src="https://img.shields.io/nuget/v/xunit.runner.devices.svg?style=flat-square"></a>
+      <a href="https://www.nuget.org/packages/xunit.runner.devices" class="version-pre"><img src="https://img.shields.io/nuget/vpre/xunit.runner.devices.svg?style=flat"></a>
+      <a href="https://myget.org/feed/xunit-xamarin/package/nuget/xunit.runner.devices" class="version-ci"><img src="https://img.shields.io/myget/xunit-xamarin/vpre/xunit.runner.devices.svg?style=flat-square&label=myget"></a>
+    </th>
+    <td class="wrapped-wide">
+      <p>
+        This package contains the devices runner. This runner can execute tests on physical
+        and virtualized devices (iOS and Android via Xamarin, and UWP) from xUnit.net v2.
+      </p>
+      <p><em>
+          To run UWP projects from within Visual Studio, please reference
+          <a href="#xunit.runner.visualstudio">xunit.runner.visualstudio</a> instead.
+        </em></p>
+      <h5>
+        Introduced: 2.0.0<br />
+        Supports: UWP 10.0+, Xamarin iOS 1.0+, Mono Android 8.1+<br />
+        Depends on: <em>None</em>
+      </h5>
+    </td>
+  </tr>
+  <tr>
+    <th id="xunit.runner.msbuild">
+      xunit.runner.msbuild<br />
+      <a href="https://www.nuget.org/packages/xunit.runner.msbuild" class="version-stable"><img src="https://img.shields.io/nuget/v/xunit.runner.msbuild.svg?style=flat"></a>
+      <a href="https://www.nuget.org/packages/xunit.runner.msbuild" class="version-pre"><img src="https://img.shields.io/nuget/vpre/xunit.runner.msbuild.svg?style=flat"></a>
+      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.runner.msbuild" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.runner.msbuild.svg?style=flat&label=myget"></a>
+    </th>
+    <td class="wrapped-wide">
+      <p>
+        This package contains the MSBuild test runner. This runner is capable
+        of running .NET Framework projects from xUnit.net v1 and v2. When
+        added, it automatically references the <code>xunit</code> MSBuild target,
+        which can be used in your project file.
+      </p>
+      <h5>
+        Introduced: 2.0.0<br />
+        Supports: .NET Framework 4.5.2+<br />
+        Depends on: <em>None</em>
+      </h5>
+    </td>
+  </tr>
+  <tr>
+    <th id="xunit.runner.visualstudio">
+      xunit.runner.visualstudio<br />
+      <a href="https://www.nuget.org/packages/xunit.runner.visualstudio" class="version-stable"><img src="https://img.shields.io/nuget/v/xunit.runner.visualstudio.svg?style=flat"></a>
+      <a href="https://www.nuget.org/packages/xunit.runner.visualstudio" class="version-pre"><img src="https://img.shields.io/nuget/vpre/xunit.runner.visualstudio.svg?style=flat"></a>
+      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.runner.visualstudio" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.runner.visualstudio.svg?style=flat&label=myget"></a>
+    </th>
+    <td class="wrapped-wide">
+      <p>
+        This package contains the VSTest runner. This runner is capable of running
+        .NET Framework projects from xUnit.net v1 and v2, and .NET Core and UWP projects
+        projects from xUnit.net v2.
+      </p>
+      <p>
+        The VSTest framework is used by several 3rd party runner UIs, including:
+      </p>
+      <p>
+        <ul>
+          <li>Visual Studio (via Test Explorer)</li>
+          <li>Visual Studio Code (via .NET Test Explorer)</li>
+          <li><code>dotnet test</code> and <code>dotnet vstest</code></li>
+          <li><code>vstest.console.exe</code></li>
+        </ul>
+      </p>
+      <h5>
+        Introduced: 2.0.0<br />
+        Supports (v1 tests): .NET Framework 2.0+<br />
+        Supports (v2 tests): .NET Framework 4.5.2+, .NET Core 1.0, UWP 10.0+<br />
+        Depends on: <em>None</em>
+      </h5>
+    </td>
+  </tr>
+
+  <tr>
+    <th id="extenders" colspan="2" class="title"><a href="#extenders" class="paperclip">&#x1F4CE;</a>Packages for developers extending xUnit.net</th>
+  </tr>
+
+  <tr>
+    <th id="xunit.abstractions">
+      xunit.abstractions<br />
+      <a href="https://www.nuget.org/packages/xunit.abstractions" class="version-stable"><img src="https://img.shields.io/nuget/v/xunit.abstractions.svg?style=flat"></a>
+      <a href="https://www.nuget.org/packages/xunit.abstractions" class="version-pre"><img src="https://img.shields.io/nuget/vpre/xunit.abstractions.svg?style=flat"></a>
+      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.abstractions" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.abstractions.svg?style=flat&label=myget"></a>
+    </th>
+    <td class="wrapped-wide">
+      <p>
+        This package is an internal dependency of the <a href="#xunit.core">test framework</a>,
+        the platform specific execution DLLs (<code>xunit.execution.*.dll</code>) and the
+        <a href="#xunit.runner.utility">runner utility libraries</a>. It defines a stable
+        set of interfaces that these components use to communicate with each other. As long as
+        the interfaces do not change, each component can be modified without requiring any
+        changes or rebuilds of the other components. This allows for a version independent runner API.
+      </p>
+      <p>
+        You usually won't need to directly reference this package.
+      </p>
+      <h5>
+        Introduced: 2.0.0<br />
+        Targets: .NET Framework 3.5+, .NET Standard 1.0+<br />
         Depends on: <em>None</em>
       </h5>
     </td>
@@ -101,7 +269,7 @@ breadcrumb: Documentation
       xunit.assert.source<br />
       <a href="https://www.nuget.org/packages/xunit.assert.source" class="version-stable"><img src="https://img.shields.io/nuget/v/xunit.assert.source.svg?style=flat"></a>
       <a href="https://www.nuget.org/packages/xunit.assert.source" class="version-pre"><img src="https://img.shields.io/nuget/vpre/xunit.assert.source.svg?style=flat"></a>
-      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.assert.source" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.assert.source.svg?style=flat"></a>
+      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.assert.source" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.assert.source.svg?style=flat&label=myget"></a>
     </th>
     <td class="wrapped-wide">
       <p>
@@ -121,46 +289,11 @@ breadcrumb: Documentation
     </td>
   </tr>
   <tr>
-    <th id="xunit.core">
-      xunit.core<br />
-      <a href="https://www.nuget.org/packages/xunit.core" class="version-stable"><img src="https://img.shields.io/nuget/v/xunit.core.svg?style=flat"></a>
-      <a href="https://www.nuget.org/packages/xunit.core" class="version-pre"><img src="https://img.shields.io/nuget/vpre/xunit.core.svg?style=flat"></a>
-      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.core" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.core.svg?style=flat"></a>
-    </th>
-    <td class="wrapped-wide">
-      <p>
-        This is the primary package that developers should use when writing unit tests. It brings in
-        a reference to <code>xunit.core.dll</code>, which defines the test framework
-        (<code>FactAttribute</code>, etc.). It also copies platform specific execution DLLs
-        (<code>xunit.execution.*.dll</code>) to the project's output folder, which controls the
-        discovery and execution of tests.
-      </p>
-      <p>
-        It does not add a reference to the execution DLLs. This is because some platforms require
-        two different versions of the DLL - one to run the tests on the target platform, and another
-        so that desktop based runners (for example, Visual Studio) can also discover the tests. A
-        reference can be added to the exection DLL by adding the
-        <a href="#xunit.extensibility.execution">xunit.extensibility.execution</a> package.
-      </p>
-      <p>
-        If you wish to use <code>xunit.core.dll</code> for extensibility purposes (for example, to
-        write your own reusable theory data providers), you should reference
-        <a href="#xunit.extensibility.core">xunit.extensibility.core</a> directly instead, bypassing
-        the copying of the execution DLLs.
-      </p>
-      <h5>
-        Introduced: 2.0.0<br />
-        Depends on:
-          <a href="#xunit.extensibility.core">xunit.extensibility.core</a>
-      </h5>
-    </td>
-  </tr>
-  <tr>
     <th id="xunit.extensibility.core">
       xunit.extensibility.core<br />
       <a href="https://www.nuget.org/packages/xunit.extensibility.core" class="version-stable"><img src="https://img.shields.io/nuget/v/xunit.extensibility.core.svg?style=flat"></a>
       <a href="https://www.nuget.org/packages/xunit.extensibility.core" class="version-pre"><img src="https://img.shields.io/nuget/vpre/xunit.extensibility.core.svg?style=flat"></a>
-      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.extensibility.core" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.extensibility.core.svg?style=flat"></a>
+      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.extensibility.core" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.extensibility.core.svg?style=flat&label=myget"></a>
     </th>
     <td class="wrapped-wide">
       <p>
@@ -174,8 +307,9 @@ breadcrumb: Documentation
       </p>
       <h5>
         Introduced: 2.0.0<br />
+        Targets: .NET Framework 4.5.2+, .NET Standard 1.1+<br />
         Depends on:
-          <a href="#xunit.abstractions">xunit.abstractions</a>
+        <a href="#xunit.abstractions">xunit.abstractions</a>
       </h5>
     </td>
   </tr>
@@ -184,11 +318,11 @@ breadcrumb: Documentation
       xunit.extensibility.execution<br />
       <a href="https://www.nuget.org/packages/xunit.extensibility.execution" class="version-stable"><img src="https://img.shields.io/nuget/v/xunit.extensibility.execution.svg?style=flat"></a>
       <a href="https://www.nuget.org/packages/xunit.extensibility.execution" class="version-pre"><img src="https://img.shields.io/nuget/vpre/xunit.extensibility.execution.svg?style=flat"></a>
-      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.extensibility.execution" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.extensibility.execution.svg?style=flat"></a>
+      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.extensibility.execution" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.extensibility.execution.svg?style=flat&label=myget"></a>
     </th>
     <td class="wrapped-wide">
       <p>
-        This package contains the execution libraries for all supported platforms
+        This package contains the execution libraries for all Supports
         (<code>xunit.execution.*.dll</code>). It is intended to be used by developers who wish
         to reference this DLL for extensibility purposes, such as creating custom test discovery
         and execution.
@@ -199,46 +333,9 @@ breadcrumb: Documentation
       </p>
       <h5>
         Introduced: 2.0.0<br />
+        Targets: .NET Framework 4.5.2+, .NET Standard 1.1+<br />
         Depends on:
-          <a href="#xunit.extensibility.core">xunit.extensibility.core</a>
-      </h5>
-    </td>
-  </tr>
-  <tr>
-    <th id="xunit.runner.console">
-      xunit.runner.console<br />
-      <a href="https://www.nuget.org/packages/xunit.runner.console" class="version-stable"><img src="https://img.shields.io/nuget/v/xunit.runner.console.svg?style=flat"></a>
-      <a href="https://www.nuget.org/packages/xunit.runner.console" class="version-pre"><img src="https://img.shields.io/nuget/vpre/xunit.runner.console.svg?style=flat"></a>
-      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.runner.console" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.runner.console.svg?style=flat"></a>
-    </th>
-    <td class="wrapped-wide">
-      <p>
-        This package contains the console test runner. This runner is capable
-        of running Desktop .NET and PCL projects from xUnit.net v1 and v2.
-      </p>
-      <h5>
-        Introduced: 2.0.0<br />
-        Depends on: <em>None</em>
-      </h5>
-    </td>
-  </tr>
-  <tr>
-    <th id="xunit.runner.msbuild">
-      xunit.runner.msbuild<br />
-      <a href="https://www.nuget.org/packages/xunit.runner.msbuild" class="version-stable"><img src="https://img.shields.io/nuget/v/xunit.runner.msbuild.svg?style=flat"></a>
-      <a href="https://www.nuget.org/packages/xunit.runner.msbuild" class="version-pre"><img src="https://img.shields.io/nuget/vpre/xunit.runner.msbuild.svg?style=flat"></a>
-      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.runner.msbuild" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.runner.msbuild.svg?style=flat"></a>
-    </th>
-    <td class="wrapped-wide">
-      <p>
-        This package contains the MSBuild test runner. This runner is capable
-        of running Desktop .NET and PCL projects from xUnit.net v1 and v2. When
-        added, it automatically references the <code>xunit</code> MSBuild target,
-        which can be used in your project file.
-      </p>
-      <h5>
-        Introduced: 2.0.0<br />
-        Depends on: <em>None</em>
+        <a href="#xunit.extensibility.core">xunit.extensibility.core</a>
       </h5>
     </td>
   </tr>
@@ -247,11 +344,11 @@ breadcrumb: Documentation
       xunit.runner.utility<br />
       <a href="https://www.nuget.org/packages/xunit.runner.utility" class="version-stable"><img src="https://img.shields.io/nuget/v/xunit.runner.utility.svg?style=flat"></a>
       <a href="https://www.nuget.org/packages/xunit.runner.utility" class="version-pre"><img src="https://img.shields.io/nuget/vpre/xunit.runner.utility.svg?style=flat"></a>
-      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.runner.utility" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.runner.utility.svg?style=flat"></a>
+      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.runner.utility" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.runner.utility.svg?style=flat&label=myget"></a>
     </th>
     <td class="wrapped-wide">
       <p>
-        This package contains the runner utility libraries for all supported platforms
+        This package contains the runner utility libraries for all Supports
         (<code>xunit.runner.utility.*.dll</code>). It is intended to be used by developers who are
         writing their own test runners, and provides a version independent API for discovering and
         executing tests.
@@ -262,39 +359,17 @@ breadcrumb: Documentation
       </p>
       <h5>
         Introduced: 2.0.0<br />
+        Targets: .NET Framework 3.5+, .NET Standard 1.1+, .NET Core 1.0+, UWP 10.0+<br />
         Depends on:
-          <a href="#xunit.abstractions">xunit.abstractions</a>
+        <a href="#xunit.abstractions">xunit.abstractions</a>
       </h5>
     </td>
   </tr>
+
   <tr>
-    <th id="xunit.runner.visualstudio">
-      xunit.runner.visualstudio<br />
-      <a href="https://www.nuget.org/packages/xunit.runner.visualstudio" class="version-stable"><img src="https://img.shields.io/nuget/v/xunit.runner.visualstudio.svg?style=flat"></a>
-      <a href="https://www.nuget.org/packages/xunit.runner.visualstudio" class="version-pre"><img src="https://img.shields.io/nuget/vpre/xunit.runner.visualstudio.svg?style=flat"></a>
-      <a href="https://www.myget.org/feed/xunit/package/nuget/xunit.runner.visualstudio" class="version-ci"><img src="https://img.shields.io/myget/xunit/vpre/xunit.runner.visualstudio.svg?style=flat"></a>
-    </th>
-    <td class="wrapped-wide">
-      <p>
-        This package contains libraries to enable developers to run their unit tests inside Visual
-        Studio (any paid-for versions from 2012 or later, as well as Visual Studio Community 2013
-        or later).
-      </p>
-      <p>
-        It supports unit tests written for the following platforms: Desktop .NET 3.5 or later
-        (xUnit.net v1), Desktop .NET 4.5 or later (xUnit.net v2), Modern Windows 8 or later
-        (xUnit.net v2), and Windows Phone 8.1 Universal (xUnit.net v2), as well as PCL libraries
-        targetting one or more of these platforms.
-      </p>
-      <h5>
-        Introduced: 2.0.0<br />
-        Depends on: <em>None</em>
-      </h5>
-    </td>
+    <th id="retired" colspan="2" class="title"><a href="#retired" class="paperclip">&#x1F4CE;</a>Retired Packages</th>
   </tr>
-  <tr>
-    <th id="retired" colspan="2" class="title">Retired Packages</th>
-  </tr>
+
   <tr>
     <th id="dotnet-xunit">dotnet-xunit</th>
     <td class="wrapped-wide">
@@ -366,13 +441,13 @@ breadcrumb: Documentation
 </table>
 <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script>
-  $(function() {
+  $(function () {
     var $stable = $(".version-stable"),
-        $pre = $(".version-pre"),
-        $ci = $(".version-ci");
+      $pre = $(".version-pre"),
+      $ci = $(".version-ci");
 
     $("input[name=version]")
-      .change(function(e) {
+      .change(function (e) {
         var target = $(e.target).data("selector");
 
         if (target === ".version-stable")
