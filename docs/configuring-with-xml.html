@@ -1,18 +1,17 @@
 ---
 layout: default
-title: Configuring xUnit.net with XML
+title: "DEPRECATED: Configuration Files (XML)"
 breadcrumb: Documentation
-redirect_from:
-  - /docs/configuration-files.html
 ---
 
-<h1>Configuring xUnit.net with XML</h1>
+<h1>Configuration Files (XML)</h1>
 
 <p class="important">
   <strong><u>DEPRECATION WARNING</u>:</strong><br />
-  Configuration via <code>App.config</code> file is <strong>officially deprecated</strong>.
-  The documentation page exists for historical purposes. You should convert to
-  <a href="configuring-with-json">JSON-based configuration</a> at your earliest convenience.
+  Configuration via <code>App.config</code> file is <strong>officially deprecated</strong>
+  and will not be supported in v3. The documentation page exists for historical purposes.
+  You should convert to <a href="configuration-files">JSON-based configuration</a> at your
+  earliest convenience.
 </p>
 
 <p>
@@ -109,7 +108,7 @@ redirect_from:
     </td>
   </tr>
   <tr>
-    <th><code>xunit.methodDisplayOptions</code><br />[Runners v2.4 beta 1+]</th>
+    <th><code>xunit.methodDisplayOptions</code><br />[Runners v2.4+]</th>
     <td class="wrapped-wide">
       <p>
         Set this to automatically perform transforms on default test names. This value

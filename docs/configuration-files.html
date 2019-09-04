@@ -1,21 +1,21 @@
 ---
 layout: default
-title: Configuring xUnit.net with JSON
+title: Configuration Files
 breadcrumb: Documentation
+redirect_from:
+- /docs/configuring-with-json
+- /docs/configuring-with-json.html
 ---
 
-<h1>Configuring xUnit.net with JSON</h1>
+<h1>Configuration Files</h1>
 
 <p>
   Configuration files can be used to configure xUnit.net on a per test-assembly basis.
-  All platforms support configuration with a JSON file, though the steps required to
-  get that configuration file recognized by xUnit.net vary by platform.
 </p>
 <ul>
   <li><a href="#file">Adding the configuration file</a></li>
   <li><a href="#items">Supported configuration items</a></li>
 </ul>
-<p><em>More supported platforms will be coming soon.</em></p>
 
 <p class="note">
   In these examples, we tell you to use the file name <code>xunit.runner.json</code>.
@@ -32,21 +32,29 @@ breadcrumb: Documentation
 
 <h2 id="file">Adding the configuration file</h2>
 
-<p>
-  To use JSON-based configuration, you must instruct Visual Studio to copy the JSON file into the output
-  folder of your project.
-</p>
 <ol>
   <li>
-    Add a new JSON file to root of your test project. Name the file <code>xunit.runner.json</code>.
-    (If your version of Visual Studio does not have "JSON file" as an option for a new file, just choose
-    to add a text file, and make sure it has the right name.)
+    <p>
+      Add a new JSON file to the root of your test project. Name the file <code>xunit.runner.json</code>.
+      Start with a schema reference so that text editors (like Visual Studio & Visual Studio Code) can
+      provide auto-complete behavior while editing the file:
+    </p>
+{% highlight json %}
+{
+  "$schema": "https://xunit.net/schema/current/xunit.runner.schema.json"
+}
+{% endhighlight %}
   </li>
   <li>
-    Right click on the newly added file in Solution Explorer, and choose <code>Properties</code>.
-    In the Properties window, change the setting for <code>Copy to Output Directory</code> to
-    <code>Copy if newer</code>. This ensures that the file to copied into your <code>bin</code>
-    folder where the xUnit.net runners can find it.
+    <p>
+      Tell the build system to copy the file into the build output directory. Edit your <code>.csproj</code>
+      file and add the following:
+    </p>
+{% highlight xml %}
+<ItemGroup>
+  <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
+</ItemGroup>
+{% endhighlight %}
   </li>
 </ol>
 
@@ -56,16 +64,17 @@ breadcrumb: Documentation
   The schema is online at
   <a href="https://xunit.net/schema/current/xunit.runner.schema.json">https://xunit.net/schema/current/xunit.runner.schema.json</a>,
   which can be set in the JSON file to aid with intellisense from development IDEs like
-  <a href="https://code.visualstudio.com/">Visual Studio Code</a>. The configuration elements are
-  placed inside a top-level object:
+  <a href="https://visualstudio.microsoft.com/">Visual Studio</a> and
+  <a href="https://code.visualstudio.com/">Visual Studio Code</a>.
 </p>
+<p>Configuration elements are placed inside a top-level object:</p>
 
 {% highlight json %}
 {
-    "$schema": "https://xunit.net/schema/current/xunit.runner.schema.json",
-    "enum-or-string-key": "value1",
-    "boolean-key": true,
-    "integer-key": 42
+  "$schema": "https://xunit.net/schema/current/xunit.runner.schema.json",
+  "enum-or-string-key": "value1",
+  "boolean-key": true,
+  "integer-key": 42
 }
 {% endhighlight %}
 
@@ -78,16 +87,16 @@ breadcrumb: Documentation
     <th><code>appDomain</code><br />[Runners v2.1+]</th>
     <td class="wrapped-wide">
       <p>
-        Set this value to determine whether app domains are used. By default, they
+        Set this value to determine whether App Domains are used. By default, they
         will be used when available (the <code>ifAvailable</code> value). If you
         set this to <code>required</code>, it will require that app domains are
         available; if you set this to <code>denied</code>, it will not use app domains.
-        Note that only desktop runners (and desktop unit tests) can use app domains,
-        so this value will be ignored when used with non-desktop runners or with
-        unit tests that are not targeting the desktop CLR.
+        <em>Note that App Domains are only supported with .NET Framework tests, and
+        only with tests linked against xUnit.net framework v1.x or v2.x.</em>
       </p>
       <p>
         <em>JSON schema type: <strong>enum</strong><br />
+        Valid values: <code>required</code>, <code>ifAvailable</code>, <code>denied</code><br />
         Default value: <code>ifAvailable</code></em>
       </p>
     </td>
@@ -151,12 +160,13 @@ breadcrumb: Documentation
       </p>
       <p>
         <em>JSON schema type: <strong>enum</strong><br />
-        Default value: <code>"classAndMethod"</code></em>
+        Valid values: <code>method</code>, <code>classAndMethod</code><br />
+        Default value: <code>classAndMethod</code></em>
       </p>
     </td>
   </tr>
   <tr>
-    <th><code>methodDisplayOptions</code><br />[Runners v2.4 beta 1+]</th>
+    <th><code>methodDisplayOptions</code><br />[Runners v2.4+]</th>
     <td class="wrapped-wide">
       <p>
         Set this to automatically perform transforms on default test names. This value
@@ -190,8 +200,9 @@ breadcrumb: Documentation
         </li>
       </ul>
       <p>
-        <em>JSON schema type: <strong>restricted string: "all", "none", or comma separated flags</strong><br />
-        Default value: <code>"none"</code></em>
+        <em>JSON schema type: <strong>string</strong> (comma separated flags)<br />
+        Valid values: <code>all</code>, <code>none</code>, or comma separated flags<br />
+        Default value: <code>none</code></em>
       </p>
     </td>
   </tr>
@@ -249,8 +260,8 @@ breadcrumb: Documentation
     <td class="wrapped-wide">
       <p>
         Set this to <code>true</code> to use shadow copying when running tests in
-        separate app domains; set to <code>false</code> to run tests without shadow
-        copying. When running tests without app domains, this value is ignored.
+        separate App Domains; set to <code>false</code> to run tests without shadow
+        copying. When running tests without App Domains, this value is ignored.
       </p>
       <p>
         <em>JSON schema type: <strong>boolean</strong><br />
