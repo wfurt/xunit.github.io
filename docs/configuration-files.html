@@ -15,6 +15,18 @@ redirect_from:
 <ul>
   <li><a href="#file">Adding the configuration file</a></li>
   <li><a href="#items">Supported configuration items</a></li>
+  <ul>
+    <li><a href="#appDomain"><code>appDomain</code></a></li>
+    <li><a href="#diagnosticMessages"><code>diagnosticMessages</code></a></li>
+    <li><a href="#longRunningTestSeconds"><code>longRunningTestSeconds</code></a></li>
+    <li><a href="#maxParallelThreads"><code>maxParallelThreads</code></a></li>
+    <li><a href="#methodDisplay"><code>methodDisplay</code></a></li>
+    <li><a href="#methodDisplayOptions"><code>methodDisplayOptions</code></a></li>
+    <li><a href="#parallelizeAssembly"><code>parallelizeAssembly</code></a></li>
+    <li><a href="#parallelizeTestCollections"><code>parallelizeTestCollections</code></a></li>
+    <li><a href="#preEnumerateTheories"><code>preEnumerateTheories</code></a></li>
+    <li><a href="#shadowCopy"><code>shadowCopy</code></a></li>
+  </ul>
 </ul>
 
 <p class="note">
@@ -84,7 +96,7 @@ redirect_from:
     <th>Supported Values</th>
   </tr>
   <tr>
-    <th><code>appDomain</code><br />[Runners v2.1+]</th>
+    <th id="appDomain"><code>appDomain</code><br />[Runners v2.1+]</th>
     <td class="wrapped-wide">
       <p>
         Set this value to determine whether App Domains are used. By default, they
@@ -102,7 +114,7 @@ redirect_from:
     </td>
   </tr>
   <tr>
-    <th><code>diagnosticMessages</code><br />[Runners v2.1+]</th>
+    <th id="diagnosticMessages"><code>diagnosticMessages</code><br />[Runners v2.1+]</th>
     <td class="wrapped-wide">
       <p>
         Set this value to <code>true</code> to include diagnostic information during test
@@ -116,7 +128,7 @@ redirect_from:
     </td>
   </tr>
   <tr>
-    <th><code>longRunningTestSeconds</code><br />[Runners v2.2+]</th>
+    <th id="longRunningTestSeconds"><code>longRunningTestSeconds</code><br />[Runners v2.2+]</th>
     <td class="wrapped-wide">
       <p>
         Set this value to enable long-running (hung) test detection. When the runner is
@@ -135,7 +147,7 @@ redirect_from:
     </td>
   </tr>
   <tr>
-    <th><code>maxParallelThreads</code><br />[Runners v2.1+]</th>
+    <th id="maxParallelThreads"><code>maxParallelThreads</code><br />[Runners v2.1+]</th>
     <td class="wrapped-wide">
       <p>
         Set this to override the maximum number of threads to be used when parallelizing
@@ -150,7 +162,7 @@ redirect_from:
     </td>
   </tr>
   <tr>
-    <th><code>methodDisplay</code><br />[Runners v2.1+]</th>
+    <th id="methodDisplay"><code>methodDisplay</code><br />[Runners v2.1+]</th>
     <td class="wrapped-wide">
       <p>
         Set this to override the default display name for test cases. If you set this
@@ -166,7 +178,7 @@ redirect_from:
     </td>
   </tr>
   <tr>
-    <th><code>methodDisplayOptions</code><br />[Runners v2.4+]</th>
+    <th id="methodDisplayOptions"><code>methodDisplayOptions</code><br />[Runners v2.4+]</th>
     <td class="wrapped-wide">
       <p>
         Set this to automatically perform transforms on default test names. This value
@@ -207,7 +219,7 @@ redirect_from:
     </td>
   </tr>
   <tr>
-    <th><code>parallelizeAssembly</code><br />[Runners v2.1+]</th>
+    <th id="parallelizeAssembly"><code>parallelizeAssembly</code><br />[Runners v2.1+]</th>
     <td class="wrapped-wide">
       <p>
         Set this to <code>true</code> if this assembly is willing to participate in
@@ -222,7 +234,7 @@ redirect_from:
     </td>
   </tr>
   <tr>
-    <th><code>parallelizeTestCollections</code><br />[Runners v2.1+]</th>
+    <th id="parallelizeTestCollections"><code>parallelizeTestCollections</code><br />[Runners v2.1+]</th>
     <td class="wrapped-wide">
       <p>
         Set this to <code>true</code> if the assembly is willing to run tests inside
@@ -238,7 +250,7 @@ redirect_from:
     </td>
   </tr>
   <tr>
-    <th><code>preEnumerateTheories</code><br />[Runners v2.1+]</th>
+    <th id="preEnumerateTheories"><code>preEnumerateTheories</code><br />[Runners v2.1+]</th>
     <td class="wrapped-wide">
       <p>
         Set this to <code>true</code> to pre-enumerate theories so that there is an
@@ -256,7 +268,7 @@ redirect_from:
     </td>
   </tr>
   <tr>
-    <th><code>shadowCopy</code><br />[Runners v2.1+]</th>
+    <th id="shadowCopy"><code>shadowCopy</code><br />[Runners v2.1+]</th>
     <td class="wrapped-wide">
       <p>
         Set this to <code>true</code> to use shadow copying when running tests in
