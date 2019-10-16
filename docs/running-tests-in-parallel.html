@@ -245,6 +245,12 @@ public class TestClass2
     &nbsp; <code>[assembly: CollectionBehavior(DisableTestParallelization = true)]</code><br />
     <em>Default: false</em>
   </li>
+  <li>
+    Turn off parallelism for specific Test Collection<br />
+    &nbsp; <code>[collection: CollectionDefinition(DisableParallelization = true)]</code><br />
+    <em>Default: false</em><br />
+    Parallel-capable test collections will be run first (in parallel), followed by parallel-disabled test collections (run sequentially).
+  </li>
 </ul>
 
 <p>
